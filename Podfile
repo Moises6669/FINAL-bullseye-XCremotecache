@@ -3,9 +3,9 @@
 
 plugin 'cocoapods-xcremotecache'
 xcremotecache({
-  'cache_addresses' => ['http://localhost:8080/cache/pods'], 
+  'cache_addresses' => ['http://162.255.21.50:8080/cache/pods'], 
   'primary_repo' => 'https://github.com/Moises6669/FINAL-bullseye-XCremotecache.git',
-  'mode' => 'producer',
+  'mode' => 'consumer',
   'final_target' => 'BullsEye',
   'primary_branch' => 'main'
 })
