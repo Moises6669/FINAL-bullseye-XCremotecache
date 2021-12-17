@@ -1,0 +1,7 @@
+Pods/
+XCRC/
+.DS_Store
+*.pbxuser
+*.xcuserstate
+xcuserdata/
+build/

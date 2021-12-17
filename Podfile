@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+plugin 'cocoapods-xcremotecache'
+xcremotecache({
+  'cache_addresses' => ['http://localhost:8080/cache/pods'], 
+  'primary_repo' => 'https://github.com/Moises6669/FINAL-bullseye-XCremotecache.git',
+  'mode' => 'producer',
+  'final_target' => 'BullsEye',
+  'primary_branch' => 'main'
+})
+
+target 'BullsEye' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'FirebaseCore'
+  # Pods for BullsEye
+
+  target 'BullsEyeSlowTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'BullsEyeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'BullsEyeUITests' do
+    # Pods for testing
+  end
+
+end
