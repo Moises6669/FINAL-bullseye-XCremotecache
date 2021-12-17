@@ -1,4 +1,5 @@
 PODS:
+  - BCryptSwift (1.1)
   - FirebaseCore (8.10.0):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.6)
@@ -24,10 +25,12 @@ PODS:
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
+  - BCryptSwift
   - FirebaseCore
 
 SPEC REPOS:
   trunk:
+    - BCryptSwift
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - GoogleDataTransport
@@ -36,6 +39,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
+  BCryptSwift: f69992ea5685f6714260842c2770688043b89ab2
   FirebaseCore: 04186597c095da37d90ff9fd3e53bc61a1ff2440
   FirebaseCoreDiagnostics: 56fb7216d87e0e6ec2feddefa9d8a392fe8b2c18
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
@@ -43,6 +47,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 105e8c346cfc993ddf61fe4a8e9c7125ea132afa
+PODFILE CHECKSUM: 1a1a7f763e3c94738a39c2b7a13eaf86b0508a00
 
 COCOAPODS: 1.11.2
