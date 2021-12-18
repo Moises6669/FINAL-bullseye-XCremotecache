@@ -3,7 +3,7 @@
 
 plugin 'cocoapods-xcremotecache'
 xcremotecache({
-  'cache_addresses' => ['http://162.255.21.50:8080/cache/pods'], 
+  'cache_addresses' => ['http://localhost:8080/cache'], 
   'primary_repo' => 'https://github.com/Moises6669/FINAL-bullseye-XCremotecache.git',
   'mode' => 'consumer',
   'final_target' => 'BullsEye',
@@ -14,7 +14,7 @@ target 'BullsEye' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'FirebaseCore'
-  pod "BCryptSwift"
+  pod 'BCryptSwift'
   # Pods for BullsEye
 
   target 'BullsEyeSlowTests' do
