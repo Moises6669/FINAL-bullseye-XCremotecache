@@ -235,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20632CCA25EAA22D00F45997 /* Build configuration list for PBXNativeTarget "BullsEyeSlowTests" */;
 			buildPhases = (
+				9F055A9A15D6E89630FFC485 /* [XCRC] Prebuild */,
 				46B18BA09DB870C7406593DE /* [CP] Check Pods Manifest.lock */,
 				20632CBD25EAA22C00F45997 /* Sources */,
 				20632CBE25EAA22C00F45997 /* Frameworks */,
@@ -255,6 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94D8FD8122149E0C002D9843 /* Build configuration list for PBXNativeTarget "BullsEyeTests" */;
 			buildPhases = (
+				26F55D384F5440EC1F8F185C /* [XCRC] Prebuild */,
 				55901CC0C6CE128A70EDBD9A /* [CP] Check Pods Manifest.lock */,
 				94D8FD7422149E0C002D9843 /* Sources */,
 				94D8FD7522149E0C002D9843 /* Frameworks */,
@@ -275,6 +277,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94D8FDB92214ACA0002D9843 /* Build configuration list for PBXNativeTarget "BullsEyeUITests" */;
 			buildPhases = (
+				26D42D06FF3D99257797D5B4 /* [XCRC] Prebuild */,
 				BDE9AB2EF6F5FAA499A84C86 /* [CP] Check Pods Manifest.lock */,
 				94D8FDAE2214ACA0002D9843 /* Sources */,
 				94D8FDAF2214ACA0002D9843 /* Frameworks */,
@@ -296,6 +299,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2A5F2121F4A9144005CD714 /* Build configuration list for PBXNativeTarget "BullsEye" */;
 			buildPhases = (
+				D49969F02DC3BBC5455D3690 /* [XCRC] Prebuild */,
 				AC77E6DCFB36D68DD114190D /* [CP] Check Pods Manifest.lock */,
 				20D0ED3325D7C19B00000B3D /* SwiftLint */,
 				D2A5F1FC1F4A9144005CD714 /* Sources */,
@@ -303,7 +307,6 @@
 				D2A5F1FE1F4A9144005CD714 /* Resources */,
 				5B44259FA5FB7CD8D6AD9F64 /* [CP] Embed Pods Frameworks */,
 				C3E1385E943A0440C3D97EB7 /* [XCRC] Postbuild */,
-				9CB0E53DC06A12C613A786A7 /* [XCRC] Mark */,
 			);
 			buildRules = (
 			);
@@ -462,6 +465,50 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
 		};
+		26D42D06FF3D99257797D5B4 /* [XCRC] Prebuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcprebuild",
+			);
+			name = "[XCRC] Prebuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_TEMP_DIR)/rc.enabled",
+				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+		};
+		26F55D384F5440EC1F8F185C /* [XCRC] Prebuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcprebuild",
+			);
+			name = "[XCRC] Prebuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_TEMP_DIR)/rc.enabled",
+				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+		};
 		46B18BA09DB870C7406593DE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +588,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$SCRIPT_INPUT_FILE_0\" mark --configuration $CONFIGURATION --platform $PLATFORM_NAME";
+		};
+		9F055A9A15D6E89630FFC485 /* [XCRC] Prebuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcprebuild",
+			);
+			name = "[XCRC] Prebuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_TEMP_DIR)/rc.enabled",
+				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
 		};
 		AC77E6DCFB36D68DD114190D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -625,6 +694,28 @@
 			outputPaths = (
 				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
 				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+		};
+		D49969F02DC3BBC5455D3690 /* [XCRC] Prebuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcprebuild",
+			);
+			name = "[XCRC] Prebuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_TEMP_DIR)/rc.enabled",
+				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -733,6 +824,7 @@
 			baseConfigurationReference = 940EC38A31F6D9C395B9F560 /* Pods-BullsEyeSlowTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
@@ -766,6 +858,7 @@
 			baseConfigurationReference = C184295679B30D86A1868FC0 /* Pods-BullsEyeSlowTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
@@ -798,6 +891,7 @@
 			baseConfigurationReference = 8B6CBABA19BBE5506CC49E74 /* Pods-BullsEyeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -831,6 +925,7 @@
 			baseConfigurationReference = 360E58FF9DA5A0E198159333 /* Pods-BullsEyeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59C8LJFM2Z;
@@ -862,6 +957,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05EEB7DDDD758A43AAEDFA74 /* Pods-BullsEye-BullsEyeUITests.debug.xcconfig */;
 			buildSettings = {
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -895,6 +991,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AC055AFD18D661C83874EE1 /* Pods-BullsEye-BullsEyeUITests.release.xcconfig */;
 			buildSettings = {
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -1042,6 +1139,7 @@
 			baseConfigurationReference = 27953B41B697AE2FAB9AD0DD /* Pods-BullsEye.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEye/Info.plist;
@@ -1072,6 +1170,7 @@
 			baseConfigurationReference = 926102CE26340E6614D0E7D1 /* Pods-BullsEye.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEye/Info.plist;
