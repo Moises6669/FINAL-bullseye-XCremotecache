@@ -2,7 +2,7 @@
 cache_addresses:
 - http://162.255.21.50:8080/cache
 primary_repo: https://github.com/Moises6669/FINAL-bullseye-XCremotecache.git
-mode: consumer
+mode: producer
 primary_branch: main
 xccc_file: ".rc/xccc"
 remote_commit_file: ".rc/arc.rc"

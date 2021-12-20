@@ -235,12 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20632CCA25EAA22D00F45997 /* Build configuration list for PBXNativeTarget "BullsEyeSlowTests" */;
 			buildPhases = (
-				0672DA216BD3690F44D9908C /* [XCRC] Prebuild */,
 				46B18BA09DB870C7406593DE /* [CP] Check Pods Manifest.lock */,
 				20632CBD25EAA22C00F45997 /* Sources */,
 				20632CBE25EAA22C00F45997 /* Frameworks */,
 				20632CBF25EAA22C00F45997 /* Resources */,
-				68E7C9C50AEA3A39D412F1F1 /* [XCRC] Postbuild */,
+				0C9AD72135CDDEFB6DE6F923 /* [XCRC] Postbuild */,
 			);
 			buildRules = (
 			);
@@ -256,12 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94D8FD8122149E0C002D9843 /* Build configuration list for PBXNativeTarget "BullsEyeTests" */;
 			buildPhases = (
-				6D9ADD27B308077AC23ACEA8 /* [XCRC] Prebuild */,
 				55901CC0C6CE128A70EDBD9A /* [CP] Check Pods Manifest.lock */,
 				94D8FD7422149E0C002D9843 /* Sources */,
 				94D8FD7522149E0C002D9843 /* Frameworks */,
 				94D8FD7622149E0C002D9843 /* Resources */,
-				6075B2347F5923F25C4C15B7 /* [XCRC] Postbuild */,
+				087A1C302F262464DBEF1FDF /* [XCRC] Postbuild */,
 			);
 			buildRules = (
 			);
@@ -277,13 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94D8FDB92214ACA0002D9843 /* Build configuration list for PBXNativeTarget "BullsEyeUITests" */;
 			buildPhases = (
-				8BA0A723270563286A6BF717 /* [XCRC] Prebuild */,
 				BDE9AB2EF6F5FAA499A84C86 /* [CP] Check Pods Manifest.lock */,
 				94D8FDAE2214ACA0002D9843 /* Sources */,
 				94D8FDAF2214ACA0002D9843 /* Frameworks */,
 				94D8FDB02214ACA0002D9843 /* Resources */,
 				D93F798D40099D9541E9A176 /* [CP] Embed Pods Frameworks */,
-				7C7B40148D2D1DFD33795FE2 /* [XCRC] Postbuild */,
+				D43387A1691A00734616EB85 /* [XCRC] Postbuild */,
 			);
 			buildRules = (
 			);
@@ -299,14 +296,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2A5F2121F4A9144005CD714 /* Build configuration list for PBXNativeTarget "BullsEye" */;
 			buildPhases = (
-				FC2DD28F66FC96ADEF853EE1 /* [XCRC] Prebuild */,
 				AC77E6DCFB36D68DD114190D /* [CP] Check Pods Manifest.lock */,
 				20D0ED3325D7C19B00000B3D /* SwiftLint */,
 				D2A5F1FC1F4A9144005CD714 /* Sources */,
 				D2A5F1FD1F4A9144005CD714 /* Frameworks */,
 				D2A5F1FE1F4A9144005CD714 /* Resources */,
 				5B44259FA5FB7CD8D6AD9F64 /* [CP] Embed Pods Frameworks */,
-				68F5951A6CB6F6CFFE29E9C1 /* [XCRC] Postbuild */,
+				C3E1385E943A0440C3D97EB7 /* [XCRC] Postbuild */,
+				9CB0E53DC06A12C613A786A7 /* [XCRC] Mark */,
 			);
 			buildRules = (
 			);
@@ -403,23 +400,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0672DA216BD3690F44D9908C /* [XCRC] Prebuild */ = {
+		087A1C302F262464DBEF1FDF /* [XCRC] Postbuild */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
+			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
+				"$SRCROOT/XCRC/xcpostbuild",
 			);
-			name = "[XCRC] Prebuild";
+			name = "[XCRC] Postbuild";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(TARGET_TEMP_DIR)/rc.enabled",
-				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+		};
+		0C9AD72135CDDEFB6DE6F923 /* [XCRC] Postbuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcpostbuild",
+			);
+			name = "[XCRC] Postbuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -504,137 +523,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BullsEye/Pods-BullsEye-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6075B2347F5923F25C4C15B7 /* [XCRC] Postbuild */ = {
+		9CB0E53DC06A12C613A786A7 /* [XCRC] Mark */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
+				"$SRCROOT/XCRC/xcprepare",
 			);
-			name = "[XCRC] Postbuild";
+			name = "[XCRC] Mark";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		68E7C9C50AEA3A39D412F1F1 /* [XCRC] Postbuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
-			);
-			name = "[XCRC] Postbuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		68F5951A6CB6F6CFFE29E9C1 /* [XCRC] Postbuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
-			);
-			name = "[XCRC] Postbuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		6D9ADD27B308077AC23ACEA8 /* [XCRC] Prebuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
-			);
-			name = "[XCRC] Prebuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_TEMP_DIR)/rc.enabled",
-				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		7C7B40148D2D1DFD33795FE2 /* [XCRC] Postbuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
-			);
-			name = "[XCRC] Postbuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		8BA0A723270563286A6BF717 /* [XCRC] Prebuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
-			);
-			name = "[XCRC] Prebuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_TEMP_DIR)/rc.enabled",
-				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\" mark --configuration $CONFIGURATION --platform $PLATFORM_NAME";
 		};
 		AC77E6DCFB36D68DD114190D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -680,6 +586,50 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C3E1385E943A0440C3D97EB7 /* [XCRC] Postbuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcpostbuild",
+			);
+			name = "[XCRC] Postbuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+		};
+		D43387A1691A00734616EB85 /* [XCRC] Postbuild */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$SRCROOT/XCRC/xcpostbuild",
+			);
+			name = "[XCRC] Postbuild";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
+				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
+		};
 		D93F798D40099D9541E9A176 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -696,47 +646,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BullsEye-BullsEyeUITests/Pods-BullsEye-BullsEyeUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		FC2DD28F66FC96ADEF853EE1 /* [XCRC] Prebuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
-			);
-			name = "[XCRC] Prebuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_TEMP_DIR)/rc.enabled",
-				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		FCEC7F8495B0B5DBEF26E6CB /* [XCRC] Mark */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcprepare",
-			);
-			name = "[XCRC] Mark";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\" mark --configuration $CONFIGURATION --platform $PLATFORM_NAME";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -824,7 +733,6 @@
 			baseConfigurationReference = 940EC38A31F6D9C395B9F560 /* Pods-BullsEyeSlowTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
@@ -858,7 +766,6 @@
 			baseConfigurationReference = C184295679B30D86A1868FC0 /* Pods-BullsEyeSlowTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
@@ -891,7 +798,6 @@
 			baseConfigurationReference = 8B6CBABA19BBE5506CC49E74 /* Pods-BullsEyeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -925,7 +831,6 @@
 			baseConfigurationReference = 360E58FF9DA5A0E198159333 /* Pods-BullsEyeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59C8LJFM2Z;
@@ -957,7 +862,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05EEB7DDDD758A43AAEDFA74 /* Pods-BullsEye-BullsEyeUITests.debug.xcconfig */;
 			buildSettings = {
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -991,7 +895,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AC055AFD18D661C83874EE1 /* Pods-BullsEye-BullsEyeUITests.release.xcconfig */;
 			buildSettings = {
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -1139,7 +1042,6 @@
 			baseConfigurationReference = 27953B41B697AE2FAB9AD0DD /* Pods-BullsEye.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEye/Info.plist;
@@ -1170,7 +1072,6 @@
 			baseConfigurationReference = 926102CE26340E6614D0E7D1 /* Pods-BullsEye.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CC = "$SRCROOT/.rc/xccc";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEye/Info.plist;
