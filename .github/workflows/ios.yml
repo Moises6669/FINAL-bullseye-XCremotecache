@@ -1,22 +1,30 @@
-name: iOS starter workflow
+env: 
+  CC_TEST_REPORTER_ID: "a485b4a01fdd7ece25a799287962a88a69806882778852f547a32bd618d864ba"
+  
+name: ios-core
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch: 
 
+on: 
+  [workflow_dispatch,pull_request]
+  
 jobs:
-  build:
-    name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-latest
-
-    steps:
+  build-and-test:
+    runs-on: self-hosted
+    
+    steps: 
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set Default Scheme
+        with:
+          repository: git@github.com:WW-Digital/ios-core.git
+          
+      - name: ":coffee: Build and test"
         run: |
-          bundle install
-          bundle exec pod install
-          xcodebuild -workspace BullsEye.xcworkspace -scheme BullsEye -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 8' clean build
+          source scripts/fetch_keys.sh
+          bash scripts/install_dependencies.sh
+          bash scripts/test.sh
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: "build"
+          path: output/**/*    
+        
