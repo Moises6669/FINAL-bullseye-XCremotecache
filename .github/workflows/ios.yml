@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.0
         with:
-           repository: git@github.com:WW-Digital/ios-core.git
+           repository: https://github.com/WW-Digital/ios-core.git
           
       - name: ":coffee: Build and test"
         run: |
