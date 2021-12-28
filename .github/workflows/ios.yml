@@ -26,5 +26,26 @@ jobs:
         uses: actions/upload-artifact@v2.3.1
         with:
           name: "build"
-          path: output/**/*    
+          path: output/**/*
+        
+      - name: ":iphone: Build iOs"
+        run: |
+          gem install xcpretty
+          echo "--- :iphone: Build iOS"
+          xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11 | xcpretty'
+          
+      - name: ":desktop_computer: Build macOS"
+        run: |
+          gem install xcpretty
+          echo "--- :desktop_computer: Build macOS"
+          xcodebuild -scheme WWCore -detination 'platform=macOS' | xcpretty
+            
+      - name: ":watch: Build watchOS"
+        run: |
+          gem install xcpretty
+          echo "--- :watch: Build macOS"
+          xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm | xcpretty'
+          
+          
+        
         
