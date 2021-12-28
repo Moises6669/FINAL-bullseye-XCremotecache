@@ -16,6 +16,7 @@ jobs:
         with:
            repository: git@github.com:WW-Digital/ios-core.git
            ref: develop
+           ssh-key: ${{ secrets.ssh }}
           
       - name: ":coffee: Build and test"
         run: |
