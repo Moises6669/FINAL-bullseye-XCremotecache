@@ -38,7 +38,7 @@ jobs:
         run: |
           gem install xcpretty
           echo "--- :iphone: Build iOS"
-          xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11 | xcpretty'
+          xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11' | xcpretty
           
       - name: ":desktop_computer: Build macOS"
         run: |
@@ -50,4 +50,4 @@ jobs:
         run: |
           gem install xcpretty
           echo "--- :watch: Build macOS"
-          xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm | xcpretty'
+          xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm' | xcpretty
