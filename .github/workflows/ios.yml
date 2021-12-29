@@ -33,21 +33,69 @@ jobs:
         with:
           name: "build"
           path: output/**/*
-        
-      - name: ":iphone: Build iOs"
+
+  spm-ios:
+    runs-on: self-hosted
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+        with:
+           repository: "WW-Digital/ios-core"
+           ref: develop
+           ssh-key: ${{ secrets.ssh_ww }}
+     
+      - name: ":iphone: Build iOS"
         run: |
           gem install xcpretty
           echo "--- :iphone: Build iOS"
           xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11' | xcpretty
           
-      - name: ":desktop_computer: Build macOS"
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: "build"
+          path: output/**/*
+  spm-macos:
+    runs-on: self-hosted
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+        with:
+           repository: "WW-Digital/ios-core"
+           ref: develop
+           ssh-key: ${{ secrets.ssh_ww }}
+     
+      - name: " Build macOS"
         run: |
           gem install xcpretty
           echo "--- :desktop_computer: Build macOS"
           xcodebuild -scheme WWCore -detination 'platform=macOS' | xcpretty
-
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: "build"
+          path: output/**/*
+          
+  spm-watchos:
+    runs-on: self-hosted
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+        with:
+           repository: "WW-Digital/ios-core"
+           ref: develop
+           ssh-key: ${{ secrets.ssh_ww }}
+     
       - name: ":watch: Build watchOS"
         run: |
           gem install xcpretty
           echo "--- :watch: Build macOS"
           xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm' | xcpretty
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: "build"
+          path: output/**/*
+      
