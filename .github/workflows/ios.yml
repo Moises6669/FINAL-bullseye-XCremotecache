@@ -6,8 +6,8 @@ env:
   MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
 name: ios-core
 
-on: 
-  [workflow_dispatch,pull_request]
+on:
+  [push,workflow_dispatch,pull_request]
   
 jobs:
   build-and-test:
