@@ -21,7 +21,8 @@ jobs:
        
       - name: ":coffee: Build and test"
         run: |
-          /trigger-oidc-curl/bin/trigger-oidc-curl --profile=google_v4_svc --serviceaccount=$TRIGGER_OIDC_CURL_SERVICE_ACCOUNT --user $TRIGGER_OIDC_CURL_USER:$TRIGGER_OIDC_CURL_PASSWORD --connect-timeout 30 https://circle-proxy.prod.ops.us-east-1.aws.wwiops.io/configs/mobile/ios/prod/us-east-1.aws
+          git clone -b circle_catalina https://github.com/WW-Digital/trigger-oidc-curl
+          ./trigger-oidc-curl/bin/trigger-oidc-curl --profile=google_v4_svc --serviceaccount=$TRIGGER_OIDC_CURL_SERVICE_ACCOUNT --user $TRIGGER_OIDC_CURL_USER:$TRIGGER_OIDC_CURL_PASSWORD --connect-timeout 30 https://circle-proxy.prod.ops.us-east-1.aws.wwiops.io/configs/mobile/ios/prod/us-east-1.aws
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
