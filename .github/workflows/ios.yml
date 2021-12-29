@@ -49,7 +49,3 @@ jobs:
           gem install xcpretty
           echo "--- :watch: Build macOS"
           xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm | xcpretty'
-        
-          
-        
-        
