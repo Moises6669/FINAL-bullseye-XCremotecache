@@ -17,16 +17,18 @@ jobs:
            repository: "WW-Digital/ios-core"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
-        env:
-          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+        
           
       - name: ":coffee: Build and test"
         run: |
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
+        
+        env:
+          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.3.1
@@ -40,18 +42,29 @@ jobs:
           echo "--- :iphone: Build iOS"
           xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11 | xcpretty'
           
+        env:
+          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+          
       - name: ":desktop_computer: Build macOS"
         run: |
           gem install xcpretty
           echo "--- :desktop_computer: Build macOS"
           xcodebuild -scheme WWCore -detination 'platform=macOS' | xcpretty
-            
+        env:
+          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
       - name: ":watch: Build watchOS"
         run: |
           gem install xcpretty
           echo "--- :watch: Build macOS"
           xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm | xcpretty'
-          
+        env:
+          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
           
         
         
