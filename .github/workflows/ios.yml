@@ -1,9 +1,3 @@
-env:
-  CC_TEST_REPORTER_ID: "a485b4a01fdd7ece25a799287962a88a69806882778852f547a32bd618d864ba"
-  TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-  TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-  TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-  MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
 name: ios-core
 
 on:
@@ -11,7 +5,7 @@ on:
   
 jobs:
   build-and-test:
-    runs-on: [self-hosted,macos]
+    runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
@@ -25,7 +19,13 @@ jobs:
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
-          
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
@@ -33,7 +33,7 @@ jobs:
           path: output/**/*
 
   spm-ios:
-    runs-on: self-hosted
+    runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
@@ -49,7 +49,7 @@ jobs:
           xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11' | xcpretty
           
   spm-macos:
-    runs-on: server2
+    runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
@@ -65,7 +65,7 @@ jobs:
           xcodebuild -scheme WWCore -detination 'platform=macOS' | xcpretty
           
   spm-watchos:
-    runs-on: server3
+    runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
