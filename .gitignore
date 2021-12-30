@@ -5,3 +5,4 @@ XCRC/
 *.xcuserstate
 xcuserdata/
 build/
+test
