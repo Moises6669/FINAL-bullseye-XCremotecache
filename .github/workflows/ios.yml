@@ -25,13 +25,13 @@ jobs:
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-
+          
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v2
+        if: failure()
         with:
-          name: "build"
-          path: output/**/*
-
+          name: "scan"
+          path: output/scan/**/*
   spm-ios:
     runs-on: macos
     steps: 
