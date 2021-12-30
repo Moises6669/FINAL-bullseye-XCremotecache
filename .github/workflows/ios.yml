@@ -33,7 +33,7 @@ jobs:
           path: output/**/*
 
   spm-ios:
-    runs-on: server1
+    runs-on: self-hosted
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
