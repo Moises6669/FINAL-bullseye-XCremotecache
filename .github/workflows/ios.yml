@@ -25,7 +25,7 @@ jobs:
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          #MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
