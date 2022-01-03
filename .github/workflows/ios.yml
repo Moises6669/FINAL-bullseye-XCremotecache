@@ -32,7 +32,6 @@ jobs:
           name: "scan"
           path: output/scan/**/*
       
-   
   publish-pod:
      runs-on: macos
      steps: 
