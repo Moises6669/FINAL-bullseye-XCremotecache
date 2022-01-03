@@ -14,7 +14,7 @@ on:
       BRANCH_NAME:
         description : 'BRANCH_NAME'
       RUN_STEP:
-        description: 'RUN_STEO'
+        description: 'RUN_STEP'
         default : 'null'
       RUN_BUILD_TEST:
         description: 'RUN_BUILD_TEST'
