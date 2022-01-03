@@ -28,10 +28,10 @@ jobs:
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
-        if: failure() || pass()
         with:
           name: "scan"
           path: output/scan/**/*
+        if: failure()
   spm-ios:
     runs-on: macos
     steps: 
