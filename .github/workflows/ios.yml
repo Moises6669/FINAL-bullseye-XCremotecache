@@ -36,7 +36,6 @@ jobs:
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
-        if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }}
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
@@ -44,6 +43,7 @@ jobs:
         with:
           name: "scan"
           path: output/scan/**/*
+    if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }}
       
   publish-pod:
      runs-on: macos
