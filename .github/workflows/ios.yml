@@ -32,7 +32,6 @@ jobs:
         with:
           name: "scan"
           path: output/scan/**/*
-        if: failure()
   spm-ios:
     runs-on: macos
     steps: 
