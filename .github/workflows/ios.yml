@@ -43,6 +43,7 @@ jobs:
         with:
           name: "scan"
           path: output/scan/**/*
+      
     if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }}
       
   publish-pod:
