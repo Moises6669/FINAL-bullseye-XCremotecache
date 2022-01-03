@@ -14,7 +14,7 @@ jobs:
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
        
-      - name: "☕️ Build and test"
+      - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
@@ -58,7 +58,7 @@ jobs:
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
      
-      - name: "🖥️ Build macOS"
+      - name: "Build macOS"
         run: |
           gem install xcpretty
           echo "--- :desktop_computer: Build macOS"
@@ -74,7 +74,7 @@ jobs:
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
      
-      - name: "⌚ Build watchOS"
+      - name: "Build watchOS"
         run: |
           gem install xcpretty
           echo "--- :watch: Build macOS"
