@@ -6,7 +6,6 @@ on:
 jobs:
   build-and-test:
     runs-on: macos
-    continue-on-error: true
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
@@ -25,10 +24,11 @@ jobs:
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-          #MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: "scan"
           path: output/scan/**/*
