@@ -6,8 +6,20 @@ env:
   MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
 name: ios-rewards
 on:
-  [workflow_dispatch,pull_request]
-  
+  workflow_dispatch:
+    inputs:
+      REPO_NAME:
+        description: 'REPO_NAME'
+        default: 'null'
+      BRANCH_NAME:
+        description : 'BRANCH_NAME'
+      RUN_STEP:
+        description: 'RUN_STEO'
+        default : 'null'
+      RUN_BUILD_TEST:
+        description: 'RUN_BUILD_TEST'
+        default: 'true'
+      
 jobs:
   build-and-test:
     runs-on: macos
@@ -24,6 +36,7 @@ jobs:
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
+        if: ${{ github.event.inputs.RUN_BUILD_TEST != "false" && github.event.inputs.RUN_STEP == null }}
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
@@ -47,3 +60,4 @@ jobs:
            source scripts/fetch_keys.sh
            bash scripts/install_dependencies.sh
            bundle exec fastlane publish_pod_ci
+         if: ${{ github.event.inputs.RUN_STEP == publish-pod }}
