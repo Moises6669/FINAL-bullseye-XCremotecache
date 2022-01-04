@@ -1,81 +1,62 @@
-name: ios-core
-
+name: ios-rewards
 on:
-  [workflow_dispatch,pull_request]
-  
+  workflow_dispatch:
+    inputs:
+      REPO_NAME:
+        description: 'REPO_NAME'
+        required: true
+      BRANCH_NAME:
+        description : 'BRANCH_NAME'
+        required: true
+      RELEASE_TYPE:
+        description: 'RELEASE_TYPE'
+        required: true
+      BUMP_PODFILE:
+        description: 'BUMP_PODFILE'
+        required: true
+      MERGE_TO_MASTER: 
+        description: 'MERGE_TO_MASTER'
+        required: true
+      SEND_SLACK_MSG:
+        description: 'SEND_SLACK_MSG'
+        required: true
+      RUN_STEP:
+        description: 'RUN_STEP'
+      RUN_BUILD_TEST:
+        description: 'RUN_BUILD_TEST'
+        default: 'true'
+      
 jobs:
   build-and-test:
     runs-on: macos
     steps: 
       - name: Checkout
-        uses: actions/checkout@v2.4.0
-        with:
-           repository: "WW-Digital/ios-core"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
+        uses: actions/checkout@v2
        
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          
+        if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }} 
+    
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
-        if: always()
         with:
           name: "scan"
           path: output/scan/**/*
-  spm-ios:
-    runs-on: macos
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-        with:
-           repository: "WW-Digital/ios-core"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
-     
-      - name: "📱 Build iOS"
-        run: |
-          gem install xcpretty
-          echo "--- :iphone: Build iOS"
-          xcodebuild -scheme WWCore -destination 'platform=iOS Simulator, name=iPhone 11' | xcpretty
-          
-  spm-macos:
-    runs-on: macos
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-        with:
-           repository: "WW-Digital/ios-core"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
-     
-      - name: "Build macOS"
-        run: |
-          gem install xcpretty
-          echo "--- :desktop_computer: Build macOS"
-          xcodebuild -scheme WWCore -detination 'platform=macOS' | xcpretty
-          
-  spm-watchos:
-    runs-on: macos
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-        with:
-           repository: "WW-Digital/ios-core"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
-     
-      - name: "Build watchOS"
-        run: |
-          gem install xcpretty
-          echo "--- :watch: Build macOS"
-          xcodebuild -scheme WWCore -destination 'platform=watchOS simulator, name=Apple Watch Series 5 - 40mm' | xcpretty
+        if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }} 
+
+      
+  publish-pod:
+     runs-on: macos
+     steps: 
+       - name: Checkout
+         uses: actions/checkout@v2
+
+       - name: "Publish Pod"
+         run: |
+           source scripts/fetch_keys.sh
+           bash scripts/install_dependencies.sh
+           bundle exec fastlane publish_pod_ci
+         if: ${{ github.event.inputs.RUN_STEP == 'publish-pod' }
