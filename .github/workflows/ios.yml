@@ -4,35 +4,34 @@ env:
  TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
  TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
  MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-  
-name: ios-rewards
+name: ios-core
+
 on:
-  [pull_request, workflow_dispatch]
-      
+  [workflow_dispatch,pull_request]
 jobs:
   build-and-test:
     runs-on: macos
     steps: 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
         with:
-           repository: "WW-Digital/ios-crm"
+           repository: "WW-Digital/ios-community"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
+       
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
-          bash scripts/install_dependencies.sh
+          bundle exec pod install
           bash scripts/test.sh
-      - name: Set up ruby env
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.2
-          bundler-cache: true
-          
+      
+      - name : "Install dependencies in Gemfile"
+        run : |
+          bundle install
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
-        if: always()
+        if: failure()
         with:
           name: "scan"
           path: output/scan/**/*
