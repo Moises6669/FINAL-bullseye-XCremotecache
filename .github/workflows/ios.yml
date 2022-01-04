@@ -19,7 +19,13 @@ jobs:
            repository: "WW-Digital/ios-crm"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
-           
+      
+      - name: Set up ruby env
+        uses: ruby/setup-ruby@v1
+        with:
+         ruby-version: 2.7.1
+         bundler-cache: true
+
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
