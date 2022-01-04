@@ -19,9 +19,6 @@ jobs:
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
       
-      - name : "Install dependencies in Gemfile"
-        run : |
-          bundle install
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
