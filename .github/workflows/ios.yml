@@ -7,31 +7,7 @@ env:
   
 name: ios-rewards
 on:
-  workflow_dispatch:
-    inputs:
-      REPO_NAME:
-        description: 'REPO_NAME'
-        #required: true
-      BRANCH_NAME:
-        description : 'BRANCH_NAME'
-        #required: true
-      RELEASE_TYPE:
-        description: 'RELEASE_TYPE'
-        #required: true
-      BUMP_PODFILE:
-        description: 'BUMP_PODFILE'
-        #required: true
-      MERGE_TO_MASTER: 
-        description: 'MERGE_TO_MASTER'
-        #required: true
-      SEND_SLACK_MSG:
-        description: 'SEND_SLACK_MSG'
-        #required: true
-      RUN_STEP:
-        description: 'RUN_STEP'
-      RUN_BUILD_TEST:
-        description: 'RUN_BUILD_TEST'
-        default: 'true'
+  [pull_request, workflow_dispatch]
       
 jobs:
   build-and-test:
@@ -40,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-           repository: "WW-Digital/ios-rewards"
+           repository: "WW-Digital/ios-crm"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
            
@@ -49,25 +25,10 @@ jobs:
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
           bash scripts/test.sh
-        if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }} 
-    
+          
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: "scan"
           path: output/scan/**/*
-        if: ${{ github.event.inputs.RUN_BUILD_TEST != 'false' && github.event.inputs.RUN_STEP == null }} 
-
-      
-  publish-pod:
-     runs-on: macos
-     steps: 
-       - name: Checkout
-         uses: actions/checkout@v2
-
-       - name: "Publish Pod"
-         run: |
-           source scripts/fetch_keys.sh
-           bash scripts/install_dependencies.sh
-           bundle exec fastlane publish_pod_ci
-         if: ${{ github.event.inputs.RUN_STEP == 'publish-pod' }}
