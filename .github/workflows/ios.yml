@@ -59,4 +59,4 @@ jobs:
            source scripts/fetch_keys.sh
            bash scripts/install_dependencies.sh
            bundle exec fastlane publish_pod_ci
-         if: ${{ github.event.inputs.RUN_STEP == 'publish-pod' }
+         if: ${{ github.event.inputs.RUN_STEP == 'publish-pod' }}
