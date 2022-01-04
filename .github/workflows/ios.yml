@@ -4,22 +4,22 @@ on:
     inputs:
       REPO_NAME:
         description: 'REPO_NAME'
-        required: true
+        #required: true
       BRANCH_NAME:
         description : 'BRANCH_NAME'
-        required: true
+        #required: true
       RELEASE_TYPE:
         description: 'RELEASE_TYPE'
-        required: true
+        #required: true
       BUMP_PODFILE:
         description: 'BUMP_PODFILE'
-        required: true
+        #required: true
       MERGE_TO_MASTER: 
         description: 'MERGE_TO_MASTER'
-        required: true
+        #required: true
       SEND_SLACK_MSG:
         description: 'SEND_SLACK_MSG'
-        required: true
+        #required: true
       RUN_STEP:
         description: 'RUN_STEP'
       RUN_BUILD_TEST:
