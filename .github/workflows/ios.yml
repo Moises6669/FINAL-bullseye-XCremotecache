@@ -25,12 +25,9 @@ jobs:
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
-          cd Example
-          bundle exec pod install
-          source bash scripts/test.sh
-      
+          bash scripts/install_dependencies.sh
+          bash scripts/test.sh
      
-
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
         if: failure()
