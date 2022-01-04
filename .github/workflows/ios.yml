@@ -27,7 +27,7 @@ jobs:
           source scripts/fetch_keys.sh
           cd Example
           bundle exec pod install
-          bash scripts/test.sh
+          source bash scripts/test.sh
       
      
 
