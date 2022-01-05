@@ -22,7 +22,12 @@ jobs:
           source scripts/fetch_keys.sh
           cd Example
           bundle exec pod install
-          
+        env:
+            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+            TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+            TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+            TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+            MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       - name: Run unit tests and generate report
         run: bash scripts/test.sh
         
