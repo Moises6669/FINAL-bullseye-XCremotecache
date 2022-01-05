@@ -19,7 +19,7 @@ jobs:
         with:
          bundler-cache: true
         env:
-          IMAGEOS: ${{secrets.IMAGEOS}}
+          ImageOS: ${{secrets.IMAGEOS}}
          
       - name: "Build and test"
         run: |
