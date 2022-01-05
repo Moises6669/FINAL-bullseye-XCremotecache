@@ -19,8 +19,8 @@ jobs:
      
       - name: set up ENV variables, and .env file for cocoapods-keys
         run: |
-          echo $BASH_ENV
-          echo $GITHUB_ENV
+          echo 'bash env' $BASH_ENV
+          echo 'github env' $GITHUB_ENV
         env:
           BASH_ENV: ${{ github.env.GITHUB_ENV }}
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
