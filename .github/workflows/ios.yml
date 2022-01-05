@@ -33,10 +33,6 @@ jobs:
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       
-      - name: test
-        run: |
-          
-          
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
         if: failure()
