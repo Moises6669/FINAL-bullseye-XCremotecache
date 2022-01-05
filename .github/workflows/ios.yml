@@ -18,9 +18,7 @@ jobs:
         run: |
           source scripts/fetch_keys.sh
           bash scripts/install_dependencies.sh
-          bundle exec pod install
           bash scripts/test.sh
-        
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
