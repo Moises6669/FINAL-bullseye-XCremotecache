@@ -5,11 +5,7 @@ on:
   
 jobs:
   build-and-test:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos, self-hosted]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
@@ -23,7 +19,7 @@ jobs:
         with:
          bundler-cache: true
         env:
-          ImageOS: ${{secrets.IMAGEOS}}
+          IMAGEOS: ${{secrets.ImageOS}}
          
       - name: "Build and test"
         run: |
