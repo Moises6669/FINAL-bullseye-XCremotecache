@@ -5,7 +5,11 @@ on:
   
 jobs:
   build-and-test:
-    runs-on: macos
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos, self-hosted]
+    runs-on: ${{ matrix.os }}
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
