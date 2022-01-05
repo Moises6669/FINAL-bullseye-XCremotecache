@@ -17,7 +17,7 @@ jobs:
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
         env:
-          ImageOS: macos
+          ImageOS: self-hosted
         with:
          bundler-cache: true
          ruby-version: '2.7.1'
