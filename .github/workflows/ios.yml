@@ -1,7 +1,7 @@
 name: ios-community
 
 on:
-  [push,workflow_dispatch,pull_request]
+  [workflow_dispatch,pull_request]
   
 jobs:
   build-and-test:
@@ -19,17 +19,28 @@ jobs:
      
       - name: Install dependencies in Podfile
         run: |
-          source scripts/fetch_keys.sh
-          cd Example
-          bundle exec pod install
+          git clone git@github.com:WW-Digital/ios-common-config.git
+          touch .bash_env
+          export BASH_ENV="$PWD/.bash_env"
+          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
+          source .bash_env
         env:
-            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
             TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
             TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
             TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-            MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-      - name: Run unit tests and generate report
-        run: bash scripts/test.sh
+      - name : Install dependencies
+        run: |
+           cd Example
+           bundle exec pod install
+           
+      - name: Setup Code Climate test-reporter
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter before-build
+        env: 
+         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
