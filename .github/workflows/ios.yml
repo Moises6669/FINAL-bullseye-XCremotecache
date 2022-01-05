@@ -16,10 +16,12 @@ jobs:
       
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
+        env:
+          ImageOS: macos
         with:
          bundler-cache: true
-        env:
-          IMAGEOS: ${{secrets.ImageOS}}
+         ruby-version: '2.7.1'
+        
          
       - name: "Build and test"
         run: |
