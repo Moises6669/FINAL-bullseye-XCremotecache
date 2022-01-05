@@ -14,32 +14,50 @@ jobs:
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
       
-      - name: Set up ruby env
-        uses: ruby/setup-ruby@v1
-        env:
-          ImageOS: macos12
-        with:
-         bundler-cache: true        
-         
-      - name: "Build and test"
+      - name: Install dependencies in Gemfile
+        run: bundle install
+     
+      - name: set up ENV variables, and .env file for cocoapods-keys
         run: |
-          source scripts/fetch_keys.sh
-          cd Example
-          bundle exec pod install
+          echo $BASH_ENV
+          git clone git@github.com:WW-Digital/ios-common-config.git
+          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          BASH_ENV: ${{ env.GITHUB_ENV }}
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-      
-      - name: Test
+        
+      - name: Runs pod update
         run: |
-          bash scripts/test.sh
+          cd Example
+          bundle exec pod update
+          
+      - name: Setup Code Climate test-reporter
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter before-build
+          
+      - name: Run unit tests and generate report
+        run: bundle exec fastlane test
+        
+      - name: Code Climate post-build
+        run: |
+          echo $?
+          ./cc-test-reporter after-build --exit-code $?
+        env: 
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: always()
+        
+      - name: Danger
+        run: bundle exec danger --verbose
+        if: always()
+
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
-        if: failure()
+        if: always()
         with:
           name: "scan"
           path: output/scan/**/*
