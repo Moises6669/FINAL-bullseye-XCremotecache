@@ -18,11 +18,12 @@ jobs:
 #         run: bundle install
      
       - name: set up ENV variables, and .env file for cocoapods-keys
+        env:
+          BASH_ENV: ${{ github.env.GITHUB_ENV }}
         run: |
           echo 'bash env' $BASH_ENV
           echo 'github env' $GITHUB_ENV
-        env:
-          BASH_ENV: ${{ github.env.GITHUB_ENV }}
+        
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
 #           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
 #           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
