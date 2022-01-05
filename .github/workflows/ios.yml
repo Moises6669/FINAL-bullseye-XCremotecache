@@ -5,7 +5,7 @@ on:
   
 jobs:
   build-and-test:
-    runs-on: ${{ secrets.ImageOS }}
+    runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
@@ -13,7 +13,12 @@ jobs:
            repository: "WW-Digital/ios-community"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
-           
+      
+      - name: Set up ruby env
+        uses: ruby/setup-ruby@v1
+        with:
+         bundler-cache: true
+         
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
