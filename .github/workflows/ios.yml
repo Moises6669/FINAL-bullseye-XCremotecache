@@ -22,20 +22,20 @@ jobs:
       - name: "Build and test"
         run: |
           source scripts/fetch_keys.sh
-          bundle install
-          cd Example
+          bash scripts/install_dependencies.sh
           bundle exec pod install
+          bash scripts/test.sh
         
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-          #MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       
       - name: test
         run: |
-          bash scripts/test.sh
+          
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
