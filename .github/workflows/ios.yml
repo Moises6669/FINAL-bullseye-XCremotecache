@@ -21,6 +21,8 @@ jobs:
         run: |
           echo 'bash env' $BASH_ENV
           echo 'github env' $GITHUB_ENV
+          export BASH_ENV=$GITHUB_ENV
+          echo $BASH_ENV
         env:
           BASH_ENV: ${{ github.env }}
         
