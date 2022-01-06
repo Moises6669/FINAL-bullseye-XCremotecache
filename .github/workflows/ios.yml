@@ -44,10 +44,12 @@ jobs:
         id: test
         continue-on-error: true
         run: |
+          set +e
           bundle exec fastlane test
           echo ::set-output name=exit_status::$?
       
       - name: Code Climate post-build
+        continue-on-error: true
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
@@ -56,8 +58,10 @@ jobs:
           ./cc-test-reporter after-build --coverage-input-type xccov ${{ steps.test.outputs.exit_status }}        
         
       - name: Danger
-        run: bundle exec danger --verbose
-        if: always()
+        continue-on-error: true
+        run: |
+          source "$GITHUB_WORKSPACE/.bash_env"
+          bundle exec danger --verbose
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
