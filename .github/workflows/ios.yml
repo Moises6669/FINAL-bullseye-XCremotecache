@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies in Gemfile
         run: bundle install
      
-      - name: Install dependencies in Podfile
+      - name: set up ENV variables, and .env file for cocoapods-keys
         run: |
           git clone git@github.com:WW-Digital/ios-common-config.git
           touch .bash_env
@@ -28,7 +28,8 @@ jobs:
             TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
             TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
             TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-      - name : Install dependencies
+      
+      - name : Runs pod update
         run: |
            cd Example
            bundle exec pod install
@@ -38,9 +39,20 @@ jobs:
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
-        env: 
-         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
+      - name: run unit tests and generate report
+        continue-on-error: true
+        run: bundle exec fastlane test
+      
+      - name: Code Climate post-build
+        run: ./cc-test-reporter after-build --exit-code $?
+        env: 
+           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: always()
+        
+      - name: Danger
+        run: bundle exec danger --verbose
+        if: always()
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
