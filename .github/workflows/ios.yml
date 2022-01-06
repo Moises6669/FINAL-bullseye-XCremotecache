@@ -45,11 +45,13 @@ jobs:
         run: bundle exec fastlane test
       
       - name: Code Climate post-build
+        if: always()
         run: |
+          echo $?
           ./cc-test-reporter after-build --exit-code $?
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        if: always()
+        
         
       - name: Danger
         run: bundle exec danger --verbose
