@@ -34,11 +34,10 @@ jobs:
            cd Example
            bundle exec pod install
 
-      - name: run unit tests and generate report
+      - name: build and test
         id: test
         continue-on-error: true
         run: |
-          set +e
           source "$GITHUB_WORKSPACE/.bash_env"
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
           chmod +x ./cc-test-reporter
