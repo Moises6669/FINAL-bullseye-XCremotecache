@@ -45,17 +45,22 @@ jobs:
         continue-on-error: true
         run: |
           set +e
+          source "$GITHUB_WORKSPACE/.bash_env"
           bundle exec fastlane test
           echo ::set-output name=exit_status::$?
-      
-      - name: Code Climate post-build
-        continue-on-error: true
+           echo 'variable : ' ${{ steps.test.outputs.exit_status }}
+          ./cc-test-reporter after-build --coverage-input-type xccov --exit-code ${{ steps.test.outputs.exit_status }}        
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          echo 'variable : ' ${{ steps.test.outputs.exit_status }}
-          ./cc-test-reporter after-build --coverage-input-type xccov ${{ steps.test.outputs.exit_status }}        
+           
+#       - name: Code Climate post-build
+#         continue-on-error: true
+#         env: 
+#            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+#         run: |
+#           source "$GITHUB_WORKSPACE/.bash_env"
+#           echo 'variable : ' ${{ steps.test.outputs.exit_status }}
+#           ./cc-test-reporter after-build --coverage-input-type xccov --exit-code ${{ steps.test.outputs.exit_status }}        
         
       - name: Danger
         continue-on-error: true
