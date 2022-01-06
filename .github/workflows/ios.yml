@@ -23,9 +23,9 @@ jobs:
             TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
             TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
             TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-      
+        
       - name : Runs pod update
-        run: bundle exec pod install
+        run: bundle exec pod update --verbose
 
       - name: build and test
         id: test
