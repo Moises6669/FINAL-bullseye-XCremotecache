@@ -25,10 +25,7 @@ jobs:
             TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
       
       - name : Runs pod update
-        run: |
-           source "$GITHUB_WORKSPACE/.bash_env"
-           cd Example
-           bundle exec pod install
+        run: bundle exec pod install
 
       - name: build and test
         id: test
