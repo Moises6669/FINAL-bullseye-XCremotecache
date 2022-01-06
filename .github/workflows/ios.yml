@@ -44,7 +44,6 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
           bundle exec fastlane test
-          echo ::set-output name=exit_status::$?
           ./cc-test-reporter after-build --exit-code $?
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
