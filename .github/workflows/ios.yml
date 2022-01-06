@@ -45,7 +45,8 @@ jobs:
         run: bundle exec fastlane test
       
       - name: Code Climate post-build
-        run: ./cc-test-reporter after-build --exit-code $?
+        run: |
+          ./cc-test-reporter after-build --exit-code $?
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         if: always()
