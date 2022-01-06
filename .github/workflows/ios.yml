@@ -18,7 +18,10 @@ jobs:
         run: bundle install
      
       - name: set up ENV variables, and .env file for cocoapods-keys
-        run: git clone -b feature/github-actions git@github.com:WW-Digital/ios-common-config.git
+        run: |
+          git clone -b feature/github-actions git@github.com:WW-Digital/ios-common-config.git
+          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
+          
         env:
             TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
             TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
