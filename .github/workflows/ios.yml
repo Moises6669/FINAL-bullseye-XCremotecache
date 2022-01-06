@@ -19,7 +19,7 @@ jobs:
      
       - name: set up ENV variables, and .env file for cocoapods-keys
         run: |
-          git clone git@github.com:WW-Digital/ios-common-config.git
+          git clone -b feature/github-actions git@github.com:WW-Digital/ios-common-config.git
           touch .bash_env
           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
@@ -38,7 +38,6 @@ jobs:
         id: test
         continue-on-error: true
         run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
@@ -46,7 +45,7 @@ jobs:
           ./cc-test-reporter after-build --exit-code $?
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-           
+            
       - name: Danger
         continue-on-error: true
         run: |
