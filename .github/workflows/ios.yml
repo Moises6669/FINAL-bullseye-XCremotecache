@@ -21,26 +21,28 @@ jobs:
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
-      
-      - name: Install dependencies in Gemfile
-        run: bundle install
+      - name : puerbas
+        run : echo "ENV:${{github.event.inputs.REPO_NAME}}"
+  
+#       - name: Install dependencies in Gemfile
+#         run: bundle install
      
-      - name: Set up ENV variables, and .env file for cocoapods-keys
-        run: |
-          git clone git@github.com:WW-Digital/ios-common-config.git
-          touch .bash_env
-          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
-          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
-        env:
-          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+#       - name: Set up ENV variables, and .env file for cocoapods-keys
+#         run: |
+#           git clone git@github.com:WW-Digital/ios-common-config.git
+#           touch .bash_env
+#           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+#           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
+#         env:
+#           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+#           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+#           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
         
-      - name : Run pod update
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          cd Example
-          bundle exec pod update
+#       - name : Run pod update
+#         run: |
+#           source "$GITHUB_WORKSPACE/.bash_env"
+#           cd Example
+#           bundle exec pod update
      
 #       - name: Publish pod ci
 #         run: bundle exec fastlane publish_pod_ci
