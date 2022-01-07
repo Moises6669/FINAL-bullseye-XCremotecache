@@ -32,20 +32,22 @@ jobs:
           source "$GITHUB_WORKSPACE/.bash_env"
           cd Example
           bundle exec pod install
+          
       - name: build and test
-        id: test
-        continue-on-error: true
         run: |
+          set +e
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
           bundle exec fastlane test
-          ./cc-test-reporter after-build --exit-code $?
+          TESTS_EXIT_STATUS=$?
+          ./cc-test-reporter after-build --exit-code $TESTS_EXIT_STATUS
+          exit $TESTS_EXIT_STATUS
         env: 
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
       - name: Danger
-        continue-on-error: true
+        if: always()
         run: |
           source "$GITHUB_WORKSPACE/.bash_env"
           bundle exec danger --verbose
