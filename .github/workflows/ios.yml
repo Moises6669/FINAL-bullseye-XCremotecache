@@ -1,18 +1,26 @@
-name: ios-community
-
+name: Pod
 on:
-  [workflow_dispatch,pull_request]
-  
+  workflow_dispatch:
+    inputs:
+      REPO_NAME:
+        required: false
+      BRANCH_NAME:
+        required: false
+      RELEASE_TYPE:
+        required: false
+      BUMP_PODFILE:
+        required: false
+      MERGE_TO_MASTER: 
+        required: false
+      SEND_SLACK_MSG:
+        required: false
+        
 jobs:
-  build-and-test:
+  publish-pod:
     runs-on: macos
     steps: 
       - name: Checkout
         uses: actions/checkout@v2.4.0
-        with:
-           repository: "WW-Digital/ios-community"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
       
       - name: Install dependencies in Gemfile
         run: bundle install
@@ -32,29 +40,7 @@ jobs:
         run: |
           source "$GITHUB_WORKSPACE/.bash_env"
           cd Example
-          bundle exec pod install
-
-      - name: build and test
-        id: test
-        continue-on-error: true
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-          bundle exec fastlane test
-          ./cc-test-reporter after-build --exit-code $?
-        env: 
-           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-            
-      - name: Danger
-        continue-on-error: true
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          bundle exec danger --verbose
-        
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: "scan"
-          path: output/scan/**/*
+          bundle exec pod update
+     
+#       - name: Publish pod ci
+#         run: bundle exec fastlane publish_pod_ci
