@@ -21,7 +21,8 @@ jobs:
         with:
           repository: WW-Digital/ios-common-config
           path: ios-common-config
-      
+          ssh-key: ${{ secrets.ssh_ww }}
+
       - name: Set up ENV variables, and .env file for cocoapods-keys
         run: |
           touch "$GITHUB_WORKSPACE/.bash_env"
