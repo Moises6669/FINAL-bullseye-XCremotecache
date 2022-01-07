@@ -20,12 +20,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: WW-Digital/ios-common-config
-          path : /_work
+          path: ios-common-config
       
       - name: Set up ENV variables, and .env file for cocoapods-keys
         run: |
-          git clone git@github.com:WW-Digital/ios-common-config.git
-          touch .bash_env
+          touch "$GITHUB_WORKSPACE/.bash_env"
           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
         env:
