@@ -15,7 +15,12 @@ jobs:
 
       - name: Install dependencies in Gemfile
         run: bundle install
-
+        
+      - name: Common config
+        uses: actions/checkout@v2
+        with:
+          repository: WW-Digital/ios-common-config
+      
       - name: Set up ENV variables, and .env file for cocoapods-keys
         run: |
           git clone git@github.com:WW-Digital/ios-common-config.git
