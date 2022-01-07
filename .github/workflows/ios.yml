@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: WW-Digital/ios-common-config
-          path : /circleci/fetch-keys.sh
+          path : /_work
       
       - name: Set up ENV variables, and .env file for cocoapods-keys
         run: |
