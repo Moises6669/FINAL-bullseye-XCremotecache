@@ -15,16 +15,6 @@ jobs:
 
       - name: Install dependencies in Gemfile
         run: bundle install
-        
-      - name: Common config
-        uses: actions/checkout@v2
-        with:
-          repository: WW-Digital/ios-rewards.git
-          path: ios-common-config
-          ssh-key: ${{ secrets.ssh_ww }}
-
-      - name: Install dependencies in Gemfile
-        run: bundle install
 
       - name: Set up ENV variables, and .env file for cocoapods-keys
         run: |
