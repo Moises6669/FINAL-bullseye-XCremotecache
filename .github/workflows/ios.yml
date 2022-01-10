@@ -1,4 +1,4 @@
-name: ios
+name: ios-c
 on:
   [push,pull_request]
 
