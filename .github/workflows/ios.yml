@@ -11,7 +11,7 @@ jobs:
     runs-on: macos
     steps: 
       - name: Checkout
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v2
         with:
            repository: "WW-Digital/ios-crm"
            ref: develop
@@ -31,7 +31,7 @@ jobs:
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 
-      - name: Run pod update
+      - name: Install dependencies in Podfile
         working-directory: Example
         run: |
           source "$GITHUB_WORKSPACE/.bash_env"
@@ -41,6 +41,7 @@ jobs:
         id: test
         run: |
           set +e
+          source "$GITHUB_WORKSPACE/.bash_env"
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
