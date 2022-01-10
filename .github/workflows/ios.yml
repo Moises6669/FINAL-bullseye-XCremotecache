@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-           repository: "WW-Digital/ios-ecommerce"
+           repository: "WW-Digital/ios-growth"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
 
