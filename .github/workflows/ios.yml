@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.0
         with:
-           repository: "WW-Digital/ios-rewards"
+           repository: "WW-Digital/ios-community"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
 
