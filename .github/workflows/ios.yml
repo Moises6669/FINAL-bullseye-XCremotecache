@@ -1,4 +1,4 @@
-name: ios-test
+name: ios
 on:
   pull_request:
   workflow_dispatch:
@@ -33,7 +33,9 @@ jobs:
         run: |
           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
           bundle exec pod update
-          bundle exec fastlane mac build_mac_ci skip_notarization:true
+      
+      - name: Build macOS target
+        run: bundle exec fastlane mac build_mac_ci skip_notarization:true
   
   build-ios:
       runs-on: macos 
@@ -64,4 +66,6 @@ jobs:
          run: |
             export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
             bundle exec pod update
-            bundle exec fastlane ios build_ios_ci
+       
+       - name: Build iOS target
+         run: bundle exec fastlane ios build_ios_ci
