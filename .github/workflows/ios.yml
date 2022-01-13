@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test:
-    runs-on: macos
-    steps: 
+  build-macos:
+      runs-on: macos
+      steps: 
       - name: Checkout
         uses: actions/checkout@v2
         with:
-           repository: "WW-Digital/ios-growth"
+           repository: "WW-Digital/WWKraken"
            ref: develop
            ssh-key: ${{ secrets.ssh_ww }}
 
@@ -32,32 +32,37 @@ jobs:
         working-directory: Example
         run: |
           source "$GITHUB_WORKSPACE/.bash_env"
-          bundle exec pod install
-          
-      - name: Build and test
-        id: test
-        run: |
-          set +e
-          source "$GITHUB_WORKSPACE/.bash_env"
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-          bundle exec fastlane test
-          TESTS_EXIT_STATUS=$?
-          ./cc-test-reporter after-build --exit-code $TESTS_EXIT_STATUS
-          exit $TESTS_EXIT_STATUS
-        env: 
-           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          bundle exec pod update
+          bundle exec fastlane mac build_mac_ci skip_notarization:true
+  
+  build-ios:
+      runs-on: macos 
+      steps: 
+       - name: Checkout
+         uses: actions/checkout@v2
+         with:
+             repository: "WW-Digital/WWKraken"
+             ref: develop
+             ssh-key: ${{ secrets.ssh_ww }}
 
-      - name: Danger
-        if: always()
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          bundle exec danger --verbose
+       - name: Install dependencies in Gemfile
+         run: bundle install
 
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: "scan"
-          path: output/scan/**/*
+       - name: Set up ENV variables, and .env file for cocoapods-keys
+         run: |
+            git clone git@github.com:WW-Digital/ios-common-config.git
+            touch .bash_env
+            export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+            bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
+         env:
+            TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+            TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+            TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+
+       - name: Install dependencies in Podfile
+         working-directory: Example
+         run: |
+            source "$GITHUB_WORKSPACE/.bash_env"
+            bundle exec pod update
+            bundle exec fastlane ios build_ios_ci
+
