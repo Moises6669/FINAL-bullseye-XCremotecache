@@ -23,6 +23,7 @@ jobs:
           touch .bash_env
           export BASH_ENV="$$PWD/.bash_env"
           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+          source .bash_env
         env:
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
@@ -53,6 +54,7 @@ jobs:
             touch .bash_env
             export BASH_ENV="$$PWD/.bash_env"
             bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+            source .bash_env
          env:
             TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
             TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
