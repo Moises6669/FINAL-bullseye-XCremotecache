@@ -21,17 +21,18 @@ jobs:
         run: |
           git clone git@github.com:WW-Digital/ios-common-config.git
           touch .bash_env
-          export BASH_ENV="$$PWD/.bash_env"
+          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
-          source .bash_env
+          source .
         env:
           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 
       - name: Install dependencies in Podfile
+        working-directory: .
         run: |
-          source "$$PWD/.bash_env"
+          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
           bundle exec pod update
           bundle exec fastlane mac build_mac_ci skip_notarization:true
   
