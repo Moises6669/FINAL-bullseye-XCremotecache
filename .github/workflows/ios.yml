@@ -35,7 +35,7 @@ jobs:
       
       - name: Build macOS target
         run: |
-          export DEVELOPER_DIR=/Applications/Xcode12.5.app/Contents/Developer
+          export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
           bundle exec fastlane mac build_mac_ci skip_notarization:true
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -71,7 +71,7 @@ jobs:
        
        - name: Build iOS target
          run: |
-          export DEVELOPER_DIR=/Applications/Xcode12.5.app/Contents/Developer
+          export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
           bundle exec fastlane ios build_ios_ci
          env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
