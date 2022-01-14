@@ -74,4 +74,4 @@ jobs:
 #          run: |
 #           bundle exec fastlane ios build_ios_ci
 #          env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+#           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
