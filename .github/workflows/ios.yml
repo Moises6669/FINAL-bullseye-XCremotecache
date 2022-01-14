@@ -8,7 +8,9 @@ jobs:
       runs-on: macos
       steps: 
         - name: Pruebas
-          run: echo 'hello from Jira'
+          run: |
+            source scripts/jira.sh
+            echo 'hello from Jira'
 #       - name: Checkout
 #         uses: actions/checkout@v2
 #         with:
