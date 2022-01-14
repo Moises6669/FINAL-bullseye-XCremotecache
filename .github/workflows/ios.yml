@@ -9,7 +9,7 @@ jobs:
       steps: 
         - name: Pruebas
           run: |
-            source scripts/jira.sh
+            bash scripts/jira.sh
             echo 'hello from Jira'
 #       - name: Checkout
 #         uses: actions/checkout@v2
