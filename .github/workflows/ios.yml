@@ -30,7 +30,7 @@ jobs:
 
       - name: Install dependencies in Podfile
         run: |
-          source BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+          source "$GITHUB_WORKSPACE/.bash_env"
           bundle exec pod update
       
       - name: Build macOS target
@@ -64,7 +64,7 @@ jobs:
 
        - name: Install dependencies in Podfile
          run: |
-            source BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+            source "$GITHUB_WORKSPACE/.bash_env"
             bundle exec pod update
        
        - name: Build iOS target
