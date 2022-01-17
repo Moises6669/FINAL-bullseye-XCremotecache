@@ -7,50 +7,8 @@ jobs:
   build-macos:
       runs-on: macos
       steps: 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-           repository: "WW-Digital/ios-crm"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
-
-      - name: Install dependencies in Gemfile
-        run: bundle install
-
-      - name: Set up ENV variables, and .env file for cocoapods-keys
-        run: |
-          git clone git@github.com:WW-Digital/ios-common-config.git
-          touch .bash_env
-          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
-          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile ./Example
-        env:
-          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
-
-      - name : Run pod update
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          cd Example
-          bundle exec pod install
-      - name: build and test
-        id: test
-        continue-on-error: true
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 >./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-          bundle exec fastlane test
-          ./cc-test-reporter after-build --exit-code $?
-        env: 
-           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-
-      - name: Danger
-        continue-on-error: true
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          bundle exec danger --verbose
-
+      - name: wea
+        run: echo hello world 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
         if: always()
