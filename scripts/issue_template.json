@@ -1,0 +1,20 @@
+{
+    "update": {
+      "summary": [
+        {
+          "set": "Test Execution result for en_us"
+        }
+      ],
+      "labels": [
+        {
+          "add": "automated-execution"
+        }
+      ]
+    },
+    "fields": {
+      "description": "cualquier cosa",
+      "customfield_12110": {
+        "id": "11102"
+      }
+    }
+  }
