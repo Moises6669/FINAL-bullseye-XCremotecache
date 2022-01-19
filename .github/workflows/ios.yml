@@ -12,8 +12,11 @@ jobs:
       - name: jira
         run: | 
            NOW=$(date +"%D")
-           summary="Test Execution result for en_us: ${NOW}  "
+           echo $NOW
+           summary="Test Execution result for en_us: ${NOW}"
+           echo $summary
            description="tests passed"
+           echo $description
            execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"         
            echo $execution_data
            curl -H "Authorization: Basic bW9pc2VzQGFsbC13aW4uc29mdHdhcmU6VFZEaXI5aTJWcTJrUmwzZGFzWE40N0I2" \
