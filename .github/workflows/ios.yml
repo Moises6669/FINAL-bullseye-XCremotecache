@@ -8,4 +8,4 @@ jobs:
       runs-on: macos
       steps: 
       - name: wea
-        run: env
+        run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/runs/$GITHUB_RUN_ID
