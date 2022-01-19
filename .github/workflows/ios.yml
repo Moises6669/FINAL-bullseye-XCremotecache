@@ -12,7 +12,7 @@ jobs:
           NOW=$(date +"%D")
           summary="Test Execution result for $GITHUB_REPOSITORY"
           description="tests passed"
-          execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ../.github/workflows/scripts/issue_template.json)"
+          execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' issue_template.json)"
           curl -H "Authorization: Basic bW9pc2VzQGFsbC13aW4uc29mdHdhcmU6VFZEaXI5aTJWcTJrUmwzZGFzWE40N0I2" \
           -X PUT --data "${execution_data}" \
           -H "Content-Type: application/json" \
