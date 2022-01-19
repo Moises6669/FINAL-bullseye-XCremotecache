@@ -9,7 +9,6 @@ jobs:
       steps: 
       - name: jira
         run: | 
-          source ./scripts/jira.sh
+          source jira.sh
           
           
-
