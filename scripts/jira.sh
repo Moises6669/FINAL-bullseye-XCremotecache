@@ -14,7 +14,7 @@ summary="Test Execution result for ${GITHUB_ACTOR} en_us: ${NOW}  "
 description="executed in: ${GITHUB_RUN_ID} More details are available at: /output/scan/"
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
-TOKEN_BASIC=$(echo -n moises@all-win.software:2lYTcJkXntdIGAuMlc7y187F | base64)
+TOKEN_BASIC=$(echo -n moises@all-win.software:2jNakFbtK9fp4YRKK1vs6A22 | base64)
 
 curl -H "Authorization: Basic ${TOKEN_BASIC}" \
     -X PUT --data "${execution_data}" \
