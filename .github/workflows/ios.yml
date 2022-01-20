@@ -11,16 +11,4 @@ jobs:
         uses: actions/checkout@v2
       - name: jira
         run: | 
-           NOW=$(date +"%D")
-           echo $NOW
-           summary="Test Execution result for ${GITHUB_REPOSITORY}"
-           echo $summary
-           description=${GITHUB_RUN_ID}
-           echo $description
-           execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"         
-           echo $execution_data
-           curl -H "Authorization: Basic bW9pc2VzQGFsbC13aW4uc29mdHdhcmU6MmxZVGNKa1hudGRJR0F1TWxjN3kxODdG" \
-           -X PUT --data "${execution_data}" \
-           -H "Content-Type: application/json" \
-           https://moisesa.atlassian.net/rest/api/2/issue/TST13-3
-
+           env
