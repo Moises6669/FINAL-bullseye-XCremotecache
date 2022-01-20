@@ -10,8 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: jira
-        run: | 
-           ./scripts/jira.sh
+        run: source ./scripts/jira.sh
       - uses: actions/upload-artifact@v2
         if: always()
         with:
