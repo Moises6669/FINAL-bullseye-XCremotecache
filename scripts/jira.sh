@@ -19,4 +19,4 @@ TOKEN_BASIC=$(echo -n moises@all-win.software:BtRR4NY8jJFcuaBUCHvI9256 | base64)
 curl -H "Authorization: Basic ${TOKEN_BASIC}" \
     -X PUT --data "${execution_data}" \
     -H "Content-Type: application/json" \
-    https://moisesa.atlassian.net/rest/api/2/issue/TST13-201
+    https://moisesa.atlassian.net/rest/api/2/issue/TST13-202
