@@ -12,9 +12,6 @@
     ]
   },
   "fields": {
-    "description": "More details are available at: /output/scan/",
-    "customfield_12110": {
-      "id": "11102"
-    }
+    "description": "More details are available at: /output/scan/"
   }
 }
