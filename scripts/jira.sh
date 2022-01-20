@@ -12,15 +12,9 @@ set -uo pipefail
 NOW=$(date +"%D")
 summary="Test Execution result for ${GITHUB_ACTOR} en_us: ${NOW}  "
 description="executed in: ${GITHUB_RUN_ID} More details are available at: /output/scan/"
-<<<<<<< HEAD
-execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./issue_template.json)"
-
-TOKEN_BASIC=$(echo -n moises@all-win.software:2lYTcJkXntdIGAuMlc7y187F | base64)
-=======
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
 TOKEN_BASIC=$(echo -n moises@all-win.software:BtRR4NY8jJFcuaBUCHvI9256 | base64)
->>>>>>> 351e2a47f7d5ffc5b494ea11f7e9b2fe77b3d359
 
 curl -H "Authorization: Basic ${TOKEN_BASIC}" \
     -X PUT --data "${execution_data}" \
