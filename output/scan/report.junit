@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='CRM_ExampleTests.xctest' tests='175' failures='0'>
+  <testsuite name='CRM_ExampleTests.ActionPlanTests' tests='17' failures='0'>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionIsPreview' time='0.015'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanActionItems' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanBooking' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanClosing' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanCoach' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanCreatedAt' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanDaysUntilReminder' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanId' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanMember' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanOpening' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanRemindAt' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanReminderMessage' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanSentAt' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanSessionDate' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanTenureWeek' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testActionPlanUpdatedAt' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ActionPlanTests' name='testBadInitialization' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ArticleTests' tests='19' failures='0'>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleAudience' time='0.005'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleBody' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleCategory' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleCommentsDisabled' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleFullHtml' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleId' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleObjectId' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleOutdated' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticlePosition' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticlePromoted' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleReferenceMarket' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleRelevance' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleSummary' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleTags' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleTitle' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleUpdatedAt' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testArticleVoteSum' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testBadInitialization' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleTests' name='testMarket' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ArticleViewerViewModelTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.ArticleViewerViewModelTests' name='testDidReloadRelatedArticlesCount' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticleViewerViewModelTests' name='testRateArticleRequestDidFailedCount' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ArticlesTests' tests='10' failures='0'>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesExhaustiveNbHits' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesHits' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesHitsPerPage' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesNbHits' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesNbPages' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesPage' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesParams' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesProcessingTimeMS' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testArticlesQuery' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesTests' name='testBadInitialization' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ArticlesViewModelTests' tests='8' failures='0'>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='test_ShouldNotAddExistedArticlesWithSameId' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testDidLoadSearchResultsCount' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testIsNewSearchUnique' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testIsSearchResultCell' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testLastSearchQuery' time='0.005'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testShouldHideAccessoryViewCount' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testUpdateArticleData' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ArticlesViewModelTests' name='testUpdateStatusLabelCount' time='0.003'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.BookACallBookTableViewCellTests' tests='4' failures='0'>
+    <testcase classname='CRM_ExampleTests.BookACallBookTableViewCellTests' name='testCellIdentifier' time='0.045'/>
+    <testcase classname='CRM_ExampleTests.BookACallBookTableViewCellTests' name='testCellsDidFinishLoadingCount' time='0.007'/>
+    <testcase classname='CRM_ExampleTests.BookACallBookTableViewCellTests' name='testUpdateCellWithCoach' time='0.005'/>
+    <testcase classname='CRM_ExampleTests.BookACallBookTableViewCellTests' name='testUserDidSelectDateCount' time='0.008'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.BookingTests' tests='5' failures='0'>
+    <testcase classname='CRM_ExampleTests.BookingTests' name='testBadInitialization' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.BookingTests' name='testBookingCoachId' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.BookingTests' name='testBookingEndTime' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.BookingTests' name='testBookingId' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.BookingTests' name='testBookingStartTime' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.CalendarCollectionHeaderViewTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.CalendarCollectionHeaderViewTests' name='testReusableViewIdentifier' time='0.005'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ChangeCoachIntegrationTests' tests='4' failures='0'>
+    <testcase classname='CRM_ExampleTests.ChangeCoachIntegrationTests' name='test_ChangeCoach_RequestFailWithEmptyResponse' time='0.020'/>
+    <testcase classname='CRM_ExampleTests.ChangeCoachIntegrationTests' name='test_ChangeCoach_RequestFailWithNoServerError' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ChangeCoachIntegrationTests' name='test_ChangeCoach_RequestFailWithServerError' time='0.384'/>
+    <testcase classname='CRM_ExampleTests.ChangeCoachIntegrationTests' name='test_ChangeCoach_RequestSuccess' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ChangeCoachTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.ChangeCoachTests' name='test_DidTapRequestNewCoach' time='1.058'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ChatImageTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.ChatImageTests' name='testHighResolutionImage' time='0.008'/>
+    <testcase classname='CRM_ExampleTests.ChatImageTests' name='testLowResolutionImage' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ChatLassoStoreTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.ChatLassoStoreTests' name='testAccountExtraDataMarket' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.CoachAvailabilityListTests' tests='3' failures='0'>
+    <testcase classname='CRM_ExampleTests.CoachAvailabilityListTests' name='testBadInitialization' time='0.006'/>
+    <testcase classname='CRM_ExampleTests.CoachAvailabilityListTests' name='testCoachAvailabilityListAvailabilitiesCount' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachAvailabilityListTests' name='testCoachAvailabilityListId' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.CoachServicesTest' tests='9' failures='0'>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testBookSessionRequestFailWithBadResponse' time='0.004'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testBookSessionRequestFailWithEmptyResponse' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testBookSessionRequestFailWithServerError' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testExcludeCoachFailWithBadResponseObject' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testExcludeCoachFailWithEmptyResponse' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testExcludeCoachRequestFailWithServerError' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testGetCoachProfileRequestFailWithNoServerError' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testGetMoreCategoryRequestFailWithNoServerError' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.CoachServicesTest' name='testGetMoreCategoryRequestFailWithServerError' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.CoachesCollectionViewSectionHeaderTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.CoachesCollectionViewSectionHeaderTests' name='testCellIdentifier' time='0.004'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.CoachingCalendarViewTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.CoachingCalendarViewTests' name='testCellsDidFinishLoadingCount' time='1.016'/>
+    <testcase classname='CRM_ExampleTests.CoachingCalendarViewTests' name='testUserDidSelectDateCount' time='0.004'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ContactTests' tests='4' failures='0'>
+    <testcase classname='CRM_ExampleTests.ContactTests' name='test_decoding_defaults' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ContactTests' name='test_decoding' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.ContactTests' name='test_isValid' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ContactTests' name='test_positionValue' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ContactsViewModelTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.ContactsViewModelTests' name='testDidLoadDataCount' time='0.008'/>
+    <testcase classname='CRM_ExampleTests.ContactsViewModelTests' name='testIntialization' time='0.007'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.DayCollectionViewCellTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.DayCollectionViewCellTests' name='testCellIdentifier' time='0.006'/>
+    <testcase classname='CRM_ExampleTests.DayCollectionViewCellTests' name='testDayLabelText' time='0.009'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.InlineTwoLabelTableViewCellTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.InlineTwoLabelTableViewCellTests' name='testCellIdentifier' time='0.009'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.KeyChainTest' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.KeyChainTest' name='testQuery' time='0.007'/>
+    <testcase classname='CRM_ExampleTests.KeyChainTest' name='testRead' time='0.009'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.MainViewControllerTest' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.MainViewControllerTest' name='testSkillNotNil' time='0.004'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.MemberProfileTests' tests='24' failures='0'>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testBadInitialization' time='0.004'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testGetCurrentMemberProfile' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testIsCoachingMember' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileAgeInYears' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileCanReceiveTexts' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileCanUserBook' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileCanUserMessage' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileCreatedDate' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileFirstName' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileHasAnyBookings' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileHasCompletedFirstBooking' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileId' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileLastName' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileMemberType' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileMemberTypeDisplay' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileModifiedDate' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileName' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileNextBookingLength' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfilePhone' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileSmsPhone' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileTimeZone' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileUpcomingBookingsCount' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testMemberProfileUserType' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.MemberProfileTests' name='testSetMemberProfile' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.MyCoachProfileTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.MyCoachProfileTests' name='test_DidTapChangeCoach' time='0.006'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.PCAssessmentFlowTests' tests='4' failures='0'>
+    <testcase classname='CRM_ExampleTests.PCAssessmentFlowTests' name='test_BackOutput' time='1.816'/>
+    <testcase classname='CRM_ExampleTests.PCAssessmentFlowTests' name='test_Flowing_Match' time='0.600'/>
+    <testcase classname='CRM_ExampleTests.PCAssessmentFlowTests' name='test_Flowing_NoMatch' time='1.108'/>
+    <testcase classname='CRM_ExampleTests.PCAssessmentFlowTests' name='test_PagesFlow_Completion' time='1.699'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.PersonalCoachingHomeFlowTests' tests='10' failures='0'>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_DidTapMyCoach' time='0.027'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_DidTapScheduleSessions' time='0.023'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_didTapShowMyCoachProfile_shouldDismiss' time='0.100'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_didTapShowMyCoachProfile_shouldPushAndPop' time='0.601'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_hideSnackbar' time='0.024'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_ShouldUpdateTitleForBottomSection' time='0.022'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_ShouldUpdateTitleForTopSection' time='0.027'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_showSnackbar' time='0.022'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_ViewDidLoad' time='0.022'/>
+    <testcase classname='CRM_ExampleTests.PersonalCoachingHomeFlowTests' name='test_ViewWillAppear' time='0.041'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ReviewTableViewCellTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.ReviewTableViewCellTests' name='testCellIdentifier' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.ReviewTableViewCellTests' name='testSetupCellWithReview' time='0.052'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.ReviewsTests' tests='3' failures='0'>
+    <testcase classname='CRM_ExampleTests.ReviewsTests' name='testBadInitialization' time='0.004'/>
+    <testcase classname='CRM_ExampleTests.ReviewsTests' name='testReviewsCount' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.ReviewsTests' name='testReviewsId' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.SchedulingServiceTest' tests='3' failures='0'>
+    <testcase classname='CRM_ExampleTests.SchedulingServiceTest' name='testGetCoachAvailabilityFailWithNoError' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.SchedulingServiceTest' name='testGetCoachAvailabilityFailWithServerError' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.SchedulingServiceTest' name='testGetCoachAvailabilitySucess' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.SelfServiceFlowTest' tests='4' failures='0'>
+    <testcase classname='CRM_ExampleTests.SelfServiceFlowTest' name='testContactsViewController' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.SelfServiceFlowTest' name='testEnterChatConfirmation' time='0.017'/>
+    <testcase classname='CRM_ExampleTests.SelfServiceFlowTest' name='testSearchViewController' time='0.035'/>
+    <testcase classname='CRM_ExampleTests.SelfServiceFlowTest' name='testShowChat' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.SessionServicesTest' tests='3' failures='0'>
+    <testcase classname='CRM_ExampleTests.SessionServicesTest' name='testCancelSessionsFailWithEmptyResponse' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionServicesTest' name='testCancelSessionsFailWithErrorResponse' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.SessionServicesTest' name='testCancelSessionsFailWithNilInObjectResponse' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.SessionTests' tests='8' failures='0'>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testBadInitialization' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionCoach' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionEndTime' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionId' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionIsSubstitute' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionLength' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionStartTime' time='0.003'/>
+    <testcase classname='CRM_ExampleTests.SessionTests' name='testSessionState' time='0.002'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.StringExtestionsTest' tests='6' failures='0'>
+    <testcase classname='CRM_ExampleTests.StringExtestionsTest' name='testEmptyStrings' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.StringExtestionsTest' name='testEqualStrings' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.StringExtestionsTest' name='testNSString' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.StringExtestionsTest' name='testSpaceChar' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.StringExtestionsTest' name='testTrimFirstString' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.StringExtestionsTest' name='testTrimLastString' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.TimeSlotCollectionViewCellTests' tests='1' failures='0'>
+    <testcase classname='CRM_ExampleTests.TimeSlotCollectionViewCellTests' name='testCellIdentifier' time='0.004'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.UnreadMessagesCountTests' tests='3' failures='0'>
+    <testcase classname='CRM_ExampleTests.UnreadMessagesCountTests' name='test_GetUnreadMessagesCount_RequestFailWithEmptyResponse' time='0.005'/>
+    <testcase classname='CRM_ExampleTests.UnreadMessagesCountTests' name='test_GetUnreadMessagesCount_RequestFailWithNoServerError' time='0.001'/>
+    <testcase classname='CRM_ExampleTests.UnreadMessagesCountTests' name='test_GetUnreadMessagesCount_RequestSuccess' time='0.001'/>
+  </testsuite>
+  <testsuite name='CRM_ExampleTests.UpcomingSessionsTests' tests='2' failures='0'>
+    <testcase classname='CRM_ExampleTests.UpcomingSessionsTests' name='test_DidTapBackButton' time='0.002'/>
+    <testcase classname='CRM_ExampleTests.UpcomingSessionsTests' name='test_viewDidLoad' time='0.002'/>
+  </testsuite>
+</testsuites>

@@ -12,9 +12,13 @@
     ]
   },
   "fields": {
+<<<<<<< HEAD
     "description": "More details are available at: /output/scan/",
     "customfield_12110": {
       "id": "11102"
     }
+=======
+    "description": "More details are available at: /output/scan/"
+>>>>>>> 351e2a47f7d5ffc5b494ea11f7e9b2fe77b3d359
   }
 }
