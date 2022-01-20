@@ -1,7 +1,5 @@
 set -uo pipefail
 
-#  JIRA_TOKEN=TVDir9i2Vq2kRl3dasXN47B6
-
 # if [[ -f "../output/scan/report.junit" ]]; then
 #     echo "Uploading report.junit file to XRay"
 #     project_key="TST13"
@@ -10,17 +8,15 @@ set -uo pipefail
 # else
 #     echo "File report.junit not found"
 # fi
+
 NOW=$(date +"%D")
-summary="Test Execution result for en_us: ${NOW}  "
-description="tests passed"
+summary="Test Execution result for ${GITHUB_ACTOR} en_us: ${NOW}  "
+description="executed in: ${GITHUB_RUN_ID} More details are available at: /output/scan/"
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./issue_template.json)"
 
-# echo -n moises@all-win.software:TVDir9i2Vq2kRl3dasXN47B6 | base64
+TOKEN_BASIC=$(echo -n moises@all-win.software:2lYTcJkXntdIGAuMlc7y187F | base64)
 
-# $GITHUB_SERVER_URL/GITHUB_REPOSITORY/runs/$GITHUB_RUN_ID
-# execution_key=$(jq '.key' response.txt | tr -d '"')
-
-curl -H "Authorization: Basic bW9pc2VzQGFsbC13aW4uc29mdHdhcmU6VFZEaXI5aTJWcTJrUmwzZGFzWE40N0I2" \
+curl -H "Authorization: Basic ${TOKEN_BASIC}" \
     -X PUT --data "${execution_data}" \
     -H "Content-Type: application/json" \
-    https://moisesa.atlassian.net/rest/api/2/issue/TST13-178
+    https://moisesa.atlassian.net/rest/api/2/issue/TST13-201
