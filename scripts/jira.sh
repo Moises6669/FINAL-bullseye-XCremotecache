@@ -12,7 +12,7 @@ execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
 summary="${GITHUB_ACTOR} Test Execution result for en_us: ${NOW}  "
 description="id runner: ${GITHUB_RUN_ID} More details are available at: /output/scan/"
-execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
+execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ../scripts/issue_template.json)"
 
 curl -H "Authorization: Basic ${JIRA_TOKEN}" \
     -X PUT --data "${execution_data}" \
