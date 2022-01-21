@@ -7,11 +7,11 @@ if [[ -f "./output/scan/report.junit" ]]; then
 else
     echo "File report.junit not found"
 fi
-JIRA_TOKEN=$(echo -n moises@all-win.software:XRxMTZX9ryDO4WUDGmR3B288| base64)
+JIRA_TOKEN=$(echo -n moises@all-win.software:TO7dDQdnkUzpnFK24LGCA614| base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
 summary="${GITHUB_ACTOR} Test Execution result for en_us: ${NOW}  "
-description="id runner: ${GITHUB_RUN_ID} More details are available at: /output/scan/"
+description=description="More details are available at: ${JIRA_TOKEN}/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}"
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
 curl -H "Authorization: Basic ${JIRA_TOKEN}" \
