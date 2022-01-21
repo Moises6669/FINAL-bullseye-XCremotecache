@@ -7,14 +7,14 @@ if [[ -f "./output/scan/report.junit" ]]; then
 else
     echo "File report.junit not found"
 fi
-JIRA_TOKEN=$(echo -n moises@all-win.software:0LpFDh4o8FfeYppN8c4l79F7 | base64)
+JIRA_TOKEN=$(echo -n moises@all-win.software:0XHWCRUZtM5h2CaI8yyA7CAD | base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
-summary="Test Execution result for ${GITHUB_ACTOR} en_us: ${NOW}  "
-description="executed in: ${GITHUB_RUN_ID} More details are available at: /output/scan/"
+summary="Test Execution result for en_us: ${NOW}  "
+description="executed in:More details are available at: /output/scan/"
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
 curl -H "Authorization: Basic ${JIRA_TOKEN}" \
     -X PUT --data "${execution_data}" \
     -H "Content-Type: application/json" \
-     https://moisesa.atlassian.net/rest/api/2/issue/$execution_keys
+    https://moisesa.atlassian.net/rest/api/2/issue/$execution_key
