@@ -3,11 +3,11 @@ if [[ -f "./output/scan/report.junit" ]]; then
     echo "Uploading report.junit file to XRay"
     project_key="TST34"
     token=$(curl -H "Content-Type: application/json" -X POST --data '{"client_id":"CD075895727E4E5DAFD5FCC1FE7A78BF","client_secret":"65344aaa49d1a15ff9f0d1c2353e1b80f6bba5b410c18f263e655ad8daf5ac23"}' https://xray.cloud.getxray.app/api/v2/authenticate | tr -d '"')
-    curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer $token" --data @"../output/scan/report.junit" https://xray.cloud.getxray.app/api/v2/import/execution/junit?projectKey=${project_key} >response.txt
+    curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer $token" --data @"./output/scan/report.junit" https://xray.cloud.getxray.app/api/v2/import/execution/junit?projectKey=${project_key} >response.txt
 else
     echo "File report.junit not found"
 fi
-JIRA_TOKEN=$(echo -n moises@all-win.software:${secrets.JIRA_TOKEN} | base64)
+JIRA_TOKEN=$(echo -n moises@all-win.software:5jN69RVDc96oRCUBWfaN7F56| base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
 summary="${GITHUB_ACTOR} Test Execution result for en_us: ${NOW}  "
