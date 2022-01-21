@@ -12,4 +12,4 @@ jobs:
       - name: werever
         run: echo hello
       - name: jira
-        run: source ./scripts/jira.sh
+        run: env
