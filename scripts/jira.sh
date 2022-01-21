@@ -10,8 +10,8 @@ fi
 JIRA_TOKEN=$(echo -n moises@all-win.software:sOXoIoZ64f9h7pXdYHvH0156| base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
-summary="${GITHUB_ACTOR} Test Execution result for en_us: ${NOW}  "
-description=description="More details are available at: ${GITHUB_API_URL}/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}"
+summary="Test Execution result for en_us: ${NOW}  "
+description=description="More details are available at: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
 curl -H "Authorization: Basic ${JIRA_TOKEN}" \
