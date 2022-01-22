@@ -8,7 +8,7 @@ else
     echo "File report.junit not found"
 fi
 
-JIRA_TOKEN=$(echo -n moises@all-win.software:2WU3ho4FT0gZ11YHRSau82B9| base64)
+JIRA_TOKEN=$(echo -n moises@all-win.software:nh19vJKs9gKUNP2FdKLw6C9B| base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
 summary="Test Execution result for en_us: ${NOW}  "
