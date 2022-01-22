@@ -7,7 +7,8 @@ if [[ -f "./output/scan/report.junit" ]]; then
 else
     echo "File report.junit not found"
 fi
-JIRA_TOKEN=$(echo -n moises@all-win.software:uou1DGYfqhn6L0r4OjWoD2D4| base64)
+
+JIRA_TOKEN=$(echo -n moises@all-win.software:2WU3ho4FT0gZ11YHRSau82B9| base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
 summary="Test Execution result for en_us: ${NOW}  "
