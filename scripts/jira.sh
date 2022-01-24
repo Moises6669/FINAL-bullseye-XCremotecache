@@ -13,7 +13,7 @@ JIRA_TOKEN=$(echo -n $JIRA_TOKEN_ENV| base64)
 execution_key=$(jq '.key' response.txt | tr -d '"')
 NOW=$(date +"%D")
 summary="Test Execution result for en_us: ${NOW}  "
-description=description="More details are available at: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+description="More details are available at: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
 curl -H "Authorization: Basic ${JIRA_TOKEN}" \
