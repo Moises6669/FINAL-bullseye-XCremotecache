@@ -15,5 +15,5 @@ jobs:
         env:
           JIRA_TOKEN_ENV: ${{ secrets.JIRA_TOKEN }}
         run: |
-          echo $JIRA_TOKEN_ENV
+          echo VARIABLE: $JIRA_TOKEN_ENV
           source ./scripts/jira.sh
