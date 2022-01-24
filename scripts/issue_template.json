@@ -9,12 +9,7 @@
       {
         "add": "automated-execution"
       }
-    ],
-    "platform": [
-      {
-        "add": "iOS"
-      }
-    ]
+    
   },
   "fields": {
     "description": "More details are available at: /output/scan/"
