@@ -1,3 +1,4 @@
+#adads
 set -uo pipefail
 if [[ -f "./output/scan/report.junit" ]]; then
     echo "Uploading report.junit file to XRay"
