@@ -12,4 +12,6 @@ jobs:
       - name: werever
         run: echo hello
       - name: jira
+        env:
+          JIRA_TOKEN_ENV: ${{ secrets.JIRA_TOKEN }}
         run: source ./scripts/jira.sh
