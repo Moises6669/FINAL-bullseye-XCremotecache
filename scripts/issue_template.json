@@ -9,10 +9,9 @@
       {
         "add": "automated-execution"
       }
-    
   },
   "fields": {
     "description": "More details are available at: /output/scan/",
-    "customfield_10035": "iOS"
+    "customfield_10035": {"value":"iOS"}
   }
 }
