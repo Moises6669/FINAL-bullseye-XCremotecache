@@ -12,6 +12,4 @@ jobs:
       - name: jira
         env:
           JIRA_TOKEN_ENV: ${{ secrets.JIRA_TOKEN }}
-        run: |
-          echo VARIABLE: $JIRA_TOKEN_ENV
-          source ./scripts/jira.sh
+        run: echo env
