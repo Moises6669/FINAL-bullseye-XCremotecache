@@ -12,6 +12,7 @@
     
   },
   "fields": {
-    "description": "More details are available at: /output/scan/"
+    "description": "More details are available at: /output/scan/",
+    "customfield_10035": "iOS"
   }
 }
