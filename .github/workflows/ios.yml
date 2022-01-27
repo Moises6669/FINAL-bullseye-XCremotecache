@@ -10,6 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.0
       - name: jira
-#         env:
-#           JIRA_TOKEN_ENV: ${{ secrets.JIRA_TOKEN }}
-        run: env
+        env:
+          JIRA_TOKEN_ENV: ${{ secrets.JIRA_TOKEN }}
+        run: |
+          source scripts/jira.sh
