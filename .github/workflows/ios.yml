@@ -7,10 +7,42 @@ jobs:
   build-macos:
       runs-on: macos
       steps: 
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-      - name: jira
-        env:
-          JIRA_TOKEN_ENV: ${{ secrets.JIRA_TOKEN }}
-        run: |
-          source scripts/jira.sh
+       - name: Checkout
+         uses: actions/checkout@v2
+         with:
+            repository: "WW-Digital/kurbo-ios"
+            ref: develop
+            ssh-key: ${{ secrets.ssh_ww }}
+
+       - name: Unit test
+         run: |
+          bundle install
+          bundle exec fastlane test
+       
+       - name: Dev build
+         run: |
+          bundle install
+          bundle exec fastlane dev
+      
+       - name: Beta build
+         run: |
+          bundle install
+          bundle exec fastlane beta
+       
+       - name: Prod build
+         run: |
+          bundle install
+          bundle exec fastlane prod
+          
+       - name: Prod build
+         run: |
+          bundle install
+          bundle exec fastlane prod
+          
+       - name: Upload a Build Artifact
+         uses: actions/upload-artifact@v2
+         with:
+          name: "scan"
+          path: output/scan/**/*
+          
+        
