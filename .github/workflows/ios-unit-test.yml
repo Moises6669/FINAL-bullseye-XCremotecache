@@ -1,0 +1,26 @@
+name: ios-unit-test
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: "WW-Digital/kurbo-ios"
+          ref: develop
+          ssh-key: ${{ secrets.ssh_ww }}
+      
+      - name : Unit tests
+        run: |
+          bundle install
+          bundle exec fastlane test 
+      
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: "scan"
+          path: output/scan/**/*

@@ -1,0 +1,26 @@
+name: ios-appstore-build
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  build-macos:
+    runs-on: macos
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: "WW-Digital/kurbo-ios"
+          ref: develop
+          ssh-key: ${{ secrets.ssh_ww }}
+      
+      - name : Dev build
+        run: |
+          bundle install
+          bundle exec appstore
+      
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: "scan"
+          path: output/scan/**/*
