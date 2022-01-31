@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "WW-Digital/kurbo-ios"
-          ref: develop
+          ref: aylwing/task/FNDM-2349
           ssh-key: ${{ secrets.ssh_ww }}
       
       - name : Unit tests
