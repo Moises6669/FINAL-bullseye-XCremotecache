@@ -17,7 +17,7 @@ jobs:
       - name : Unit tests
         run: |
           bundle install
-          bundle exec fastlane test 
+          bundle exec fastlane test
       
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
