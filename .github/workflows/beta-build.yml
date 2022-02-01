@@ -1,5 +1,6 @@
 name: ios-beta-build
 on:
+  workflow_dispatch:
   push:
     branches:
       - "beta"
@@ -18,7 +19,12 @@ jobs:
         run: |
           bundle install
           bundle exec fastlane beta
-      
+        env: 
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FIREBASEAPPDISTRO_APP: "1:304579675699:ios:8665fc7079fd3e34d24546"
+          FIREBASEAPPDISTRO_IPA_PATH: "output/gym/Kurbo Dev.ipa"
+          FIREBASEAPPDISTRO_GROUPS: "development"
+          
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
         with:
