@@ -21,9 +21,9 @@ jobs:
           bundle exec fastlane beta
         env: 
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          FIREBASEAPPDISTRO_APP: "1:304579675699:ios:8665fc7079fd3e34d24546"
-          FIREBASEAPPDISTRO_IPA_PATH: "output/gym/Kurbo Dev.ipa"
-          FIREBASEAPPDISTRO_GROUPS: "development"
+          FIREBASEAPPDISTRO_APP: "1:304579675699:ios:7d51be5a314c70fed24546"
+          FIREBASEAPPDISTRO_IPA_PATH: "output/gym/Kurbo Beta.ipa"
+          FIREBASEAPPDISTRO_GROUPS: "beta"
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
