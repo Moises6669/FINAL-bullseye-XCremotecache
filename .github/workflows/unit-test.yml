@@ -1,4 +1,4 @@
-name: ios-unit-tes
+name: ios-unit-test
 on:
   pull_request:
   workflow_dispatch:
