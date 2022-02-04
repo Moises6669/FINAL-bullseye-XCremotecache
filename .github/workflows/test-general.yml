@@ -10,7 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: tests
-        run: echo $PATH
+        run: |
+          ruby -v
+          rvm list
+          rvm use 3
 #         with:
 #            repository: "WW-Digital/WWKraken"
 #            ref: develop
