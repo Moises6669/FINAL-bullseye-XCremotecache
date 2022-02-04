@@ -9,66 +9,68 @@ jobs:
       steps: 
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-           repository: "WW-Digital/WWKraken"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
+      - name: tests
+        run: echo $PATH
+#         with:
+#            repository: "WW-Digital/WWKraken"
+#            ref: develop
+#            ssh-key: ${{ secrets.ssh_ww }}
            
-      - name: Install dependencies in Gemfile
-        run: bundle install
+#       - name: Install dependencies in Gemfile
+#         run: bundle install
 
-      - name: Set up ENV variables and .env file for cocoapods-keys
-        run: |
-          git clone git@github.com:WW-Digital/ios-common-config.git
-          touch .bash_env
-          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
-          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
-        env:
-          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+#       - name: Set up ENV variables and .env file for cocoapods-keys
+#         run: |
+#           git clone git@github.com:WW-Digital/ios-common-config.git
+#           touch .bash_env
+#           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+#           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+#         env:
+#           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+#           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+#           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 
-      - name: Install dependencies in Podfile
-        run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
-          bundle exec pod update
+#       - name: Install dependencies in Podfile
+#         run: |
+#           source "$GITHUB_WORKSPACE/.bash_env"
+#           bundle exec pod update
       
-      - name: Build macOS target
-        run: bundle exec fastlane mac build_mac_ci skip_notarization:true
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+#       - name: Build macOS target
+#         run: bundle exec fastlane mac build_mac_ci skip_notarization:true
+#         env:
+#           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
   
-  build-ios:
-      runs-on: macos 
-      steps: 
-       - name: Checkout
-         uses: actions/checkout@v2
-         with:
-           repository: "WW-Digital/WWKraken"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
+#   build-ios:
+#       runs-on: macos 
+#       steps: 
+#        - name: Checkout
+#          uses: actions/checkout@v2
+#          with:
+#            repository: "WW-Digital/WWKraken"
+#            ref: develop
+#            ssh-key: ${{ secrets.ssh_ww }}
 
-       - name: Install dependencies in Gemfile
-         run: bundle install
+#        - name: Install dependencies in Gemfile
+#          run: bundle install
 
-       - name: Set up ENV variables and .env file for cocoapods-keys
-         run: |
-            git clone git@github.com:WW-Digital/ios-common-config.git
-            touch .bash_env
-            export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
-            bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
-         env:
-            TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-            TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-            TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+#        - name: Set up ENV variables and .env file for cocoapods-keys
+#          run: |
+#             git clone git@github.com:WW-Digital/ios-common-config.git
+#             touch .bash_env
+#             export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+#             bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+#          env:
+#             TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+#             TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+#             TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 
-       - name: Install dependencies in Podfile
-         run: |
-            source "$GITHUB_WORKSPACE/.bash_env"
-            bundle exec pod update
+#        - name: Install dependencies in Podfile
+#          run: |
+#             source "$GITHUB_WORKSPACE/.bash_env"
+#             bundle exec pod update
        
-       - name: Build iOS target
-         run: bundle exec fastlane ios build_ios_ci
-         env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+#        - name: Build iOS target
+#          run: bundle exec fastlane ios build_ios_ci
+#          env:
+#           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           
