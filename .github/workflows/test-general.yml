@@ -13,7 +13,7 @@ jobs:
         run: |
           ruby -v
           rvm list
-          rvm use 3
+          rvm use 3.0.0
           ruby -v
 #         with:
 #            repository: "WW-Digital/WWKraken"
