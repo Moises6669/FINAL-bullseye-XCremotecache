@@ -12,8 +12,8 @@ jobs:
       - name: tests
         run: |
           ruby -v
-          rvm list
-          rvm use 3.0.0
+          chruby
+          chruby ruby-3
           ruby -v
 #         with:
 #            repository: "WW-Digital/WWKraken"
