@@ -10,6 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: tests
+        shell: zsh
         run: |
           ruby -v
           chruby
