@@ -10,8 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: tests
-        shell: sh
         run: |
+          source ~/.zshrc
           ruby -v
           chruby
           chruby ruby-3
