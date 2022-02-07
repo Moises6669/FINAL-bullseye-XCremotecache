@@ -15,7 +15,7 @@ on:
 
 jobs:
   unit-test:
-    if: github.event.inputs.input1 == 'true' | github.event_name == 'schedule'
+    if: github.event.inputs.input1 == 'true' || github.event_name == 'schedule'
     runs-on: macos
     steps:
     - name: checkout
