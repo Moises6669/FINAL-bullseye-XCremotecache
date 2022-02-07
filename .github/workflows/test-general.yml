@@ -1,4 +1,4 @@
-name: ios2
+name: ios
 on:
   pull_request:
   workflow_dispatch:
