@@ -10,11 +10,12 @@ on:
       #   description: 'test2'
       #   type: boolean
       #   required: 'true'
-#   schedule: '5  * * *'
+  schedule:
+    - cron: '5 * * * *'
 
 jobs:
   unit-test:
-    if: github.event.inputs.input1 == 'true'
+    if: github.event.inputs.input1 == 'true' | github.event_name == 'schedule'
     runs-on: macos
     steps:
     - name: checkout
