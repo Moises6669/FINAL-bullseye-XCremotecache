@@ -1,4 +1,4 @@
-name: file-test
+name: file-tes
 on: 
   workflow_dispatch:
     inputs:
