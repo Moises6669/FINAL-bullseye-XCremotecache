@@ -1,34 +1,12 @@
 name: file-tes
 on: 
   workflow_dispatch:
-    inputs:
-      input1:
-        description: 'test1'
-        type: boolean
-        required: true
-      input2:
-        description: 'test2'
-        type: boolean
-        required: true
-        default: 'true'
-  schedule:
-    - cron: '*/10 * * * *'
 
 jobs:
   unit-test:
-    if: github.event.inputs.input1 == 'true'
     runs-on: macos
     steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: test
       run: echo 'from input1'
-  
-  ui-test:
-    if: github.event.inputs.input2 == 'true' || github.event_name == 'schedule'
-    runs-on: macos
-    steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: test2
-      run: echo 'from shedule'
