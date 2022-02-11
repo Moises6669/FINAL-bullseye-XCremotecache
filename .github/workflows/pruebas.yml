@@ -1,9 +1,15 @@
 name: file-tes
 on: 
   workflow_dispatch:
+   inputs:
+      input1:
+        description: 'test1'
+        type: boolean
+        required: true
 
 jobs:
   unit-test:
+    if: github.event.inputs.input1 == 'true'
     runs-on: macos
     steps:
     - name: checkout
