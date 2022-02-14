@@ -7,7 +7,16 @@ on:
         type: boolean
         required: false
         default: "true"
-
+      kobiton:
+        description: Create a build and launch to kobiton platform
+        type: boolean
+        required: false
+        default: "false"
+      testlab:
+        description: Create a build and launch to fireabse testlab platform
+        type: boolean
+        required: false
+        default: "false"
 jobs:
   unit-test:
     if: github.event.inputs.simulator == 'true'
@@ -17,3 +26,19 @@ jobs:
       uses: actions/checkout@v2
     - name: test
       run: echo 'from input1'
+  unit-test2:
+    if: github.event.inputs.kobiton == 'true'
+    runs-on: macos
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: test
+      run: echo 'from input2'
+  unit-test3:
+    if: github.event.inputs.testlab == 'true'
+    runs-on: macos
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: test
+      run: echo 'from input3'
