@@ -2,14 +2,15 @@ name: file-tes
 on: 
   workflow_dispatch:
    inputs:
-      input1:
-        description: 'test1'
+      simulator:
+        description: Create a build and run ui test in simulator
         type: boolean
-        required: true
+        required: false
+        default: "true"
 
 jobs:
   unit-test:
-    if: github.event.inputs.input1 == 'true'
+    if: github.event.inputs.simulator == 'true'
     runs-on: macos
     steps:
     - name: checkout
