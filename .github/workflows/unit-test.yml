@@ -9,19 +9,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          repository: "WW-Digital/kurbo-ios"
-          ref: aylwing/task/FNDM-2349
-          ssh-key: ${{ secrets.ssh_ww }}
+      - name: Scripts
+        run: echo hello
+#         with:
+#           repository: "WW-Digital/kurbo-ios"
+#           ref: aylwing/task/FNDM-2349
+#           ssh-key: ${{ secrets.ssh_ww }}
       
-      - name : Unit tests
-        run: |
-          bundle install
-          bundle exec fastlane test
+#       - name : Unit tests
+#         run: |
+#           bundle install
+#           bundle exec fastlane test
       
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: "scan"
-          path: output/scan/**/*
+#       - name: Upload a Build Artifact
+#         uses: actions/upload-artifact@v2
+#         if: always()
+#         with:
+#           name: "scan"
+#           path: output/scan/**/*
