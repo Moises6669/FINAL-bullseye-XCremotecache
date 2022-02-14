@@ -1,4 +1,4 @@
-name: ios-appstore-buil
+name: ios-appstore-build
 on:
   push:
     branches:
