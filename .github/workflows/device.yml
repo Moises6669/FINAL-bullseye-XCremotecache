@@ -1,18 +1,16 @@
 name: Fastlane passthrough
 
-run:
+on:
   workflow_dispatch:
 
 jobs:
-  runs-on: 'macos'
+ super:
+  runs-on: macos
   steps:
     - name: Checout
       uses: actions/checkout@v2.4.0
 
     - name: Execute fastlane command
-      run: |
-        source scripts/fetch_keys.sh
-        bundle install
-        set -o pipefail && bundle exec fastlane $FASTLANE_NAME | tee fastlane.log
+      run: echo 'hello from github'
       env:
         RUN_STEP: ${{ github.actions.RUN_STEP }}
