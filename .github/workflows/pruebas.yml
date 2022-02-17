@@ -24,7 +24,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: test
+    - name: test1
       run: echo 'from input1'
   unit-test2:
     if: github.event.inputs.kobiton == 'true'
@@ -32,7 +32,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: test
+    - name: test2
       run: echo 'from input2'
   unit-test3:
     if: github.event.inputs.testlab == 'true'
@@ -40,5 +40,5 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: test
+    - name: test3
       run: echo 'from input3'
