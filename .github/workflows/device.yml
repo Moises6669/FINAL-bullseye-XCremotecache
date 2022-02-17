@@ -12,5 +12,4 @@ jobs:
 
     - name: Execute fastlane command
       run: echo 'hello from github'
-      env:
-        RUN_STEP: ${{ github.actions.RUN_STEP }}
+     
