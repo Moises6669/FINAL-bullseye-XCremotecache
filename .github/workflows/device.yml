@@ -2,13 +2,19 @@ name: Fastlane passthrough
 
 on:
   workflow_dispatch:
-
+    inputs:
+      pruebas:
+        required: true
+  
 jobs:
  super:
   runs-on: macos
   steps:
     - name: Checout
       uses: actions/checkout@v2.4.0
-      if: ${{ env.PRUEBA == 'hello'}}
+      
     - name: Execute fastlane command
-      run: echo 'hello from github'
+      env: 
+        PRUEBA: ${{ github.event.inputs.prueba }}
+      run: echo '${PRUEBA} hello from github'
+        
