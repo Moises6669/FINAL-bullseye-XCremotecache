@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       pruebas:
+        type: string
         required: true
   
 jobs:
