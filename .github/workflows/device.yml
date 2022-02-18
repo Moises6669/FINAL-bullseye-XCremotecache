@@ -9,7 +9,6 @@ jobs:
   steps:
     - name: Checout
       uses: actions/checkout@v2.4.0
-
+      if: ${{ env.PRUEBA == 'hello'}}
     - name: Execute fastlane command
       run: echo 'hello from github'
-     
