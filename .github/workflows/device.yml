@@ -1,4 +1,4 @@
-name: Fastlane passthrough
+name: Device
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
     - name: Execute fastlane command
       run: echo $PRUEBA
       env: 
-        PRUEBA: ${{ github.event.inputs.prueba }}
+        PRUEBA: ${{ github.event.inputs.pruebas }}
    
     - name: test conditional
       if: ${{ env.PRUEBA == 'hello' }}
