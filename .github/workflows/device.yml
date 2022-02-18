@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2.4.0
       
     - name: Execute fastlane command
+      run: echo $PRUEBA
       env: 
         PRUEBA: ${{ github.event.inputs.prueba }}
-      run: echo $PRUEBA
         
