@@ -16,5 +16,5 @@ jobs:
     - name: Execute fastlane command
       env: 
         PRUEBA: ${{ github.event.inputs.prueba }}
-      run: echo '${PRUEBA} hello from github'
+      run: echo ${PRUEBA}
         
