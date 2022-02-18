@@ -18,4 +18,8 @@ jobs:
       run: echo $PRUEBA
       env: 
         PRUEBA: ${{ github.event.inputs.prueba }}
+   
+    - name: test conditional
+      if: ${{ env.PRUEBA == 'hello' }}
+      run: echo 'pass condition'
         
