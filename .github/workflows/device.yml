@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       pruebas:
+        description: 'random input'
         type: string
         required: true
   
