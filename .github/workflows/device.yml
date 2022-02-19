@@ -31,3 +31,5 @@ jobs:
         echo "FASTLANE_NAME=${{ github.event.inputs.fastlane_name }}" >> $GITHUB_ENV
         echo "DEVICE_NAME=${{ github.event.inputs.device_name }}" >> $GITHUB_ENV
         echo "DEVICE_UDID=${{ github.event.inputs.device_udid }}" >> $GITHUB_ENV
+    - name: secod env
+      run: echo "${{ env.SLACK_USER_ID }}"
