@@ -30,6 +30,6 @@ jobs:
       
     - name: Execute fastlane command
       run: echo "PRUEBA=${{ github.event.inputs.device_udid }}" >> $GITHUB_ENV
-      env: 
-        PRUEBA: ${{ env.PRUEBA }}
-        
+    
+    - name: Second env
+      run: echo ${{ env.PRUEBA }}
