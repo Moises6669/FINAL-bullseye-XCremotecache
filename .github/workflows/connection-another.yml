@@ -1,0 +1,13 @@
+name: 'Test'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  prueba-envs:
+    runs-on: macos
+    steps:
+      - name: Checout
+        uses: actions/checkout@v2.4.0
+      - name: test
+        run: echo "${{ env.SLACK_USER_ID }}"
