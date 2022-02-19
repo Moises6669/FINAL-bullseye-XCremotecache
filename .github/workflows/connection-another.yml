@@ -10,4 +10,6 @@ jobs:
       - name: Checout
         uses: actions/checkout@v2.4.0
       - name: test
-        run: echo "${{ env.SLACK_USER_ID }}"
+        run: |
+          echo "$GITHUB_ENV"
+          echo "${{ env.SLACK_USER_ID }}"
