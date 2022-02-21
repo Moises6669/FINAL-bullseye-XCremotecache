@@ -12,4 +12,5 @@ jobs:
       - name: test
         run: |
           echo "$GITHUB_ENV"
+          echo $SLACK_USER_ID
           echo "${{ env.SLACK_USER_ID }}"
