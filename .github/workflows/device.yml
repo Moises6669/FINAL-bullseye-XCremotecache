@@ -25,6 +25,9 @@ jobs:
  super:
   runs-on: macos
   steps:
+    - name: Checout
+      uses: actions/checkout@v2.4.0
+      
     - name: Execute fastlane command
       run: |
         echo "SLACK_USER_ID=${{ github.event.inputs.slack_user_id }}" >> $GITHUB_ENV
