@@ -7,6 +7,9 @@ jobs:
   prueba-envs:
     runs-on: macos
     steps:
+      - name: envs
+        run: echo "SLACK_USER_ID=${{ github.event.inputs.slack_user_id }}" >> $GITHUB_ENV
+        
       - name: Checout
         uses: actions/checkout@v2.4.0
       - uses: ./.github/workflows/device.yml
@@ -16,3 +19,4 @@ jobs:
           echo $GITHUB_ENV.SLACK_USER_ID
           echo $SLACK_USER_ID
           echo "${{ env.SLACK_USER_ID }}"
+  
