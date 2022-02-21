@@ -1,24 +1,24 @@
 name: Device
 
 on:
-  workflow_dispatch:
-    inputs:
-      slack_user_id:
-        description: 'random input 1'
-        type: string
-        required: true
-      fastlane_name:
-        description: 'random input 2'
-        type: string
-        required: true
-      device_name:
-        description: 'random input 3'
-        type: string
-        required: true
-      device_udid:
-        description: 'random input 4'
-        type: string
-        required: true
+  workflow_call:
+    # inputs:
+    #   slack_user_id:
+    #     description: 'random input 1'
+    #     type: string
+    #     required: true
+    #   fastlane_name:
+    #     description: 'random input 2'
+    #     type: string
+    #     required: true
+    #   device_name:
+    #     description: 'random input 3'
+    #     type: string
+    #     required: true
+    #   device_udid:
+    #     description: 'random input 4'
+    #     type: string
+    #     required: true
         
   
 jobs:
