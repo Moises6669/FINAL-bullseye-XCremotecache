@@ -34,10 +34,12 @@ jobs:
     - name: secod env
       run: echo "${{ env.SLACK_USER_ID }}"
       env: 
-        SLACK_USER_ID: ${{ env.SLACK_USER_ID }}
+        SLACK_USER_ID1: ${{ env.SLACK_USER_ID }}
     
     - name: print env
-      run: $SLACK_USER_ID
+      run: |
+        echo ${{ env.SLACK_USER_ID1 }}
+        $SLACK_USER_ID1
       
  super-tow:
   runs-on: macos
