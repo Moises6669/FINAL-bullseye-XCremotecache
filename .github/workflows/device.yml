@@ -35,6 +35,9 @@ jobs:
       run: echo "${{ env.SLACK_USER_ID }}"
       env: 
         SLACK_USER_ID: ${{ env.SLACK_USER_ID }}
+    
+    - name: print env
+      run: $SLACK_USER_ID
       
  super-tow:
   runs-on: macos
