@@ -34,9 +34,8 @@ jobs:
     - name: secod env
       run: echo "${{ env.SLACK_USER_ID }}"
       
- super2:
+ super-tow:
   runs-on: macos
-  steps:
-    - name: Execute fastlane command from jobs2      
+  steps:     
     - name: three env
       run: echo "${{ env.SLACK_USER_ID }}"
