@@ -33,3 +33,10 @@ jobs:
         echo "DEVICE_UDID=${{ github.event.inputs.device_udid }}" >> $GITHUB_ENV
     - name: secod env
       run: echo "${{ env.SLACK_USER_ID }}"
+      
+ super2:
+    runs-on: self-hosted
+    steps:
+      - name: Execute fastlane command from jobs2      
+      - name: three env
+        run: echo "${{ env.SLACK_USER_ID }}"
