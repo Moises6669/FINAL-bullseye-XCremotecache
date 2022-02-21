@@ -38,7 +38,7 @@ jobs:
     
     - name: print env
       run: |
-        echo ${{ env.SLACK_USER_ID1 }}
+        echo "from env: " ${{ env.SLACK_USER_ID1 }}
         $SLACK_USER_ID1
       
  super-tow:
@@ -47,4 +47,4 @@ jobs:
     - name: three env
       run: |
         echo $SLACK_USER_ID
-        echo "${{ env.SLACK_USER_ID }}"
+        echo "${{ env.SLACK_USER_ID1 }}"
