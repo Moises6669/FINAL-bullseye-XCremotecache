@@ -33,9 +33,13 @@ jobs:
         echo "DEVICE_UDID=${{ github.event.inputs.device_udid }}" >> $GITHUB_ENV
     - name: secod env
       run: echo "${{ env.SLACK_USER_ID }}"
+      env: 
+        SLACK_USER_ID: ${{ env.SLACK_USER_ID }}
       
  super-tow:
   runs-on: macos
   steps:     
     - name: three env
-      run: echo "${{ env.SLACK_USER_ID }}"
+      run: |
+        echo $SLACK_USER_ID
+        echo "${{ env.SLACK_USER_ID }}"
