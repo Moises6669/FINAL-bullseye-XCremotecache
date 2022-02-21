@@ -7,9 +7,9 @@ jobs:
   prueba-envs:
     runs-on: macos
     steps:
-      - uses: ./.github/workflows/device.yml
       - name: Checout
         uses: actions/checkout@v2.4.0
+      - uses: ./.github/workflows/device.yml
       - name: test
         run: |
           echo "$GITHUB_ENV"
