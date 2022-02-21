@@ -23,7 +23,7 @@ on:
   
 jobs:
  super:
-  runs-on: self-hosted
+  runs-on: macos
   steps:
     - name: Execute fastlane command
       run: |
@@ -35,7 +35,7 @@ jobs:
       run: echo "${{ env.SLACK_USER_ID }}"
       
  super2:
-  runs-on: self-hosted
+  runs-on: macos
   steps:
     - name: Execute fastlane command from jobs2      
     - name: three env
