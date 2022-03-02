@@ -38,7 +38,7 @@ jobs:
         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
       
       - name: Test Env
-        run: "${{env.DEVICE_NAME}}"
+        run: "$DEVICE_NAME"
       
 #       - name: Set secrets for register_development_device register_adhoc_device
 #         if: contains(github.event.inputs.fastlane_name, 'register_')
