@@ -1,44 +1,37 @@
-name: file-tes
-on: 
+name: Fastlane passthrough
+
+on:
   workflow_dispatch:
-   inputs:
-      simulator:
-        description: Create a build and run ui test in simulator
-        type: boolean
+    inputs:
+      fastlane-name:
+        description: "Name of lane to run"
+        type: string
+        required: true
+      env:
+        description: "Environment variables required to run the lane"
+        type: string
         required: false
-        default: "true"
-      kobiton:
-        description: Create a build and launch to kobiton platform
-        type: boolean
-        required: false
-        default: "false"
-      testlab:
-        description: Create a build and launch to fireabse testlab platform
-        type: boolean
-        required: false
-        default: "false"
+
 jobs:
-  unit-test:
-    if: github.event.inputs.simulator == 'true'
+  fastlane-passthrough:
     runs-on: macos
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: test1
-      run: echo 'from input1'
-  unit-test2:
-    if: github.event.inputs.kobiton == 'true'
-    runs-on: macos
-    steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: test2
-      run: echo 'from input2'
-  unit-test3:
-    if: github.event.inputs.testlab == 'true'
-    runs-on: macos
-    steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: test3
-      run: echo 'from input3'
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Set environment variables
+        if: ${{ github.event.inputs.env }}
+        run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
+      
+#       - name: Set secrets for register_development_device register_adhoc_device
+#         if: contains(github.event.inputs.fastlane-name, 'register_')
+#         run: |
+#           echo 'APPSTORECONNECTAPI_KEYID=${{ secrets.APPSTORECONNECTAPI_KEYID }}
+#           APPSTORECONNECTAPI_ISSUERID=${{ secrets.APPSTORECONNECTAPI_ISSUERID }}
+#           APPSTORECONNECTAPI_KEYCONTENTS=${{ secrets.APPSTORECONNECTAPI_KEYCONTENTS }}
+#           MATCH_PASSWORD=${{ secrets.MATCH_PASSWORD }}
+#           FASTLANE_SESSION=${{ secrets.FASTLANE_SESSION }}' >> $GITHUB_ENV
+#       - name: Run lane
+#         run: |
+#           # source "$GITHUB_WORKSPACE/.bash_env"
+#           bundle exec fastlane ${{ github.event.inputs.fastlane-name }}
