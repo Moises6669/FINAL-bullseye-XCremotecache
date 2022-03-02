@@ -7,6 +7,10 @@ on:
         description: "Name of lane to run"
         type: string
         required: true
+      slack_user_id:
+        description: "User ID from Slack API"
+        type: string
+        required: false
       env:
         description: "Environment variables required to run the lane"
         type: string
@@ -16,8 +20,8 @@ jobs:
   fastlane-passthrough:
     runs-on: macos
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+#       - name: Checkout
+#         uses: actions/checkout@v2
 
 #       - name: Install dependencies in Gemfile
 #         run: bundle install
@@ -38,7 +42,7 @@ jobs:
         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
       
       - name: Test Env
-        run: "${{ env.DEVICE_NAME }}"
+        run: echo "${{ github.event.inputs.fastlane_name }}"
       
 #       - name: Set secrets for register_development_device register_adhoc_device
 #         if: contains(github.event.inputs.fastlane_name, 'register_')
