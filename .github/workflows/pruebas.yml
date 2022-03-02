@@ -18,13 +18,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
+#       - name: Install dependencies in Gemfile
+#         run: bundle install
+
+#       - name: Set up ENV variables and .env file for cocoapods-keys
+#         run: |
+#           git clone git@github.com:WW-Digital/ios-common-config.git
+#           touch .bash_env
+#           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+#           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+#         env:
+#           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+#           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+#           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+
       - name: Set environment variables
-        if: ${{ github.event.inputs.env }}
+#         if: ${{ github.event.inputs.env }}
         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
-      
+
 #       - name: Set secrets for register_development_device register_adhoc_device
-#         if: contains(github.event.inputs.fastlane-name, 'register_')
+#         if: contains(github.event.inputs.fastlane_name, 'register_')
 #         run: |
 #           echo 'APPSTORECONNECTAPI_KEYID=${{ secrets.APPSTORECONNECTAPI_KEYID }}
 #           APPSTORECONNECTAPI_ISSUERID=${{ secrets.APPSTORECONNECTAPI_ISSUERID }}
@@ -33,5 +47,36 @@ jobs:
 #           FASTLANE_SESSION=${{ secrets.FASTLANE_SESSION }}' >> $GITHUB_ENV
 #       - name: Run lane
 #         run: |
-#           # source "$GITHUB_WORKSPACE/.bash_env"
-#           bundle exec fastlane ${{ github.event.inputs.fastlane-name }}
+#           source "$GITHUB_WORKSPACE/.bash_env"
+#           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
+#       - name: Post notificion to slack
+#         uses: slackapi/slack-github-action@v1.18
+#         if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
+#         with:
+#           channel-id: ${{ github.event.inputs.slack_user_id }}
+#           payload: |
+#             {
+#               "attachments": [
+#                 {
+#                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+#                   "blocks": [
+#                     { "type": "header", "text": { "type": "plain_text", "text": "Test run has completed with status: ${{ job.status }}" } },
+#                     {
+#                       "type": "section",
+#                       "fields": [
+#                         { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+#                         { "type": "mrkdwn", "text": "*Lane name* \n${{ github.event.inputs.fastlane_name }}" }
+#                       ]
+#                     }
+#                   ],
+#                   "fallback": "Test run has completed with status: ${{ job.status }}"
+#                 }
+#               ]
+#             }
+#         env:
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+#       - name: Post job cleanup
+#         run: git clean -ffdxq
+#         if: always()
+#         continue-on-error: true
