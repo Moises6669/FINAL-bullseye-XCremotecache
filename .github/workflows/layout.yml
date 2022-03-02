@@ -1,0 +1,37 @@
+name: WW-Layout
+
+on: 
+  workflow-dispatch:
+
+jobs:
+  unit-test-4.0:
+    runs-on: macos
+    strategy:
+      matrix:
+         swift-version: ['4.2', '5.0', '5.1', '5.2']
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2  
+        # with: 
+        #   repository: "ww-tech/wwlayout"
+        #   ref: develop
+        #   ssh-key: ${{ secrets.ssh_ww }}
+      
+      # - name: Install dependencies in Gemfile
+      #   run: bundle install
+      
+      - name: Set Swift language version
+        run: echo "${{ matrix.swift-version }}" > scripts/.swift-version
+
+      # - name:  Unit Tests, using Swift 4.0
+      #   run: |
+      #     gem install fastlane 
+      #     fastlane scan \
+      #       --project "WWLayout.xcodeproj" \
+      #       --scheme "WWLayout" \
+      #       --device "iPhone SE" \
+      #       --xcargs "SWIFT_VERSION=4.0" \
+      #       --code_coverage \
+      #       --output_directory output/scan 
+      
+          
