@@ -1,10 +1,9 @@
 name: WW-Layout
 
 on: 
-  workflow-dispatch:
-
+ workflow_dispatch:
 jobs:
-  unit-test-4.0:
+  unit-test-4:
     runs-on: macos
     strategy:
       matrix:
