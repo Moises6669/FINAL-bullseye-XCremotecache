@@ -3,7 +3,7 @@ name: Fastlane passthrough
 on:
   workflow_dispatch:
     inputs:
-      fastlane-name:
+      fastlane_name:
         description: "Name of lane to run"
         type: string
         required: true
