@@ -11,37 +11,35 @@ jobs:
     env:
      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode-version }}.app
     steps:
-#       - name: checkout
-#         uses: actions/checkout@v2  
-#         # with: 
-        #   repository: "ww-tech/wwlayout"
-        #   ref: develop
-        #   ssh-key: ${{ secrets.ssh_ww }}
+      - name: checkout
+        uses: actions/checkout@v2  
+        with: 
+          repository: "ww-tech/wwlayout"
+          ref: develop
+          ssh-key: ${{ secrets.ssh_ww }}
       - name: Xcode version
         run: |
          xcodebuild -version
          DEVELOPER_DIR
-         
-         
-         
-#       - name: Install dependencies in Gemfile
-#         run: bundle install
+                 
+      - name: Install dependencies in Gemfile
+        run: bundle install
      
-#       - name:  Unit Tests, using Swift 4.0
-#         run: |
-#           bundle exec fastlane scan \
-#                         --device "iPhone SE" \
-#                         --xcargs "SWIFT_VERSION=4.0" \
-#                         --code_coverage \
-#                         --output_directory output/scan 
+      - name:  Unit Tests, using Swift 4.0
+        run: |
+          bundle exec fastlane scan \
+                        --device "iPhone SE" \
+                        --xcargs "SWIFT_VERSION=4.0" \
+                        --code_coverage \
+                        --output_directory output/scan 
       
-#       - name:  Unit Tests, using Swift 4.2
-#         run: |
-#           bundle exec fastlane scan \
-#                         --device "iPhone 8" \
-#                         --xcargs "SWIFT_VERSION=4.2" \
-#                         --code_coverage \
-#                         --output_directory output/scan
+      - name:  Unit Tests, using Swift 4.2
+        run: |
+          bundle exec fastlane scan \
+                        --device "iPhone 8" \
+                        --xcargs "SWIFT_VERSION=4.2" \
+                        --code_coverage \
+                        --output_directory output/scan
             
 #       - name:  Unit Tests, using Swift 5.0
 #         run: |
