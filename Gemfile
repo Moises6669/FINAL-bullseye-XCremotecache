@@ -7,3 +7,4 @@ source "https://rubygems.org"
 # gem "rails"
 gem 'cocoapods'
 gem 'cocoapods-xcremotecache'
+gem 'fastlane'
