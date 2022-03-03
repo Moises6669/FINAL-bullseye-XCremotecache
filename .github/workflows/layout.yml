@@ -18,67 +18,55 @@ jobs:
      
       - name:  Unit Tests, using Swift 4.0
         run: |
-          fastlane scan \
-            --project "WWLayout.xcodeproj" \
-            --scheme "WWLayout" \
-            --device "iPhone SE" \
-            --xcargs "SWIFT_VERSION=4.0" \
-            --code_coverage \
-            --output_directory output/scan 
+          bundle exec fastlane scan \
+                        --device "iPhone SE" \
+                        --xcargs "SWIFT_VERSION=4.0" \
+                        --code_coverage \
+                        --output_directory output/scan 
       
       - name:  Unit Tests, using Swift 4.2
         run: |
-          fastlane scan \
-            --project "WWLayout.xcodeproj" \
-            --scheme "WWLayout" \
-            --device "iPhone 8" \
-            --xcargs "SWIFT_VERSION=4.2" \
-            --code_coverage \
-            --output_directory output/scan
+          bundle exec fastlane scan \
+                        --device "iPhone 8" \
+                        --xcargs "SWIFT_VERSION=4.2" \
+                        --code_coverage \
+                        --output_directory output/scan
             
       - name:  Unit Tests, using Swift 5.0
         run: |
-          fastlane scan \
-            --project "WWLayout.xcodeproj" \
-            --scheme "WWLayout" \
-            --device "iPhone X" \
-            --xcargs "SWIFT_VERSION=5.0" \
-            --code_coverage \
-            --output_directory output/scan
+          bundle exec fastlane scan \
+                        --device "iPhone X" \
+                        --xcargs "SWIFT_VERSION=5.0" \
+                        --code_coverage \
+                        --output_directory output/scan
       
       - name:  Unit Tests, using Swift 5.1
         run: |
-          fastlane scan \
-            --project "WWLayout.xcodeproj" \
-            --scheme "WWLayout" \
-            --device ["iPhone 6", "iPhone 11"] \
-            --xcargs "SWIFT_VERSION=5.1" \
-            --code_coverage \
-            --output_directory output/scan
+          bundle exec fastlane scan \
+                        --device ["iPhone 6", "iPhone 11"] \
+                        --xcargs "SWIFT_VERSION=5.1" \
+                        --code_coverage \
+                        --output_directory output/scan
             
       - name:  Unit Tests, using Swift 5.2
         run: |
-          fastlane scan \
-            --project "WWLayout.xcodeproj" \
-            --scheme "WWLayout" \
-            --device ["iPhone 7", "iPhone XS"] \
-            --xcargs "SWIFT_VERSION=5.2" \
-            --code_coverage \
-            --output_directory output/scan 
+          bundle exec fastlane scan \
+                       --device ["iPhone 7", "iPhone XS"] \
+                       --xcargs "SWIFT_VERSION=5.2" \
+                       --code_coverage \
+                       --output_directory output/scan 
             
       - name:  Unit Tests, using Swift 5.3
         run: |
-          fastlane scan \
-            --project "WWLayout.xcodeproj" \
-            --scheme "WWLayout" \
-            --device ["iPhone 8", "iPhone SE"] \
-            --xcargs "SWIFT_VERSION=5.3" \
-            --code_coverage \
-            --output_directory output/scan
+          bundle exec fastlane scan \
+                        --device ["iPhone 8", "iPhone SE"] \
+                        --xcargs "SWIFT_VERSION=5.3" \
+                        --code_coverage \
+                        --output_directory output/scan
             
-      - name:  Build example (test spm)
-        run: |
-           xcodebuild build \
-              -project "WWLayoutExample/WWLayoutTV/WWLayoutTV.xcodeproj" \
-              -scheme "WWLayoutTV" \
-              -destination "platform=tvOS Simulator,name=Apple TV"
+#       - name:  Build example (test spm)
+#         run: |
+#            xcodebuild build \
+#               -project "WWLayoutExample/WWLayoutTV/WWLayoutTV.xcodeproj" \
+#               -scheme "WWLayoutTV" \
+#               -destination "platform=tvOS Simulator,name=Apple TV"
