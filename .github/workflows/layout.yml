@@ -6,7 +6,7 @@ jobs:
   unit-test-4:
     runs-on: macos-11
     env:
-     DEVELOPER_DIR: /Applications/Xcode_13.2.1.app
+     DEVELOPER_DIR: /Applications/Xcode_11.7.app
     steps:
 #       - name: checkout
 #         uses: actions/checkout@v2  
