@@ -19,11 +19,6 @@ jobs:
           ref: develop
           ssh-key: ${{ secrets.ssh_ww }}
           
-      - name: Xcode version
-        run: |
-         xcodebuild -version
-         DEVELOPER_DIR
-                 
       - name: Install dependencies in Gemfile
         run: gem install fastlane
       
