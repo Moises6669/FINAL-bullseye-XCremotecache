@@ -40,29 +40,29 @@ jobs:
                         --code_coverage \
                         --output_directory output/scan
       
-      - name:  Unit Tests, using Swift 5.1
-        run: |
-          bundle exec fastlane scan \
-                        --device ["iPhone 6", "iPhone 11"] \
-                        --xcargs "SWIFT_VERSION=5.1" \
-                        --code_coverage \
-                        --output_directory output/scan
+#       - name:  Unit Tests, using Swift 5.1
+#         run: |
+#           bundle exec fastlane scan \
+#                         --device ["iPhone 6", "iPhone 11"] \
+#                         --xcargs "SWIFT_VERSION=5.1" \
+#                         --code_coverage \
+#                         --output_directory output/scan
             
-      - name:  Unit Tests, using Swift 5.2
-        run: |
-          bundle exec fastlane scan \
-                       --device ["iPhone 7", "iPhone XS"] \
-                       --xcargs "SWIFT_VERSION=5.2" \
-                       --code_coverage \
-                       --output_directory output/scan 
+#       - name:  Unit Tests, using Swift 5.2
+#         run: |
+#           bundle exec fastlane scan \
+#                        --device ["iPhone 7", "iPhone XS"] \
+#                        --xcargs "SWIFT_VERSION=5.2" \
+#                        --code_coverage \
+#                        --output_directory output/scan 
             
-      - name:  Unit Tests, using Swift 5.3
-        run: |
-          bundle exec fastlane scan \
-                        --device ["iPhone 8", "iPhone SE"] \
-                        --xcargs "SWIFT_VERSION=5.3" \
-                        --code_coverage \
-                        --output_directory output/scan
+#       - name:  Unit Tests, using Swift 5.3
+#         run: |
+#           bundle exec fastlane scan \
+#                         --device ["iPhone 8", "iPhone SE"] \
+#                         --xcargs "SWIFT_VERSION=5.3" \
+#                         --code_coverage \
+#                         --output_directory output/scan
             
 #       - name:  Build example (test spm)
 #         run: |
