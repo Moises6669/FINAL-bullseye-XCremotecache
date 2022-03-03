@@ -10,6 +10,7 @@ jobs:
       xcode-version: [13.2, 12.5.1]
     env:
      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode-version }}.app
+     
     steps:
       - name: checkout
         uses: actions/checkout@v2  
@@ -17,14 +18,15 @@ jobs:
           repository: "ww-tech/wwlayout"
           ref: develop
           ssh-key: ${{ secrets.ssh_ww }}
+          
       - name: Xcode version
         run: |
          xcodebuild -version
          DEVELOPER_DIR
                  
       - name: Install dependencies in Gemfile
-        run: bundle install
-     
+        run: gem install fastlane
+      
       - name:  Unit Tests, using Swift 4.0
         run: |
           bundle exec fastlane scan \
