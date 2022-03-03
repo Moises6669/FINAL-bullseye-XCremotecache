@@ -5,8 +5,11 @@ on:
 jobs:
   unit-test-4:
     runs-on: macos-11
+    strategy:
+     matrix:
+      xcode-version: [13.2, 12.5.1]
     env:
-     DEVELOPER_DIR: /Applications/Xcode_11.7.app
+     DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode-version }}.app
     steps:
 #       - name: checkout
 #         uses: actions/checkout@v2  
@@ -78,11 +81,11 @@ jobs:
 #               -project "WWLayoutExample/WWLayoutTV/WWLayoutTV.xcodeproj" \
 #               -scheme "WWLayoutTV" \
 #               -destination "platform=tvOS Simulator,name=Apple TV"
-  test-self-hosted:
-     runs-on: macos
-     env:
-       DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
-     steps: 
-      - name: Another version
-        run: |
-         xcodebuild -version 
+#   test-self-hosted:
+#      runs-on: macos
+#      env:
+#        DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+#      steps: 
+#       - name: Another version
+#         run: |
+#          xcodebuild -version 
