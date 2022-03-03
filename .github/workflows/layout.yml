@@ -4,7 +4,7 @@ on:
  workflow_dispatch:
 jobs:
   unit-test-4:
-    runs-on: macos
+    runs-on: macos-11
     steps:
       - name: checkout
         uses: actions/checkout@v2  
@@ -12,7 +12,10 @@ jobs:
         #   repository: "ww-tech/wwlayout"
         #   ref: develop
         #   ssh-key: ${{ secrets.ssh_ww }}
-      
+      - name: Xcode version
+        run: |
+         xcodebuild -version
+         
       - name: Install dependencies in Gemfile
         run: bundle install
      
@@ -70,3 +73,9 @@ jobs:
 #               -project "WWLayoutExample/WWLayoutTV/WWLayoutTV.xcodeproj" \
 #               -scheme "WWLayoutTV" \
 #               -destination "platform=tvOS Simulator,name=Apple TV"
+  test-self-hosted:
+     runs-on: macos
+     steps: 
+      - name: Another version
+        run: |
+         xcodebuild -version 
