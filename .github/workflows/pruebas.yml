@@ -37,9 +37,9 @@ jobs:
 #           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
 
-#       - name: Set environment variables
-#         if: ${{ github.event.inputs.env }}
-#         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
+      - name: Set environment variables
+        if: ${{ github.event.inputs.env }}
+        run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
       
 #       - name: Test Env
 #         run: echo "${{ github.event.inputs.fastlane_name }}"
