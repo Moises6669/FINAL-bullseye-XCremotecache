@@ -67,7 +67,7 @@ jobs:
                 {
                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
                   "blocks": [
-                    { "type": "header", "text": { "type": "plain_text", "text": "Test run has completed with status: ${{ job.status }}" } },
+                    { "type": "header", "text": { "type": "plain_text", "text": "A new workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
                     {
                       "type": "section",
                       "fields": [
@@ -76,7 +76,7 @@ jobs:
                       ]
                     }
                   ],
-                  "fallback": "A new workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                  "fallback": "A new workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}"
                 }
               ]
             }
