@@ -12,7 +12,7 @@ on:
         type: string
         required: false
       env:
-        description:  "Environment variables required to run the lane,Sample: \n JSON formmat {\"DEVICE_NAME\":\"device\",\"DEVICE_UDID\":\"bd33e1110\"}"
+        description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"DEVICE_NAME\":\"device\",\"DEVICE_UDID\":\"bd33e1110\"}"
         type: string
         required: false
 
