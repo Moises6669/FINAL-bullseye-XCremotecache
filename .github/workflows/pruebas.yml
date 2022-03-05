@@ -3,18 +3,18 @@ name: Fastlane passthrough
 on:
   workflow_dispatch:
     inputs:
-      fastlane_name:
-        description: "Name of lane to run"
-        type: string
-        required: true
+#       fastlane_name:
+#         description: "Name of lane to run"
+#         type: string
+#         required: true
       slack_user_id:
         description: "User ID from Slack API"
         type: string
         required: false
-      env:
-        description: "Environment variables required to run the lane"
-        type: string
-        required: false
+#       env:
+#         description: "Environment variables required to run the lane"
+#         type: string
+#         required: false
 
 jobs:
   fastlane-passthrough:
@@ -37,12 +37,12 @@ jobs:
 #           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
 
-      - name: Set environment variables
-        if: ${{ github.event.inputs.env }}
-        run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
+#       - name: Set environment variables
+#         if: ${{ github.event.inputs.env }}
+#         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
       
-      - name: Test Env
-        run: echo "${{ github.event.inputs.fastlane_name }}"
+#       - name: Test Env
+#         run: echo "${{ github.event.inputs.fastlane_name }}"
       
 #       - name: Set secrets for register_development_device register_adhoc_device
 #         if: contains(github.event.inputs.fastlane_name, 'register_')
@@ -56,32 +56,32 @@ jobs:
 #         run: |
 #           source "$GITHUB_WORKSPACE/.bash_env"
 #           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
-#       - name: Post notificion to slack
-#         uses: slackapi/slack-github-action@v1.18
-#         if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
-#         with:
-#           channel-id: ${{ github.event.inputs.slack_user_id }}
-#           payload: |
-#             {
-#               "attachments": [
-#                 {
-#                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-#                   "blocks": [
-#                     { "type": "header", "text": { "type": "plain_text", "text": "Test run has completed with status: ${{ job.status }}" } },
-#                     {
-#                       "type": "section",
-#                       "fields": [
-#                         { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
-#                         { "type": "mrkdwn", "text": "*Lane name* \n${{ github.event.inputs.fastlane_name }}" }
-#                       ]
-#                     }
-#                   ],
-#                   "fallback": "Test run has completed with status: ${{ job.status }}"
-#                 }
-#               ]
-#             }
-#         env:
-#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Post notificion to slack
+        uses: slackapi/slack-github-action@v1.18
+        if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
+        with:
+          channel-id: ${{ github.event.inputs.slack_user_id }}
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+                  "blocks": [
+                    { "type": "header", "text": { "type": "plain_text", "text": "Test run has completed with status: ${{ job.status }}" } },
+                    {
+                      "type": "section",
+                      "fields": [
+                        { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+                        { "type": "mrkdwn", "text": "*Lane name* \n${{ github.event.inputs.fastlane_name }}" }
+                      ]
+                    }
+                  ],
+                  "fallback": "A new workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}"
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
 #       - name: Post job cleanup
 #         run: git clean -ffdxq
