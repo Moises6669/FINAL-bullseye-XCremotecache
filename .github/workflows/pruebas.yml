@@ -39,13 +39,10 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo .env
-          echo "$.env"
-          echo env
-          env
-          .env
-          echo adasdasdasdasdasdsadadasdasdsadasd
-          echo $github
+          echo "solo con punto " .env
+          echo "super: ", "$.env"
+          echo "solo env ",env
+  
 #         if: ${{ github.event.inputs.env }}
 #         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
       
