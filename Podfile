@@ -15,6 +15,7 @@ target 'BullsEye' do
   use_frameworks!
   pod 'FirebaseCore'
   pod 'BCryptSwift'
+  pod 'TestFairy'
   # Pods for BullsEye
 
   target 'BullsEyeSlowTests' do

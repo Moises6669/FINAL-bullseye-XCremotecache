@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		40595E5051F88E5307C8CE7F /* Pods_BullsEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D1A320AB3C2D79CAD1678A /* Pods_BullsEye.framework */; };
 		5394F02521864DF5006E754C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5394F02321864DF4006E754C /* LaunchScreen.storyboard */; };
 		689E13F2395DCC7DD6E2904C /* Pods_BullsEyeSlowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA0045722FCC746323EDA4 /* Pods_BullsEyeSlowTests.framework */; };
+		80B9C59427E520C000F3D4B1 /* TestFairy in Frameworks */ = {isa = PBXBuildFile; productRef = 80B9C59327E520C000F3D4B1 /* TestFairy */; };
+		80E3643827DCF1C800BF321E /* CatbirdAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 80E3643727DCF1C800BF321E /* CatbirdAPI */; };
 		94D8FD7B22149E0C002D9843 /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D8FD7A22149E0C002D9843 /* BullsEyeTests.swift */; };
 		94D8FDB52214ACA0002D9843 /* BullsEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D8FDB42214ACA0002D9843 /* BullsEyeUITests.swift */; };
 		B794E8C050F5895C23557FE1 /* Pods_BullsEye_BullsEyeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B3C8A3EF6A02D39668AC9D /* Pods_BullsEye_BullsEyeUITests.framework */; };
@@ -65,6 +67,7 @@
 		360E58FF9DA5A0E198159333 /* Pods-BullsEyeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BullsEyeTests.release.xcconfig"; path = "Target Support Files/Pods-BullsEyeTests/Pods-BullsEyeTests.release.xcconfig"; sourceTree = "<group>"; };
 		4AC055AFD18D661C83874EE1 /* Pods-BullsEye-BullsEyeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BullsEye-BullsEyeUITests.release.xcconfig"; path = "Target Support Files/Pods-BullsEye-BullsEyeUITests/Pods-BullsEye-BullsEyeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5394F02421864DF4006E754C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80B9C59527E5215C00F3D4B1 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		8B6CBABA19BBE5506CC49E74 /* Pods-BullsEyeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BullsEyeTests.debug.xcconfig"; path = "Target Support Files/Pods-BullsEyeTests/Pods-BullsEyeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		926102CE26340E6614D0E7D1 /* Pods-BullsEye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BullsEye.release.xcconfig"; path = "Target Support Files/Pods-BullsEye/Pods-BullsEye.release.xcconfig"; sourceTree = "<group>"; };
 		940EC38A31F6D9C395B9F560 /* Pods-BullsEyeSlowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BullsEyeSlowTests.debug.xcconfig"; path = "Target Support Files/Pods-BullsEyeSlowTests/Pods-BullsEyeSlowTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B794E8C050F5895C23557FE1 /* Pods_BullsEye_BullsEyeUITests.framework in Frameworks */,
+				80E3643827DCF1C800BF321E /* CatbirdAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B9C59427E520C000F3D4B1 /* TestFairy in Frameworks */,
 				40595E5051F88E5307C8CE7F /* Pods_BullsEye.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,7 +168,6 @@
 				8B6CBABA19BBE5506CC49E74 /* Pods-BullsEyeTests.debug.xcconfig */,
 				360E58FF9DA5A0E198159333 /* Pods-BullsEyeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -190,6 +194,7 @@
 		D2A5F1F71F4A9143005CD714 = {
 			isa = PBXGroup;
 			children = (
+				80B9C59527E5215C00F3D4B1 /* Bridging.h */,
 				D2A5F2021F4A9144005CD714 /* BullsEye */,
 				94D8FD7922149E0C002D9843 /* BullsEyeTests */,
 				20632CC225EAA22C00F45997 /* BullsEyeSlowTests */,
@@ -291,6 +296,9 @@
 				94D8FDB82214ACA0002D9843 /* PBXTargetDependency */,
 			);
 			name = BullsEyeUITests;
+			packageProductDependencies = (
+				80E3643727DCF1C800BF321E /* CatbirdAPI */,
+			);
 			productName = BullsEyeUITests;
 			productReference = 94D8FDB22214ACA0002D9843 /* BullsEyeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -313,6 +321,9 @@
 			dependencies = (
 			);
 			name = BullsEye;
+			packageProductDependencies = (
+				80B9C59327E520C000F3D4B1 /* TestFairy */,
+			);
 			productName = MyRWTutorial;
 			productReference = D2A5F2001F4A9144005CD714 /* BullsEye.app */;
 			productType = "com.apple.product-type.application";
@@ -356,6 +367,10 @@
 				Base,
 			);
 			mainGroup = D2A5F1F71F4A9143005CD714;
+			packageReferences = (
+				80E3643627DCF1C800BF321E /* XCRemoteSwiftPackageReference "catbird" */,
+				80B9C59227E520C000F3D4B1 /* XCRemoteSwiftPackageReference "testfairy-ios-sdk-swift-package" */,
+			);
 			productRefGroup = D2A5F2011F4A9144005CD714 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -412,7 +427,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
+				$SRCROOT/XCRC/xcpostbuild,
 			);
 			name = "[XCRC] Postbuild";
 			outputFileListPaths = (
@@ -434,7 +449,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
+				$SRCROOT/XCRC/xcpostbuild,
 			);
 			name = "[XCRC] Postbuild";
 			outputFileListPaths = (
@@ -474,7 +489,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
+				$SRCROOT/XCRC/xcprebuild,
 			);
 			name = "[XCRC] Prebuild";
 			outputFileListPaths = (
@@ -496,7 +511,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
+				$SRCROOT/XCRC/xcprebuild,
 			);
 			name = "[XCRC] Prebuild";
 			outputFileListPaths = (
@@ -570,25 +585,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BullsEye/Pods-BullsEye-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9CB0E53DC06A12C613A786A7 /* [XCRC] Mark */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$SRCROOT/XCRC/xcprepare",
-			);
-			name = "[XCRC] Mark";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\" mark --configuration $CONFIGURATION --platform $PLATFORM_NAME";
-		};
 		9F055A9A15D6E89630FFC485 /* [XCRC] Prebuild */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -598,7 +594,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
+				$SRCROOT/XCRC/xcprebuild,
 			);
 			name = "[XCRC] Prebuild";
 			outputFileListPaths = (
@@ -664,7 +660,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
+				$SRCROOT/XCRC/xcpostbuild,
 			);
 			name = "[XCRC] Postbuild";
 			outputFileListPaths = (
@@ -686,7 +682,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcpostbuild",
+				$SRCROOT/XCRC/xcpostbuild,
 			);
 			name = "[XCRC] Postbuild";
 			outputFileListPaths = (
@@ -708,7 +704,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$SRCROOT/XCRC/xcprebuild",
+				$SRCROOT/XCRC/xcprebuild,
 			);
 			name = "[XCRC] Prebuild";
 			outputFileListPaths = (
@@ -824,28 +820,28 @@
 			baseConfigurationReference = 940EC38A31F6D9C395B9F560 /* Pods-BullsEyeSlowTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyeSlowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -858,27 +854,27 @@
 			baseConfigurationReference = C184295679B30D86A1868FC0 /* Pods-BullsEyeSlowTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyeSlowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -891,28 +887,28 @@
 			baseConfigurationReference = 8B6CBABA19BBE5506CC49E74 /* Pods-BullsEyeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEyeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -925,27 +921,27 @@
 			baseConfigurationReference = 360E58FF9DA5A0E198159333 /* Pods-BullsEyeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59C8LJFM2Z;
 				INFOPLIST_FILE = BullsEyeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -957,29 +953,29 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05EEB7DDDD758A43AAEDFA74 /* Pods-BullsEye-BullsEyeUITests.debug.xcconfig */;
 			buildSettings = {
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEyeUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidpiper.BullsEyeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BullsEye;
@@ -991,28 +987,28 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AC055AFD18D661C83874EE1 /* Pods-BullsEye-BullsEyeUITests.release.xcconfig */;
 			buildSettings = {
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEyeUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidpiper.BullsEyeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BullsEye;
@@ -1076,6 +1072,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/moises/Downloads/BullsEye/final/BullsEye/Bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1129,6 +1126,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/moises/Downloads/BullsEye/final/BullsEye/Bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1139,25 +1137,28 @@
 			baseConfigurationReference = 27953B41B697AE2FAB9AD0DD /* Pods-BullsEye.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nixton Vallejos (6SAM282K27)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = K2Y8X7V4V5;
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.allwinsoftware.pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1170,25 +1171,28 @@
 			baseConfigurationReference = 926102CE26340E6614D0E7D1 /* Pods-BullsEye.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CC = "$SRCROOT/.rc/xccc";
+				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nixton Vallejos (6SAM282K27)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = K2Y8X7V4V5;
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = "$SRCROOT/XCRC/xcld";
+				LD = $SRCROOT/XCRC/xcld;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBTOOL = "$SRCROOT/XCRC/xclibtool";
+				LIBTOOL = $SRCROOT/XCRC/xclibtool;
 				OTHER_CFLAGS = (
 					"$(inherited)",
-					" -fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
+					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.allwinsoftware.pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$SRCROOT/XCRC/xcswiftc";
+				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
+				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				XCREMOTE_CACHE_FAKE_SRCROOT = /xxxxxxxxxx;
@@ -1244,6 +1248,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80B9C59227E520C000F3D4B1 /* XCRemoteSwiftPackageReference "testfairy-ios-sdk-swift-package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/testfairy/testfairy-ios-sdk-swift-package";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		80E3643627DCF1C800BF321E /* XCRemoteSwiftPackageReference "catbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RedMadRobot/catbird";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80B9C59327E520C000F3D4B1 /* TestFairy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80B9C59227E520C000F3D4B1 /* XCRemoteSwiftPackageReference "testfairy-ios-sdk-swift-package" */;
+			productName = TestFairy;
+		};
+		80E3643727DCF1C800BF321E /* CatbirdAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80E3643627DCF1C800BF321E /* XCRemoteSwiftPackageReference "catbird" */;
+			productName = CatbirdAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2A5F1F81F4A9143005CD714 /* Project object */;
 }
