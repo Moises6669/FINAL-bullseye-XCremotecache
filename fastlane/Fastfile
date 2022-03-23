@@ -16,9 +16,34 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
+  desc 'Description of what the lane does'
   lane :custom_lane do
-    puts "hello"
-    # add actions here: https://docs.fastlane.tools/actions
+    # UI.message 'Building IPA to /output folder...'
+    # # match(type:'adhoc')
+    gym(
+      scheme: 'BullsEye',
+      export_method: 'ad-hoc',
+      configuration: 'Debug',
+      silent: true,
+      suppress_xcode_output: false,
+      include_symbols: true,
+      include_bitcode: true,
+      export_options: {
+        uploadBitcode: false,
+        uploadSymbols: false,
+        compileBitcode: false,
+      }
+    )
+
+    UI.message 'Uploading IPA to Nightly Build on App Center...'
+    release_notes = '1231 12 uploaded via fastlane nightly_build '
+    
+    testfairy(
+      # api_key: 'SDK-avzjRt5C',
+      api_key: '8922ba0b5835dd56785d4a45aab3f87d7efa1d90',
+      upload_url: 'https://app.testfairy.com',
+      comment: release_notes,
+      auto_update: 'on'
+    )
   end
 end
