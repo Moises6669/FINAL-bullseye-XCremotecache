@@ -5,7 +5,7 @@ on:
 
 jobs:
   testfairy-upload:
-    runs-on: macOS
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
