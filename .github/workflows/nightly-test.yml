@@ -1,0 +1,21 @@
+name: TestFairy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  testfairy-upload:
+    runs-on: macos
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Dev build
+        run: |
+          bundle install
+          bundle exec pod update
+      
+      - name: Updload IPA to TestFairy
+        run: bundle exec fastlane custom_lane
+        env:
+          TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
