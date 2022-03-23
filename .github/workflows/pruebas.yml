@@ -38,14 +38,7 @@ jobs:
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
 
       - name: Set environment variables
-        run: |
-          echo "solo con punto " .env
-          echo "super: ", "$.env"
-          echo "solo env ",env
-  
-#         if: ${{ github.event.inputs.env }}
-#         run: echo '${{ github.event.inputs.env }}' | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
-      
+        run: env
 #       - name: Test Env
 #         run: echo "${{ github.event.inputs.fastlane_name }}"
       
