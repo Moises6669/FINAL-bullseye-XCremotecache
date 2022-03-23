@@ -19,7 +19,11 @@ platform :ios do
   desc 'Description of what the lane does'
   lane :custom_lane do
     # UI.message 'Building IPA to /output folder...'
+    
     # # match(type:'adhoc')
+    
+    UI.message 'gym'
+    
     gym(
       scheme: 'BullsEye',
       export_method: 'ad-hoc',
