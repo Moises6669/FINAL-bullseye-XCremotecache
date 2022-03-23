@@ -39,7 +39,7 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo $GITHUB_ENV
+          echo env
           echo adasdasdasdasdasdsadadasdasdsadasd
           echo $github
 #         if: ${{ github.event.inputs.env }}
