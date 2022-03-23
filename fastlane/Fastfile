@@ -39,8 +39,7 @@ platform :ios do
     release_notes = '1231 12 uploaded via fastlane nightly_build '
     
     testfairy(
-      # api_key: 'SDK-avzjRt5C',
-      api_key: '8922ba0b5835dd56785d4a45aab3f87d7efa1d90',
+      api_key: ENV['TESTFAIRY_API_KEY'],
       upload_url: 'https://app.testfairy.com',
       comment: release_notes,
       auto_update: 'on'
