@@ -1139,7 +1139,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nixton Vallejos (6SAM282K27)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nixton Vallejos (K2Y8X7V4V5)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K2Y8X7V4V5;
 				INFOPLIST_FILE = BullsEye/Info.plist;
@@ -1157,7 +1157,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allwinsoftware.pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
+				PROVISIONING_PROFILE_SPECIFIER = moises;
 				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1173,7 +1173,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CC = $SRCROOT/.rc/xccc;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nixton Vallejos (6SAM282K27)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nixton Vallejos (K2Y8X7V4V5)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K2Y8X7V4V5;
 				INFOPLIST_FILE = BullsEye/Info.plist;
@@ -1191,7 +1191,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allwinsoftware.pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
+				PROVISIONING_PROFILE_SPECIFIER = moises;
 				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
