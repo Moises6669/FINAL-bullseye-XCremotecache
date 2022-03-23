@@ -44,7 +44,7 @@ class ViewController: UIViewController {
 
   let game = BullsEyeGame()
   enum GameStyle: Int { case moveSlider, guessPosition }
-  let gameStyleRange = 0..<2
+  let gameStyleRange = 0..<0
   var gameStyle = GameStyle.guessPosition
 
   override func viewDidLoad() {

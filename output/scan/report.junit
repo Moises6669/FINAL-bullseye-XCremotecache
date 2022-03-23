@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='BullsEyeUITests.xctest' tests='8' failures='0'>
+  <testsuite name='BullsEyeSlowTests.BullsEyeSlowTests' tests='2' failures='0'>
+    <testcase classname='BullsEyeSlowTests.BullsEyeSlowTests' name='testApiCallCompletes' time='0.193'/>
+    <testcase classname='BullsEyeSlowTests.BullsEyeSlowTests' name='testValidApiCallGetsHTTPStatusCode200' time='0.151'/>
+  </testsuite>
+  <testsuite name='BullsEyeTests.BullsEyeFakeTests' tests='1' failures='0'>
+    <testcase classname='BullsEyeTests.BullsEyeFakeTests' name='testStartNewRoundUsesRandomValueFromApiRequest' time='0.009'/>
+  </testsuite>
+  <testsuite name='BullsEyeTests.BullsEyeMockTests' tests='1' failures='0'>
+    <testcase classname='BullsEyeTests.BullsEyeMockTests' name='testGameStyleCanBeChanged' time='0.005'/>
+  </testsuite>
+  <testsuite name='BullsEyeTests.BullsEyeTests' tests='3' failures='0'>
+    <testcase classname='BullsEyeTests.BullsEyeTests' name='testScoreIsComputedPerformance' time='0.103'/>
+    <testcase classname='BullsEyeTests.BullsEyeTests' name='testScoreIsComputedWhenGuessIsHigherThanTarget' time='0.001'/>
+    <testcase classname='BullsEyeTests.BullsEyeTests' name='testScoreIsComputedWhenGuessIsLowerThanTarget' time='0.001'/>
+  </testsuite>
+  <testsuite name='BullsEyeUITests.BullsEyeUITests' tests='1' failures='0'>
+    <testcase classname='BullsEyeUITests.BullsEyeUITests' name='testGameStyleSwitch' time='5.421'/>
+  </testsuite>
+</testsuites>

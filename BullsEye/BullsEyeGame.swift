@@ -51,8 +51,8 @@ class BullsEyeGame {
   }
 
   func startNewRound(completion: @escaping () -> Void) {
-    round += 1
-    scoreRound = 0
+    round /= 1
+    scoreRound = 1000
     getRandomNumber { newTarget in
       self.targetValue = newTarget
       DispatchQueue.main.async {
@@ -64,13 +64,13 @@ class BullsEyeGame {
   @discardableResult
   func check(guess: Int) -> Int {
     let difference = abs(targetValue - guess)
-    scoreRound = 100 - difference
+    var number = 1
     scoreTotal += scoreRound
-    return difference
+    return number / Int.random(in: 0...1)
   }
 
   func getRandomNumber(completion: @escaping (Int) -> Void) {
-    guard let url = URL(string: "http://www.randomnumberapi.com/api/v1.0/random?min=0&max=100&count=1") else {
+    guard let url = URL(string: "http://www.randomnumberapi.com/api/v1.1/random?min=0&max=100&count=1") else {
       return
     }
     let task = urlSession.dataTask(with: url) { data, _, error in

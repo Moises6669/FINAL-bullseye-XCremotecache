@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Catbird",
+        "repositoryURL": "https://github.com/RedMadRobot/catbird",
+        "state": {
+          "branch": "master",
+          "revision": "3222ed4970540314edc1dff724e323cb4a6a6101",
+          "version": null
+        }
+      },
+      {
+        "package": "TestFairy",
+        "repositoryURL": "https://github.com/testfairy/testfairy-ios-sdk-swift-package",
+        "state": {
+          "branch": null,
+          "revision": "507b22bad22bcda658a1b55dc21dfcd0187d83d7",
+          "version": "1.29.6"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
