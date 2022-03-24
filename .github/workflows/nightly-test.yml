@@ -13,13 +13,10 @@ jobs:
       - name: Dev build
         run: |
           bundle install
-          bundle exec pod update
-          touch .bash_env
-          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
-      
+          bundle exec pod install
+          
       - name: Updload IPA to TestFairy
         run: |
-          source "$GITHUB_WORKSPACE/.bash_env"
           bundle exec fastlane custom_lane
         env:
           TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
