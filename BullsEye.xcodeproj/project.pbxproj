@@ -1145,10 +1145,11 @@
 					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
+				PODS_XCFRAMEWORKS_BUILD_DIR = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allwinsoftware.pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = moises;
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
+				SWIFT_EXEC = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1179,10 +1180,11 @@
 					"-fdebug-prefix-map=$(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
+				PODS_XCFRAMEWORKS_BUILD_DIR = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allwinsoftware.pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = moises;
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
+				SWIFT_EXEC = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				XCREMOTE_CACHE_FAKE_SRCROOT = /xxxxxxxxxx;
