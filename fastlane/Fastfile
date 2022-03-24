@@ -19,7 +19,11 @@ platform :ios do
   desc 'Description of what the lane does'
   lane :custom_lane do
     # UI.message 'Building IPA to /output folder...'
+    
     # # match(type:'adhoc')
+    
+    UI.message 'before gym'
+    
     gym(
       scheme: 'BullsEye',
       export_method: 'ad-hoc',
@@ -34,7 +38,9 @@ platform :ios do
         compileBitcode: false,
       }
     )
-
+    
+    UI.message 'after gym'
+    
     UI.message 'Uploading IPA to Nightly Build on App Center...'
     release_notes = '1231 12 uploaded via fastlane nightly_build '
     
