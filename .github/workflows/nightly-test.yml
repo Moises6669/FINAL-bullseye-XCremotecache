@@ -10,10 +10,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-#       - name: Dev build
-#         run: |
-#           bundle install
-#           bundle exec pod install
+      - name: Dev build
+        run: |
+          bundle install
+          bundle exec pod update
           
       - name: Updload IPA to TestFairy
         run: |
