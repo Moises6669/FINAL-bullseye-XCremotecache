@@ -23,10 +23,12 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - TestFairy (1.29.6)
 
 DEPENDENCIES:
   - BCryptSwift
   - FirebaseCore
+  - TestFairy
 
 SPEC REPOS:
   trunk:
@@ -37,6 +39,7 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - TestFairy
 
 SPEC CHECKSUMS:
   BCryptSwift: f69992ea5685f6714260842c2770688043b89ab2
@@ -46,7 +49,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  TestFairy: 53a162c012b448d698ea5de20135e1bcb5ec2c52
 
-PODFILE CHECKSUM: bb4b7333cc64341da8f44868d31db8e5831ff49b
+PODFILE CHECKSUM: e65b020f53f954703fa5829c3053498006aa467c
 
 COCOAPODS: 1.11.2
