@@ -815,7 +815,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -831,7 +831,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyeSlowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
+				SWIFT_EXEC = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -849,7 +849,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BullsEyeSlowTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -864,7 +864,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyeSlowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
+				SWIFT_EXEC = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -883,7 +883,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEyeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -898,7 +898,6 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -917,7 +916,7 @@
 				DEVELOPMENT_TEAM = 59C8LJFM2Z;
 				INFOPLIST_FILE = BullsEyeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -931,7 +930,6 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BullsEye.app/BullsEye";
@@ -949,7 +947,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEyeUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -965,7 +963,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidpiper.BullsEyeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
+				SWIFT_EXEC = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BullsEye;
@@ -983,7 +981,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BullsEyeUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -998,7 +996,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -debug-prefix-map $(SRCROOT)=$(XCREMOTE_CACHE_FAKE_SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidpiper.BullsEyeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = $SRCROOT/XCRC/xcswiftc;
+				SWIFT_EXEC = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BullsEye;
@@ -1134,7 +1132,7 @@
 				DEVELOPMENT_TEAM = K2Y8X7V4V5;
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1169,7 +1167,7 @@
 				DEVELOPMENT_TEAM = K2Y8X7V4V5;
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD = $SRCROOT/XCRC/xcld;
+				LD = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
