@@ -309,13 +309,11 @@
 			buildConfigurationList = D2A5F2121F4A9144005CD714 /* Build configuration list for PBXNativeTarget "BullsEye" */;
 			buildPhases = (
 				AC77E6DCFB36D68DD114190D /* [CP] Check Pods Manifest.lock */,
-				D49969F02DC3BBC5455D3690 /* [XCRC] Prebuild */,
 				20D0ED3325D7C19B00000B3D /* SwiftLint */,
 				D2A5F1FC1F4A9144005CD714 /* Sources */,
 				D2A5F1FD1F4A9144005CD714 /* Frameworks */,
 				D2A5F1FE1F4A9144005CD714 /* Resources */,
 				5B44259FA5FB7CD8D6AD9F64 /* [CP] Embed Pods Frameworks */,
-				C3E1385E943A0440C3D97EB7 /* [XCRC] Postbuild */,
 				0E58E3011A541F0219418DC0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -687,28 +685,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BullsEye-BullsEyeUITests/Pods-BullsEye-BullsEyeUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3E1385E943A0440C3D97EB7 /* [XCRC] Postbuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/postbuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				$SRCROOT/XCRC/xcpostbuild,
-			);
-			name = "[XCRC] Postbuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH).swiftmodule.md5",
-				"$(TARGET_BUILD_DIR)/$(MODULES_FOLDER_PATH)/$(PRODUCT_MODULE_NAME).swiftmodule/$(PLATFORM_PREFERRED_ARCH)-$(LLVM_TARGET_TRIPLE_VENDOR)-$(SWIFT_PLATFORM_TARGET_PREFIX)$(LLVM_TARGET_TRIPLE_SUFFIX).swiftmodule.md5",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"\n";
-		};
 		D43387A1691A00734616EB85 /* [XCRC] Postbuild */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -730,28 +706,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$SCRIPT_INPUT_FILE_0\"";
-		};
-		D49969F02DC3BBC5455D3690 /* [XCRC] Prebuild */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			dependencyFile = "$(TARGET_TEMP_DIR)/prebuild.d";
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				$SRCROOT/XCRC/xcprebuild,
-			);
-			name = "[XCRC] Prebuild";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(TARGET_TEMP_DIR)/rc.enabled",
-				"$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SCRIPT_INPUT_FILE_0\"\n";
 		};
 		D93F798D40099D9541E9A176 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
