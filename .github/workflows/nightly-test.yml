@@ -19,7 +19,7 @@ jobs:
         run: |
           bundle exec fastlane custom_lane
         env:
-          TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
+          FL_TESTFAIRY_API_KEY: ${{ secrets.FL_TESTFAIRY_API_KEY }}
       
       - uses: actions/upload-artifact@v2
         with:
