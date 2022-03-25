@@ -45,7 +45,6 @@ platform :ios do
     release_notes = '1231 12 uploaded via fastlane nightly_build '
     
     testfairy(
-      api_key: ENV['TESTFAIRY_API_KEY'],
       upload_url: 'https://app.testfairy.com',
       comment: release_notes,
       auto_update: 'on'
