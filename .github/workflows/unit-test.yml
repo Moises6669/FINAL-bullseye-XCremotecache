@@ -1,9 +1,8 @@
 name: ios-unit-test
 on:
-  pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '7 * * * *'
 
 jobs:
   build-macos:
