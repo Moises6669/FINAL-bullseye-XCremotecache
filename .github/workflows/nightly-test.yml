@@ -13,20 +13,20 @@ jobs:
       - name: Dev build
         run: |
           bundle install
-          bundle exec pod install
-          
-      - name: Updload IPA to TestFairy
-        run: |
           bundle exec fastlane custom_lane
-        env:
-          FL_TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
+          
+      # - name: Updload IPA to TestFairy
+      #   run: |
+      #     bundle exec fastlane custom_lane
+      #   env:
+      #     FL_TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
       
-      - uses: actions/upload-artifact@v2
-        with:
-          name: gym
-          path: output/**/*
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: gym
+      #     path: output/**/*
 
-      - name: Post job cleanup
-        run: git clean -ffdxq
-        if: always()
-        continue-on-error: true
+      # - name: Post job cleanup
+      #   run: git clean -ffdxq
+      #   if: always()
+      #   continue-on-error: true

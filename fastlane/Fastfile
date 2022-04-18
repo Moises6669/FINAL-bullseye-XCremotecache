@@ -22,32 +22,35 @@ platform :ios do
     
     # # match(type:'adhoc')
     
-    UI.message 'before gym'
+    # UI.message 'before gym'
     
-    gym(
-      scheme: 'BullsEye',
-      export_method: 'ad-hoc',
-      configuration: 'Debug',
-      silent: true,
-      suppress_xcode_output: false,
-      include_symbols: true,
-      include_bitcode: true,
-      export_options: {
-        uploadBitcode: false,
-        uploadSymbols: false,
-        compileBitcode: false,
-      }
-    )
+    # gym(
+    #   scheme: 'BullsEye',
+    #   export_method: 'ad-hoc',
+    #   configuration: 'Debug',
+    #   silent: true,
+    #   suppress_xcode_output: false,
+    #   include_symbols: true,
+    #   include_bitcode: true,
+    #   export_options: {
+    #     uploadBitcode: false,
+    #     uploadSymbols: false,
+    #     compileBitcode: false,
+    #   }
+    # )
     
-    UI.message 'after gym'
+    # UI.message 'after gym'
     
-    UI.message 'Uploading IPA to Nightly Build on App Center...'
-    release_notes = '1231 12 uploaded via fastlane nightly_build '
+    # UI.message 'Uploading IPA to Nightly Build on App Center...'
+    # release_notes = '1231 12 uploaded via fastlane nightly_build '
     
-    testfairy(
-      upload_url: 'https://app.testfairy.com',
-      comment: release_notes,
-      auto_update: 'on'
-    )
+    # testfairy(
+    #   upload_url: 'https://app.testfairy.com',
+    #   comment: release_notes,
+    #   auto_update: 'on'
+    # )
+    build_type = (ENV['BUILD_TYPE'] unless ENV['BUILD_TYPE'].empty?) || "1231231"
+
+    puts build_type
   end
 end
