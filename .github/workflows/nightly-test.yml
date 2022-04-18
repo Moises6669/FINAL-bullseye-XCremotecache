@@ -2,6 +2,10 @@ name: TestFairy
 
 on:
   workflow_dispatch:
+    inputs:
+      build_type:
+        description: "adasada"
+        type: string
 
 jobs:
   testfairy-upload:
@@ -14,6 +18,8 @@ jobs:
         run: |
           bundle install
           bundle exec fastlane custom_lane
+        env: 
+          BUILD_TYPE: ${{ github.event.intpus.build_type }}
           
       # - name: Updload IPA to TestFairy
       #   run: |
