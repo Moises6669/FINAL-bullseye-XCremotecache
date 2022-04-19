@@ -49,6 +49,8 @@ platform :ios do
     #   comment: release_notes,
     #   auto_update: 'on'
     # )
+    puts 'Variable antes de la valicacion : ' + ENV['BUILD_TYPE']
+
     build_type = (ENV['BUILD_TYPE'] unless ENV['BUILD_TYPE'].nil? unless ENV['BUILD_TYPE'].empty?) || "1231231"
 
     puts "variable : " + build_type
