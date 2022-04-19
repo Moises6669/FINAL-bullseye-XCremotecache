@@ -51,6 +51,6 @@ platform :ios do
     # )
     build_type = (ENV['BUILD_TYPE'] unless ENV['BUILD_TYPE'].nil?) || "1231231"
 
-    puts build_type
+    puts "variable : " + build_type
   end
 end
