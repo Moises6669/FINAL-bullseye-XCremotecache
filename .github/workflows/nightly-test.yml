@@ -19,8 +19,8 @@ jobs:
           bundle install
           bundle exec fastlane custom_lane
           echo ${{ github.event.intpus.build_type }}
-        env: 
-          BUILD_TYPE: ${{ github.event.intpus.build_type }}
+#         env: 
+#           BUILD_TYPE: ${{ github.event.intpus.build_type }}
           
       # - name: Updload IPA to TestFairy
       #   run: |
