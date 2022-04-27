@@ -7,20 +7,31 @@ jobs:
   build-macos:
     runs-on: macos
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          repository: "WW-Digital/kurbo-ios"
-          ref: develop
-          ssh-key: ${{ secrets.ssh_ww }}
-      
-      - name : Dev build
+      - name: first
+      - id: mystep
         run: |
-          bundle install
-          bundle exec appstore
-      
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: "scan"
-          path: output/scan/**/*
+          device_info=$(echo '''
+            Device Info:
+            MODEL_NAME: '${MODEL_NAME}'
+            RESOLUTION: '${RESOLUTION}'
+            OS: '${OS_VERSION}'
+            LANG: '${LANG}'
+          ''')
+          device_info="${device_info//'%'/'%25'}"
+          device_info="${device_info//$'\n'/'%0A'}"
+          device_info="${device_info//$'\r'/'%0D'}"
+          echo "::set-output name=device-info::$device_info"
+      - env:
+          MODEL_NAME: iphone8
+          RESOLUTION: 1334 x 750
+          OS_VERSION: 14.7
+          LANG: en_US
+          ORIENTATION: portrait
+
+          
+      - name: second
+      - id: other-step
+        run: |
+          echo "This data ${{ env.DEVICE_INFO }}"
+      - env:
+          DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
