@@ -1,8 +1,7 @@
 name: ios-appstore-build
 on:
-  push:
-    branches:
-      - "master"
+  workflow_dispatch:
+  
 jobs:
   build-macos:
     runs-on: macos
