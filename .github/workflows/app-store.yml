@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: first
       - id: mystep
-        run: |
+      - run: |
           device_info=$(echo '''
             Device Info:
             MODEL_NAME: '${MODEL_NAME}'
@@ -30,7 +30,7 @@ jobs:
           
       - name: second
       - id: other-step
-        run: |
+      - run: |
           echo "This data ${{ env.DEVICE_INFO }}"
       - env:
           DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
