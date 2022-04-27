@@ -7,8 +7,8 @@ jobs:
     runs-on: macos
     steps:
       - name: first
-      - id: mystep
-      - run: |
+        id: mystep
+        run: |
           device_info=$(echo '''
             Device Info:
             MODEL_NAME: '${MODEL_NAME}'
@@ -20,7 +20,7 @@ jobs:
           device_info="${device_info//$'\n'/'%0A'}"
           device_info="${device_info//$'\r'/'%0D'}"
           echo "::set-output name=device-info::$device_info"
-      - env:
+        env:
           MODEL_NAME: iphone8
           RESOLUTION: 1334 x 750
           OS_VERSION: 14.7
@@ -29,8 +29,8 @@ jobs:
 
           
       - name: second
-      - id: other-step
-      - run: |
+        id: other-step
+        run: |
           echo "This data ${{ env.DEVICE_INFO }}"
-      - env:
+        env:
           DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
