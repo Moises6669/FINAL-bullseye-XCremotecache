@@ -1,0 +1,18 @@
+name: LTK-principal
+
+on:
+  workflow_dispatch:
+
+env:
+  VARIABLE_1: ${{ secrets.VARIABLE_1 }}
+  VARIABLE_2: ${{ secrets.VARIABLE_2 }}
+
+jobs:
+  build-principal:
+    runs-on: self-hosted
+  
+  steps:
+    - name: actions/checkout@v2
+      run: |
+        echo "$VARIABLE1"  
+      
