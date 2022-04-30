@@ -1,7 +1,7 @@
 name: LTK-principal
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 env:
   VARIABLE_1: ${{ secrets.VARIABLE_1 }}
