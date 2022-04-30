@@ -6,6 +6,7 @@ on:
 jobs:
   call-workflow-test:
     uses: ./.github/workflows/LTK-principal.yml
-    if: ${{ env.VARIABLE_1 != " "}}
+    
+    
     
       
