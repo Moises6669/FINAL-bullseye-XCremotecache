@@ -11,8 +11,8 @@ jobs:
   build-principal:
     runs-on: self-hosted
   
-  steps:
-    - name: actions/checkout@v2
-      run: |
-        echo "$VARIABLE1"  
+    steps:
+      - name: actions/checkout@v2
+        run: |
+          echo "$VARIABLE1"  
       
