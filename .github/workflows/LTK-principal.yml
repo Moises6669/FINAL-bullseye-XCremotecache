@@ -13,10 +13,11 @@ on:
 jobs:
   build-principal:
     runs-on: self-hosted
-  
+    environment: pruebas
     steps:
       - name: werever
         run: |
           echo "${{ secrets.PRUEBAS }}"  
           echo "este es el input ${{ inputs.nombre }}"
+          echo "este es una env: $VALOR_1"
       
