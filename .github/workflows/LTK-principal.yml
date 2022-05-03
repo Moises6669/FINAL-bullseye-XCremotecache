@@ -17,6 +17,6 @@ jobs:
     steps:
       - name: werever
         run: |
-          echo "${{secrets.PRUEBAS}}"  
-          echo "este es el input ${{ github.event.inputs.nombre }}"
+          echo "${{ secrets.PRUEBAS }}"  
+          echo "este es el input ${{ inputs.nombre }}"
       
