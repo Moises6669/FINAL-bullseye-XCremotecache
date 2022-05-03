@@ -19,5 +19,5 @@ jobs:
         run: |
           echo "${{ secrets.PRUEBAS }}"  
           echo "este es el input ${{ inputs.nombre }}"
-          echo "este es una env: ${{ secrets.VALOR_1 }}"
+          echo ${{ secrets.VALOR_1 }}
       
