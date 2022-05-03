@@ -2,6 +2,10 @@ name: LTK-child-2
 
 on:
   workflow_dispatch:
+  
+env:
+  PRUEBAS:environment: pruebas
+  
 
 jobs:
   call-workflow-test:
@@ -9,7 +13,7 @@ jobs:
     with:
       nombre: "Moises"
     secrets:
-      PRUEBAS: "Valordesdeelotroyml"
+      PRUEBAS: ${{ env.PRUEBAS }}
     
     
     
