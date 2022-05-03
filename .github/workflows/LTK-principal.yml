@@ -2,11 +2,14 @@ name: LTK-principal
 
 on:
   workflow_call:
-
-env:
-  VARIABLE_1: ${{ secrets.VARIABLE_1 }}
-  VARIABLE_2: ${{ secrets.VARIABLE_2 }}
-
+    inputs:
+      nombre:
+        required: true
+        type: string
+    secrets:
+      PRUEBAS:
+        required: true
+      
 jobs:
   build-principal:
     runs-on: self-hosted
@@ -14,5 +17,5 @@ jobs:
     steps:
       - name: actions/checkout@v2
         run: |
-          echo "${{env.VARIABLE1}}"  
+          echo "${{secrets.PRUEBAS}}"  
       
