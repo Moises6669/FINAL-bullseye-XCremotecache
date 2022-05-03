@@ -13,7 +13,7 @@ jobs:
     with:
       nombre: "Moises"
     secrets:
-      PRUEBAS: "prueba"
+      PRUEBAS:environment: pruebas
     
     
     
