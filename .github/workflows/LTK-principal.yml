@@ -16,6 +16,7 @@ jobs:
   
     steps:
       - name: actions/checkout@v2
+        if: ${{ !secrets.PRUEBAS == "" }}
         run: |
           echo "${{secrets.PRUEBAS}}"  
       
