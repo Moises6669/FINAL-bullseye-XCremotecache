@@ -19,6 +19,7 @@ on:
 jobs:
   fastlane-passthrough:
     runs-on: macos
+    environment: pruebas
     steps:
 #       - name: Checkout
 #         uses: actions/checkout@v2
@@ -38,7 +39,8 @@ jobs:
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
 
       - name: Set environment variables
-        run: env
+        run: |
+          echo ${{ secrets.VALOR_1 }}
 #       - name: Test Env
 #         run: echo "${{ github.event.inputs.fastlane_name }}"
       
