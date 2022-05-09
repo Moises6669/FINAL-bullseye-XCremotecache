@@ -2,15 +2,15 @@ name: Fastlane passthrough
 
 on:
   workflow_dispatch:
-#     inputs:
-# #       fastlane_name:
-# #         description: "Name of lane to run"
-# #         type: string
-# #         required: true
-#       slack_user_id:
-#         description: "User ID from Slack API"
-#         type: string
-#         required: false
+    inputs:
+      fastlane_name:
+         description: "Name of lane to run"
+         type: string
+         required: true
+      slack_user_id:
+        description: "User ID from Slack API"
+        type: string
+        required: false
 #       env:
 #         description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"DEVICE_NAME\":\"device\",\"DEVICE_UDID\":\"bd33e1110\"}"
 #         type: string
@@ -40,7 +40,8 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo ${{ secrets.VALOR_1 }}
+          echo ${{ github.inputs.fastlane_name }}
+          echo ${{ github.inputs.slack_user_id }}
 #       - name: Test Env
 #         run: echo "${{ github.event.inputs.fastlane_name }}"
       
