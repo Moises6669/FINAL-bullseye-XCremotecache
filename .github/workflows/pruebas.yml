@@ -39,8 +39,8 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo ${{ github.inputs.fastlane_name }}
-          echo ${{ github.inputs.slack_user_id }}
+          echo ${{ github.event.inputs.fastlane_name }}
+          echo ${{ github.event.inputs.slack_user_id }}
 #       - name: Test Env
 #         run: echo "${{ github.event.inputs.fastlane_name }}"
       
