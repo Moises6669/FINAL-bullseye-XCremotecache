@@ -19,11 +19,11 @@ platform :ios do
   desc 'Description of what the lane does'
   lane :custom_lane do
     # UI.message 'Building IPA to /output folder...'
-    
+
     # # match(type:'adhoc')
-    
+
     # UI.message 'before gym'
-    
+
     # gym(
     #   scheme: 'BullsEye',
     #   export_method: 'ad-hoc',
@@ -38,20 +38,22 @@ platform :ios do
     #     compileBitcode: false,
     #   }
     # )
-    
+
     # UI.message 'after gym'
-    
+
     # UI.message 'Uploading IPA to Nightly Build on App Center...'
     # release_notes = '1231 12 uploaded via fastlane nightly_build '
-    
+
     # testfairy(
     #   upload_url: 'https://app.testfairy.com',
     #   comment: release_notes,
     #   auto_update: 'on'
     # )
 
-    build_type = (ENV['BUILD_TYPE']  unless ENV['BUILD_TYPE'].to_s.empty?) || "1231231"
+    # build_type = (ENV['BUILD_TYPE']  unless ENV['BUILD_TYPE'].to_s.empty?) || "1231231"
 
-    puts "variable : " + build_type
+    # puts "variable : " + build_type
+
+    puts "hello from branch testing01"
   end
 end
