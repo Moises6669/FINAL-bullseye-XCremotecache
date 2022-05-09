@@ -50,8 +50,14 @@ platform :ios do
     #   auto_update: 'on'
     # )
 
-    build_type = (ENV['BUILD_TYPE']  unless ENV['BUILD_TYPE'].to_s.empty?) || "1231231"
+    # build_type = (ENV['BUILD_TYPE']  unless ENV['BUILD_TYPE'].to_s.empty?) || "1231231"
 
-    puts "variable : " + build_type
+    # puts "variable : " + build_type
+
+
+
+    puts "hello from branch testing02"
+    puts "hello from branch testing02"
+
   end
 end
