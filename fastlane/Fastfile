@@ -55,5 +55,7 @@ platform :ios do
     # puts "variable : " + build_type
 
     puts "hello from branch testing01"
+
+    puts "last message for test"
   end
 end
