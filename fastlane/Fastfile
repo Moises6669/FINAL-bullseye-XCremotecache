@@ -56,6 +56,9 @@ platform :ios do
 
     puts "hello from branch testing01"
 
+
     puts "last message for test"
+    puts "other mensagge"
+
   end
 end
