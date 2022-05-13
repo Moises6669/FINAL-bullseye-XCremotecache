@@ -11,10 +11,10 @@ on:
         description: "User ID from Slack API"
         type: string
         required: false
-#       env:
-#         description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"DEVICE_NAME\":\"device\",\"DEVICE_UDID\":\"bd33e1110\"}"
-#         type: string
-#         required: false
+      env:
+        description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
+        type: string
+        required: false
 
 jobs:
   fastlane-passthrough:
@@ -36,11 +36,21 @@ jobs:
 #           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
 #           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-
+      
       - name: Set environment variables
+        if: ${{ github.event.inputs.env }}
         run: |
+          echo $json_env | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
+          echo $json_env
           echo ${{ github.event.inputs.fastlane_name }}
           echo ${{ github.event.inputs.slack_user_id }}
+        env:
+          json_env: ${{ github.event.inputs.env }}
+      
+#       - name: Set environment variables
+#         run: |
+#           echo ${{ github.event.inputs.fastlane_name }}
+#           echo ${{ github.event.inputs.slack_user_id }}
 #       - name: Test Env
 #         run: echo "${{ github.event.inputs.fastlane_name }}"
       
