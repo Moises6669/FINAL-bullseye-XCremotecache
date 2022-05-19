@@ -8,10 +8,16 @@ jobs:
   build-macos:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Scripts
-        run: echo hello
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Scripts
+#         run: echo hello
+      - name: Download UAS logs from artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: uas
+      - run: echo "hello1"
+      - run: echo "hello2"
 #         with:
 #           repository: "WW-Digital/kurbo-ios"
 #           ref: aylwing/task/FNDM-2349
