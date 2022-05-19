@@ -13,9 +13,7 @@ jobs:
 #       - name: Scripts
 #         run: echo hello
       - name: Download UAS logs from artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: uas
+        uses: actions/chekout@v3
       - run: echo "hello1"
       - run: echo "hello2"
 #         with:
