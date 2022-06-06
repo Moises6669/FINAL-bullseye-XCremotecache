@@ -7,14 +7,26 @@ on:
          description: "Name of lane to run"
          type: string
          required: true
-      slack_user_id:
-        description: "User ID from Slack API"
-        type: string
-        required: false
-      env:
-        description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
-        type: string
-        required: false
+      user_email:
+         description: "App name"
+         type: string
+         required: true
+      user_group:
+         description: "Group Name"
+         type: string
+         required: true
+      user_app_id:
+         description: "id app"
+         type: string
+         required: true
+#       slack_user_id:
+#         description: "User ID from Slack API"
+#         type: string
+#         required: false
+#       env:
+#         description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
+#         type: string
+#         required: false
 
 jobs:
   fastlane-passthrough:
@@ -40,10 +52,9 @@ jobs:
       - name: Set environment variables
         if: ${{ github.event.inputs.env }}
         run: |
-          echo $json_env | jq -r 'paths(scalars) as $p | "\($p|join("_"))=\(getpath($p))"' >> $GITHUB_ENV
-          echo $json_env
-          echo ${{ github.event.inputs.fastlane_name }}
-          echo ${{ github.event.inputs.slack_user_id }}
+          echo ${{ github.event.inputs.user_email }}
+          echo ${{ github.event.inputs.user_group }}
+          echo ${{ github.event.inputs.user_app_id }}
         env:
           json_env: ${{ github.event.inputs.env }}
       
