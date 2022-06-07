@@ -50,7 +50,6 @@ jobs:
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
       
       - name: Set environment variables
-        if: ${{ github.event.inputs.env }}
         run: |
           echo ${{ github.event.inputs.user_email }}
           echo ${{ github.event.inputs.user_group }}
