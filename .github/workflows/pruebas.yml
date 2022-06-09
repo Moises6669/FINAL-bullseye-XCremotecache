@@ -3,10 +3,6 @@ name: Fastlane passthrough
 on:
   workflow_dispatch:
     inputs:
-      fastlane_name:
-         description: "Name of lane to run"
-         type: string
-         required: true
       user_email:
          description: "App name"
          type: string
