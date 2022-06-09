@@ -92,7 +92,7 @@ jobs:
                       "type": "section",
                       "fields": [
                         { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
-                        { "type": "mrkdwn", "text": "*Lane name* \n${{ github.event.inputs.user_email }}" }
+                        { "type": "mrkdwn", "text": "*Lane name* Register Tester" }
                       ]
                     }
                   ],
