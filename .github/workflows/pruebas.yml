@@ -11,7 +11,7 @@ on:
          description: "Group Name"
          type: string
          required: true
-      user_app_id:
+      app_identifier:
          description: "id app"
          type: string
          required: true
