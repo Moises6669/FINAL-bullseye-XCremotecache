@@ -7,18 +7,18 @@ on:
          description: "App name"
          type: string
          required: true
-      user_group:
-         description: "Group Name"
-         type: string
-         required: true
-      app_identifier:
-         description: "id app"
-         type: string
-         required: true
-      slack_user_id:
-         description: "slack id"
-         type: string
-         required: true
+#       user_group:
+#          description: "Group Name"
+#          type: string
+#          required: true
+#       app_identifier:
+#          description: "id app"
+#          type: string
+#          required: true
+#       slack_user_id:
+#          description: "slack id"
+#          type: string
+#          required: true
 #       slack_user_id:
 #         description: "User ID from Slack API"
 #         type: string
