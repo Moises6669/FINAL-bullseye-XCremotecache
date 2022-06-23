@@ -7,26 +7,26 @@ on:
          description: "App name"
          type: string
          required: true
-#       user_group:
-#          description: "Group Name"
-#          type: string
-#          required: true
-#       app_identifier:
-#          description: "id app"
-#          type: string
-#          required: true
-#       slack_user_id:
-#          description: "slack id"
-#          type: string
-#          required: true
-#       slack_user_id:
-#         description: "User ID from Slack API"
-#         type: string
-#         required: false
-#       env:
-#         description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
-#         type: string
-#         required: false
+      user_group:
+         description: "Group Name"
+         type: string
+         required: true
+      app_identifier:
+         description: "id app"
+         type: string
+         required: true
+      slack_user_id:
+         description: "slack id"
+         type: string
+         required: true
+      slack_user_id:
+        description: "User ID from Slack API"
+        type: string
+        required: false
+      env:
+        description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
+        type: string
+        required: false
 
 jobs:
   fastlane-passthrough:
