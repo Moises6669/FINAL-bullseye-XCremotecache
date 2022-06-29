@@ -1,0 +1,105 @@
+name: Testing
+
+on:
+  workflow_dispatch:
+    inputs:
+      user_email:
+         description: "App name"
+         type: string
+         required: true
+      user_group:
+         description: "Group Name"
+         type: string
+         required: true
+      app_identifier:
+         description: "id app"
+         type: string
+         required: true
+      slack_user_id:
+         description: "slack id"
+         type: string
+         required: true
+#       env:
+#         description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
+#         type: string
+#         required: false
+
+jobs:
+  fastlane-passthrough:
+    runs-on: self-hosted
+    steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Install dependencies in Gemfile
+#         run: bundle install
+
+#       - name: Set up ENV variables and .env file for cocoapods-keys
+#         run: |
+#           git clone git@github.com:WW-Digital/ios-common-config.git
+#           touch .bash_env
+#           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+#           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+#         env:
+#           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+#           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+#           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+      
+      - name: Set environment variables
+        run: |
+          echo ${{ github.event.inputs.user_email }}
+          echo ${{ github.event.inputs.user_group }}
+          echo ${{ github.event.inputs.user_app_id }}
+        env:
+          json_env: ${{ github.event.inputs.env }}
+      
+#       - name: Set environment variables
+#         run: |
+#           echo ${{ github.event.inputs.fastlane_name }}
+#           echo ${{ github.event.inputs.slack_user_id }}
+#       - name: Test Env
+#         run: echo "${{ github.event.inputs.fastlane_name }}"
+      
+#       - name: Set secrets for register_development_device register_adhoc_device
+#         if: contains(github.event.inputs.fastlane_name, 'register_')
+#         run: |
+#           echo 'APPSTORECONNECTAPI_KEYID=${{ secrets.APPSTORECONNECTAPI_KEYID }}
+#           APPSTORECONNECTAPI_ISSUERID=${{ secrets.APPSTORECONNECTAPI_ISSUERID }}
+#           APPSTORECONNECTAPI_KEYCONTENTS=${{ secrets.APPSTORECONNECTAPI_KEYCONTENTS }}
+#           MATCH_PASSWORD=${{ secrets.MATCH_PASSWORD }}
+#           FASTLANE_SESSION=${{ secrets.FASTLANE_SESSION }}' >> $GITHUB_ENV
+#       - name: Run lane
+#         run: |
+#           source "$GITHUB_WORKSPACE/.bash_env"
+#           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
+      - name: Post notificion to slack
+        uses: slackapi/slack-github-action@v1.18
+        if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
+        with:
+          channel-id: ${{ github.event.inputs.slack_user_id }}
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+                  "blocks": [
+                    { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
+                    {
+                      "type": "section",
+                      "fields": [
+                        { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+                        { "type": "mrkdwn", "text": "*Lane name* Register Tester" }
+                      ]
+                    }
+                  ],
+                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+#       - name: Post job cleanup
+#         run: git clean -ffdxq
+#         if: always()
+#         continue-on-error: true
