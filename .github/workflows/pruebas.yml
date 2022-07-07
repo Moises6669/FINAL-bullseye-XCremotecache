@@ -49,7 +49,7 @@ jobs:
         run: |
           echo ${{ github.event.inputs.user_email }}
           echo ${{ github.event.inputs.user_group }}
-          echo ${{ github.event.inputs.user_app_id }}
+          echo ${{ github.event.inputs.app_identifier}}
         env:
           json_env: ${{ github.event.inputs.env }}
       
