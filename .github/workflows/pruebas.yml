@@ -10,7 +10,7 @@ on:
       user_group:
          description: "Group Name"
          type: string
-         required: true
+         required: false
       app_identifier:
          description: "id app"
          type: string
