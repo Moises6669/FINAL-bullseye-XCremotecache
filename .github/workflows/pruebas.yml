@@ -11,6 +11,10 @@ on:
          description: "Group Name"
          type: string
          required: false
+      lane:
+        description: "lane for fastlane"
+        type: string
+        required: false
       app_identifier:
          description: "id app"
          type: string
