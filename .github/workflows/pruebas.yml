@@ -51,9 +51,10 @@ jobs:
       
       - name: Set environment variables
         run: |
-          echo ${{ github.event.inputs.user_email }}
-          echo ${{ github.event.inputs.user_group }}
-          echo ${{ github.event.inputs.app_identifier}}
+          echo email: ${{ github.event.inputs.user_email }}
+          echo group: ${{ github.event.inputs.user_group }}
+          echo lane:  ${{ github.event.inputs.lane }}
+          echo identifier: ${{ github.event.inputs.app_identifier}}
         env:
           json_env: ${{ github.event.inputs.env }}
       
