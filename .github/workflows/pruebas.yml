@@ -34,8 +34,8 @@ jobs:
 #       - name: Checkout
 #         uses: actions/checkout@v2
 
-       - name: Install dependencies in Gemfile
-         run: bundle install
+      - name: Install dependencies in Gemfile
+        run: bundle install
 
 #       - name: Set up ENV variables and .env file for cocoapods-keys
 #         run: |
