@@ -18,8 +18,10 @@ default_platform(:ios)
 platform :ios do
   desc 'Description of what the lane does'
   lane :custom_lane do
-    # UI.message 'Building IPA to /output folder...'
 
+    UI.message 'Building IPA to /output folder...'
+
+    puts("moises")
     # # match(type:'adhoc')
 
     # UI.message 'before gym'
@@ -53,12 +55,6 @@ platform :ios do
     # build_type = (ENV['BUILD_TYPE']  unless ENV['BUILD_TYPE'].to_s.empty?) || "1231231"
 
     # puts "variable : " + build_type
-
-    puts "hello from branch testing01"
-
-
-    puts "last message for test"
-    puts "other mensagge"
 
   end
 end

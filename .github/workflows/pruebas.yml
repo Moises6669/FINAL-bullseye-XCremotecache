@@ -54,6 +54,7 @@ jobs:
           echo group: ${{ github.event.inputs.user_group }}
           echo lane:  ${{ github.event.inputs.lane }}
           echo identifier: ${{ github.event.inputs.app_identifier}}
+          bundle exec fastlane custom_lane
         env:
           json_env: ${{ github.event.inputs.env }}
       
