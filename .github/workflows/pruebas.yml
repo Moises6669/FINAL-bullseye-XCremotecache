@@ -2,32 +2,31 @@ name: Fastlane passthrough
 
 on:
   workflow_dispatch:
-#     inputs:
-#       user_email:
-#          description: "App name"
-#          type: string
-#          required: true
-#       user_group:
-#          description: "Group Name"
-#          type: string
-#          required: false
-#       lane:
-#         description: "lane for fastlane"
-#         type: string
-#         required: false
-#       app_identifier:
-#          description: "id app"
-#          type: string
-#          required: true
-#       slack_user_id:
-#          description: "slack id"
-#          type: string
-#          required: true
-# #       env:
-#         description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
-#         type: string
-#         required: false
-
+    inputs:
+      user_email:
+         description: "App name"
+         type: string
+         required: true
+      user_group:
+         description: "Group Name"
+         type: string
+         required: false
+      lane:
+        description: "lane for fastlane"
+        type: string
+        required: false
+      app_identifier:
+         description: "id app"
+         type: string
+         required: true
+      slack_user_id:
+         description: "slack id"
+         type: string
+         required: true
+#       env:
+        description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
+        type: string
+        required: false
 jobs:
   fastlane-passthrough:
     runs-on: ubuntu-latest
