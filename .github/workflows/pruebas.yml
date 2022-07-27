@@ -50,7 +50,7 @@ jobs:
       
       - name: Set environment variables
         run: |
-          bundle fastlane custom_lane
+          bundle exec fastlane custom_lane
         # env:
         #   json_env: ${{ github.event.inputs.env }}
       
