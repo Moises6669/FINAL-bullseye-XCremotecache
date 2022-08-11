@@ -13,12 +13,13 @@ jobs:
   test1:
     runs-on: ubuntu-latest
     steps:
+    
     - name: Test01
-      if: github.event.label.name == 'label-test'
       run: |
         echo "hello from first step"
         echo ${{ github.workflow }}
         echo ${{ github.ref }}
+
     - name: Test01.1
       run: echo "hello from the first step 01"
   
@@ -35,6 +36,7 @@ jobs:
     runs-on: macos-11
     steps:
     - name: TesT03
+      if: github.event.label.name == 'label-test2'
       run: |
         echo ${{ github.workflow }}
     
