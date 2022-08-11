@@ -13,6 +13,9 @@ jobs:
   steps:
     - name: Test01
       run: echo "hello from first step"
+    - name: Test01.1
+      run: echo "hello from the first step 01"
+
   
   test2:
   runs-on: ubuntu-latest
