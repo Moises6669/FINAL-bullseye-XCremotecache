@@ -18,6 +18,8 @@ jobs:
         echo "hello from first step"
         echo ${{ github.workflow }}
         echo ${{ github.ref }}
+    - name: Test01.1
+      run: echo "hello from the first step 01"
   
   test2:
     runs-on: ubuntu-latest
