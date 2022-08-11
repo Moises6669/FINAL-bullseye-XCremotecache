@@ -32,7 +32,7 @@ jobs:
         echo "hello 2 from second step"
 
   test3:
-    runs-on: macos-lastest
+    runs-on: macos-11
     steps:
     - name: TesT03
       run: |
