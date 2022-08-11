@@ -5,7 +5,7 @@ concurrency:
   cancel-in-progress: true
 
 on: 
-  workflow_disapatch:
+  workflow_dispatch:
   pull_request:
     types: [ labeled, synchronize ]
 
