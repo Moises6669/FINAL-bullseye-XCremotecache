@@ -9,13 +9,13 @@ on:
 
 jobs:
   test1:
-  runs-on: ubuntu-latest
-  steps:
+    runs-on: ubuntu-latest
+    steps:
     - name: Test01
       run: echo "hello from first step"
   
   test2:
-  runs-on: ubuntu-latest
-  steps:
+    runs-on: ubuntu-latest
+    steps:
     - name: Test02
       run: echo "hello from second step"
