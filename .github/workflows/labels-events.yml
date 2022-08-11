@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test02
+      if: github.event.label.name == 'label-test1'
       run: |
         echo "hello from second step"
         echo "hello 2 from second step"
