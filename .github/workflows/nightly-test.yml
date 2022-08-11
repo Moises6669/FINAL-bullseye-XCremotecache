@@ -2,14 +2,14 @@ name: TestFairy
 
 on:
   workflow_dispatch:
-    inputs:
-      build_type:
-        description: "adasada"
-        type: string
+#     inputs:
+#       build_type:
+#         description: "adasada"
+#         type: string
 
 jobs:
   testfairy-upload:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
