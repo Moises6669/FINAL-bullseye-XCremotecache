@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test01
-      run: echo "hello from first step"
+      run: |
+        echo "hello from first step"
+        echo ${{ github.workflow }}
+        echo ${{ github.ref }}
   
   test2:
     runs-on: ubuntu-latest
