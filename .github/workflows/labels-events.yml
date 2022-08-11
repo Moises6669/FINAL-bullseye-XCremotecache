@@ -5,6 +5,7 @@ concurrency:
   cancel-in-progress: true
 
 on: 
+  workflow_disapatch:
   pull_request:
     types: [ labeled, synchronize ]
 
@@ -29,3 +30,11 @@ jobs:
       run: |
         echo "hello from second step"
         echo "hello 2 from second step"
+
+  test3:
+    runs-on: macos-lastest
+    steps:
+    - name: TesT03
+      run: |
+        echo ${{ github.workflow }}
+    
