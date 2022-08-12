@@ -2,18 +2,31 @@ name: labels-events
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 on: 
   pull_request:
     types: [ labeled, synchronize ]
   workflow_dispatch:
+    inputs:
+      user_email:
+         description: "App name"
+         type: string
+         required: true
+      user_group:
+         description: "Group Name"
+         type: string
+         required: false
 
 jobs:
   test1:
     runs-on: ubuntu-latest
     steps:
     
+    - name: Test0
+      run: |
+        
+
     - name: Test01
       if: github.event.label.name == 'label-test'
       run: |
