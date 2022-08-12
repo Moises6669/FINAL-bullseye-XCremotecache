@@ -17,7 +17,7 @@ jobs:
     - name: Test01
       if: github.event.label.name == 'label-test'
       run: |
-        echo "only first"
+        echo "only first 1"
         echo ${{ github.workflow }}
         echo ${{ github.ref }}
 
