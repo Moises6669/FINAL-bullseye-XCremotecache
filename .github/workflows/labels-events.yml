@@ -17,6 +17,7 @@ jobs:
     - name: Test01
       if: github.event.label.name == 'label-test'
       run: |
+        echo "esta vez si entro"
         echo "hello from first step"
         echo ${{ github.workflow }}
         echo ${{ github.ref }}
