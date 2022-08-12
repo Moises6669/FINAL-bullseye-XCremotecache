@@ -38,5 +38,6 @@ jobs:
     - name: TesT03
       if: github.event.label.name == 'label-test2'
       run: |
+        echo "inside"
         echo ${{ github.workflow }}
     
