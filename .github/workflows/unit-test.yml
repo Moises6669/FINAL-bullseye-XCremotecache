@@ -13,7 +13,6 @@ jobs:
 #       - name: Scripts
 #         run: echo hello
       - name: Download UAS logs from artifacts
-        if: ${{ (failure() || success())}}
         run: 'echo status code: ${{success()}}'
         
 #         with:
