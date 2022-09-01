@@ -13,9 +13,9 @@ jobs:
 #       - name: Scripts
 #         run: echo hello
       - name: Download UAS logs from artifacts
-        run: echo "hello0"
-      - run: echo "hello1"
-      - run: echo "hello2"
+        if: ${{ (failure() || success())}}
+        run: 'echo status code: ${{success()}}'
+        
 #         with:
 #           repository: "WW-Digital/kurbo-ios"
 #           ref: aylwing/task/FNDM-2349
