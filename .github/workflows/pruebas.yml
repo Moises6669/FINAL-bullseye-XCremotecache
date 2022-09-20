@@ -1,41 +1,47 @@
 name: Fastlane passthrough
 
 on:
-  workflow_dispatch:
-    inputs:
-      user_email:
-         description: "App name"
-         type: string
-         required: true
-      user_group:
-         description: "Group Name"
-         type: string
-         required: false
-      lane:
-        description: "lane for fastlane"
-        type: string
-        required: false
-      app_identifier:
-         description: "id app"
-         type: string
-         required: true
-      slack_user_id:
-         description: "slack id"
-         type: string
-         required: true
+  pull_request:
+    types:
+      - closed
+  # workflow_dispatch:
+    # inputs:
+    #   user_email:
+    #      description: "App name"
+    #      type: string
+    #      required: true
+    #   user_group:
+    #      description: "Group Name"
+    #      type: string
+    #      required: false
+    #   lane:
+    #     description: "lane for fastlane"
+    #     type: string
+    #     required: false
+    #   app_identifier:
+    #      description: "id app"
+    #      type: string
+    #      required: true
+    #   slack_user_id:
+    #      description: "slack id"
+    #      type: string
+    #      required: true
     #   env:
     #     description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
     #     type: string
         # required: false
 jobs:
   fastlane-passthrough:
+    if: github.event.pull_request.merged == true
     runs-on: macos-11
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Test Merge
+        run: echo "hello from merge pull_request"
+      # - name: Checkout
+      #   uses: actions/checkout@v2
 
-      - name: Install dependencies in Gemfile
-        run: bundle install
+      # - name: Install dependencies in Gemfile
+      #   run: bundle install
 
 #       - name: Set up ENV variables and .env file for cocoapods-keys
 #         run: |
@@ -48,9 +54,9 @@ jobs:
 #           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 #           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
       
-      - name: Set environment variables
-        run: |
-          bundle exec fastlane custom_lane
+      # - name: Set environment variables
+      #   run: |
+      #     bundle exec fastlane custom_lane
         # env:
         #   json_env: ${{ github.event.inputs.env }}
       
