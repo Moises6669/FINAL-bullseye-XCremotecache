@@ -30,6 +30,9 @@ on:
     #     description:  "Environment variables required to run the lane,in JSON formmat Sample: {\"TESTFLIGHT_USER_EMAIL\":\"device\",\"TESTFLIGHT_USER_GROUP\":\"bd33e1110\"}"
     #     type: string
         # required: false
+
+#test in pull_resquest
+
 jobs:
   fastlane-passthrough:
     if: github.event.pull_request.merged == true
