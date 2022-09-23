@@ -24,7 +24,7 @@ jobs:
       - name: Git Pull LFS
         run: |
          cd mobile-ios
-         ls -al
+         git lfs pull -I '/Apps/Consumer/Shoproll/**'
         # env: 
         #  BUILD_TYPE: ${{ github.event.inputs.build_type }}
           
