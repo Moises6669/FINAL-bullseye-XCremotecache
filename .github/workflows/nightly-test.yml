@@ -9,7 +9,7 @@ on:
 
 jobs:
   testfairy-upload:
-    runs-on: self-hosted
+    runs-on: macos-12
     steps:
       - name: Git clone
         uses: actions/checkout@v3
@@ -25,7 +25,10 @@ jobs:
       #     git clone https://github.com/rewardStyle/mobile-ios.git
           
       - name: Git Pull LFS
-        run: git lfs pull -I '/Apps/Consumer/Shoproll/**'
+        run: |
+          pwd
+          ls- al
+          git lfs pull -I '/Apps/Consumer/Shoproll/**'
          
         # env: 
         #  BUILD_TYPE: ${{ github.event.inputs.build_type }}
