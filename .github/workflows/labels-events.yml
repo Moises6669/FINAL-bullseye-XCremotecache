@@ -6,48 +6,58 @@ concurrency:
 
 on: 
   pull_request:
-    types: [ labeled, synchronize ]
-  workflow_dispatch:
-    inputs:
-      user_email:
-         description: "App name"
-         type: string
-         required: true
-      user_group:
-         description: "Group Name"
-         type: string
-         required: false
+    # types: [ labeled, synchronize ]
+  # workflow_dispatch:
+  #   inputs:
+  #     user_email:
+  #        description: "App name"
+  #        type: string
+  #        required: true
+  #     user_group:
+  #        description: "Group Name"
+  #        type: string
+  #        required: false
 
 jobs:
   test1:
-    runs-on: ubuntu-latest
+    runs-on: macos-12
     steps:
+    
+    - name: Git clone
+        uses: actions/checkout@v3
+        with:
+          repository: rewardStyle/mobile-ios
+          ssh-key: ${{ secrets.SSH_LTK }}
+          
+    - name: Git Pull LFS
+        run: |
+         git lfs pull -I '/Apps/Consumer/Shoproll/**'
 
-    - name: Test01
-      if: github.event.label.name == 'label-test'
-      run: |
-        echo "hello from first step"
-        echo ${{ github.workflow }}
-        echo ${{ github.ref }}
+  #   - name: Test01
+  #     if: github.event.label.name == 'label-test'
+  #     run: |
+  #       echo "hello from first step"
+  #       echo ${{ github.workflow }}
+  #       echo ${{ github.ref }}
 
-    - name: Test01.1
-      run: echo "hello from the first step 01"
+  #   - name: Test01.1
+  #     run: echo "hello from the first step 01"
   
-  test2:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Test02
-      if: github.event.label.name == 'label-test1'
-      run: |
-        echo "hello from second step"
-        echo "hello 2 from second step"
+  # test2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Test02
+  #     if: github.event.label.name == 'label-test1'
+  #     run: |
+  #       echo "hello from second step"
+  #       echo "hello 2 from second step"
 
-  test3:
-    runs-on: macos-11
-    steps:
-    - name: TesT03
-      if: github.event.label.name == 'label-test'
-      run: |
-        echo "inside"
-        echo ${{ github.workflow }}
+  # test3:
+  #   runs-on: macos-11
+  #   steps:
+  #   - name: TesT03
+  #     if: github.event.label.name == 'label-test'
+  #     run: |
+  #       echo "inside"
+  #       echo ${{ github.workflow }}
     
