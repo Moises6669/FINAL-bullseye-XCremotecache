@@ -22,7 +22,9 @@ jobs:
           git clone https://github.com/rewardStyle/mobile-ios.git
           
       - name: Git Pull LFS
-        run: ls -al
+        run: |
+          pwd
+          ls -al
         # env: 
         #  BUILD_TYPE: ${{ github.event.inputs.build_type }}
           
