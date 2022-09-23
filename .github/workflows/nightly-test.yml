@@ -9,16 +9,20 @@ on:
 
 jobs:
   testfairy-upload:
-    runs-on: ubuntu-latest
+    runs-on: prueba
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
+      # - name: checkout
+      #   uses: actions/checkout@v2
       - name: Dev build
         run: |
-          bundle install
-          bundle exec fastlane custom_lane
-          echo '${{ github.event.intpus.build_type }}'
+          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+          echo "${{ secrets.SSH_LTK }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-add ~/.ssh/id_rsa
+          git clone https://github.com/rewardStyle/mobile-ios.git
+          
+      - name: Git Pull LFS
+        run: git lfs pull -I "${{ inputs.working_directory }}/**"
         env: 
          BUILD_TYPE: ${{ github.event.inputs.build_type }}
           
