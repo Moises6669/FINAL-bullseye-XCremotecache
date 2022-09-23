@@ -22,9 +22,9 @@ jobs:
           git clone https://github.com/rewardStyle/mobile-ios.git
           
       - name: Git Pull LFS
-        run: git lfs pull -I "${{ inputs.working_directory }}/**"
-        env: 
-         BUILD_TYPE: ${{ github.event.inputs.build_type }}
+        run: ls -al
+        # env: 
+        #  BUILD_TYPE: ${{ github.event.inputs.build_type }}
           
       # - name: Updload IPA to TestFairy
       #   run: |
