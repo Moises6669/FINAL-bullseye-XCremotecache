@@ -9,7 +9,7 @@ on:
 
 jobs:
   testfairy-upload:
-    runs-on: prueba
+    runs-on: self-hosted
     steps:
       # - name: checkout
       #   uses: actions/checkout@v2
