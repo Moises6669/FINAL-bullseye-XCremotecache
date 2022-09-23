@@ -25,8 +25,7 @@ jobs:
       #     git clone https://github.com/rewardStyle/mobile-ios.git
           
       - name: Git Pull LFS
-        run: |
-         cd mobile-ios
+        run: git lfs pull -I '/Apps/Consumer/Shoproll/**'
          
         # env: 
         #  BUILD_TYPE: ${{ github.event.inputs.build_type }}
