@@ -27,7 +27,7 @@ jobs:
       - name: Git Pull LFS
         run: |
           pwd
-          ls- al
+          ls -al
           git lfs pull -I '/Apps/Consumer/Shoproll/**'
          
         # env: 
