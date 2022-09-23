@@ -10,6 +10,7 @@ on:
 jobs:
   testfairy-upload:
     runs-on: macos-12
+    #@423423
     steps:
       - name: Git clone
         uses: actions/checkout@v3
