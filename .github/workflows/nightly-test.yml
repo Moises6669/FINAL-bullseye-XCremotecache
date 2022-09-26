@@ -16,13 +16,6 @@ jobs:
         with:
           repository: rewardStyle/mobile-ios
           ssh-key: ${{ secrets.SSH_LTK }}
-      # - name: Dev build
-      #   run: |
-      #     git config --global --add url."git@github.com:".insteadOf "https://github.com/"
-      #     echo "${{ secrets.SSH_LTK }}" > ~/.ssh/id_rsa
-      #     chmod 600 ~/.ssh/id_rsa
-      #     ssh-add ~/.ssh/id_rsa
-      #     git clone https://github.com/rewardStyle/mobile-ios.git
           
       - name: Git Pull LFS
         run: |
