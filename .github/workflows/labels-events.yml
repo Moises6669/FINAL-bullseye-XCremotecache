@@ -19,10 +19,7 @@ on:
   #        required: false
 
 jobs:
-  test1:
-    runs-on: macos-12
-    steps:
-      - name: workflow call
+    call-workflow-test:
         if: github.event.label.name == 'label-test'
         uses: ./.github/workflows/nightly-test.yml   
         
