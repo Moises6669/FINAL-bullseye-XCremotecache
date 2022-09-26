@@ -1,7 +1,7 @@
 name: TestFairy-0.1
 
 on:
-  workflow_dispatch:
+  workflow_call:
 #     inputs:
 #       build_type:
 #         description: "adasada"
