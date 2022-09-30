@@ -23,13 +23,14 @@ jobs:
       runs-on: macos-12
       steps:
         - name: label-0
-          if: github.event.label.name == 'label-test'       
-          uses: ./.github/workflows/nightly-test.yml   
+          if: github.event.label.name == 'label-test'  
+          run: echo "from label 1"
+#           uses: ./.github/workflows/nightly-test.yml   
       
         - name: label-01
-          if: github.event.label.name == 'label-test1'       
-          uses: ./.github/workflows/nightly-test.yml
-      
+          if: github.event.label.name == 'label-test1'
+          run: echo "from label 2"
+#           uses: ./.github/workflows/nightly-test.yml
           
 #       - name: Git clone
 #         uses: actions/checkout@v3
