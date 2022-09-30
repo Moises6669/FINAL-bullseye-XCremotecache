@@ -20,9 +20,13 @@ on:
 
 jobs:
     call-workflow-test:
-        if: github.event.label.name == 'label-test'
+        name: label-01
+        if: github.event.label.name == 'label-test'       
         uses: ./.github/workflows/nightly-test.yml   
         
+        - name: label-02 
+          if: github.event.label.name == 'label-test1'       
+          uses: ./.github/workflows/nightly-test.yml
 #       - name: Git clone
 #         uses: actions/checkout@v3
 #         with:
