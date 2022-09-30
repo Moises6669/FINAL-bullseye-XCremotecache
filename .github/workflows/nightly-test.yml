@@ -23,12 +23,15 @@ jobs:
       #     chmod 600 ~/.ssh/id_rsa
       #     ssh-add ~/.ssh/id_rsa
       #     git clone https://github.com/rewardStyle/mobile-ios.git
-          
-      - name: Git Pull LFS
-        run: |
-          pwd
-          ls -al
-          git lfs pull -I '/Apps/Consumer/Shoproll/**'
+        - name: git tags
+          run: |
+            bundle install
+            bundle exec fastlane build_qa  
+      # - name: Git Pull LFS
+      #   run: |
+      #     pwd
+      #     ls -al
+      #     git lfs pull -I '/Apps/Consumer/Shoproll/**'
          
         # env: 
         #  BUILD_TYPE: ${{ github.event.inputs.build_type }}

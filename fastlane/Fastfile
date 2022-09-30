@@ -14,6 +14,7 @@
 # update_fastlane
 
 default_platform(:ios)
+short_commit_hash = sh("git rev-parse --short HEAD").strip
 
 platform :ios do
   desc 'Description of what the lane does'
@@ -57,4 +58,12 @@ platform :ios do
     # puts "variable : " + build_type
 
   end
+
+    desc 'Lane added tags a commit'
+    lane :build_qa do 
+      add_git_tag(
+        tag: "publisher-qa-" + short_commit_hash
+      )
+    end 
+
 end
