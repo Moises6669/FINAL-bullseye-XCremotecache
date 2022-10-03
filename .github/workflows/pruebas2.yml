@@ -88,65 +88,69 @@ jobs:
         with:
           payload: |
             {
-              "attachments": [
-                {
-                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }",
-                  "blocks": [{
-                  "type": "context",
-                  "elements":
-                    [
-                      {
-                        "type": "plain_text",
-                        "text": "Author: Nobody",
-                        "emoji": true,
-                      },
-                    ],
-                },
-                {
-                  "type": "context",
-                  "elements":
-                    [
-                      {
-                        "type": "plain_text",
-                        "text": "App: Mobile-IOS",
-                        "emoji": true,
-                      },
-                    ],
-                },
-                {
-                  "type": "context",
-                  "elements":
-                    [
-                      {
-                        "type": "plain_text",
-                        "text": "Branch Name: ${{ github.head_ref || github.ref_name }}",
-                        "emoji": true,
-                      },
-                    ],
-                },
-                {
-                  "type": "context",
-                  "elements":
-                    [
-                      {
-                        "type": "plain_text",
-                        "text": "workflow: ${{ github.workflow }}",
-                        "emoji": true,
-                      },
-                    ],
-                },
-                {
-                  "type": "context",
-                  "elements":
-                    [
-                      {
-                        "type": "plain_text",
-                        "text": "Status: ${{ job.status }}",
-                        "emoji": true,
-                      },
-                    ],
-                },
-              ]
+              "attachments":
+                [
+                  {
+                    "blocks":
+                      [
+                        {
+                          "type": "context",
+                          "elements":
+                            [
+                              {
+                                "type": "plain_text",
+                                "text": "Author: Nobody",
+                                "emoji": true,
+                              },
+                            ],
+                        },
+                        {
+                          "type": "context",
+                          "elements":
+                            [
+                              {
+                                "type": "plain_text",
+                                "text": "App: Mobile-IOS",
+                                "emoji": true,
+                              },
+                            ],
+                        },
+                        {
+                          "type": "context",
+                          "elements":
+                            [
+                              {
+                                "type": "plain_text",
+                                "text": "Branch Name: ${{ github.head_ref || github.ref_name }}",
+                                "emoji": true,
+                              },
+                            ],
+                        },
+                        {
+                          "type": "context",
+                          "elements":
+                            [
+                              {
+                                "type": "plain_text",
+                                "text": "workflow: ${{ github.workflow }}",
+                                "emoji": true,
+                              },
+                            ],
+                        },
+                        {
+                          "type": "context",
+                          "elements":
+                            [
+                              {
+                                "type": "plain_text",
+                                "text": "Status: ${{ job.status }}",
+                                "emoji": true,
+                              },
+                            ],
+                        },
+                      ],
+                  },
+                ],
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
