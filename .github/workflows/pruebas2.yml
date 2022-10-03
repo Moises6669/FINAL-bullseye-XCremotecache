@@ -107,6 +107,7 @@ jobs:
                         "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
                       }
                     },
+                    {
                     "type": "context",
                     "elements": [
                       {
