@@ -98,15 +98,46 @@ jobs:
               "attachments": [
                 {
                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-                  "blocks": [
-                    { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
-                    {
-                      "type": "section",
-                      "fields": [
-                        { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
-                        { "type": "mrkdwn", "text": "*Lane name* Register Tester" }
-                      ]
-                    }
+                  "blocks": [{
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "Author: Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "App: Mobile-IOS",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "Branch: cp-ios/feature/sc-184979/githubactions-refactor",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "workflow: build-and-test",
+                        "emoji": true
+                      }
+                    ]
+                  }
                   ],
                   "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
                 }
