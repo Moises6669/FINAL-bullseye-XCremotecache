@@ -144,7 +144,8 @@ jobs:
                   }
                   ],
                 }
-              ]
+              ],
+             "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
