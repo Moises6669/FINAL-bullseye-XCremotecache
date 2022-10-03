@@ -96,7 +96,7 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "Author: Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}",
+                        "text": "Author: Nobody",
                         "emoji": true
                       }
                     ]
@@ -126,13 +126,23 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "workflow: build-and-test",
+                        "text": "workflow: \"${{ github.workflow }}\" ",
                         "emoji": true
                       }
                     ]
                   }
                   ],
-                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                },
+                ,
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "plain_text",
+                      "text": "Status: ${{ job.status }}",
+                      "emoji": true
+                    }
+                  ]
                 }
               ]
             }
