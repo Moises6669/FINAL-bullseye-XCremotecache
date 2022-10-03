@@ -39,7 +39,7 @@ jobs:
     runs-on: macos-11
     steps:
       - name: Test Merge
-        run: echo env
+        run: echo ${{env.GITHUB_REF_NAME}}
       # - name: Checkout
       #   uses: actions/checkout@v2
 
