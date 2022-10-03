@@ -133,7 +133,6 @@ jobs:
                   }
                   ],
                 },
-                ,
                 {
                   "type": "context",
                   "elements": [
