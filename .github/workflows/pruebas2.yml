@@ -87,66 +87,71 @@ jobs:
         if: ${{ (failure() || success()) }}
         with:
           payload: |
-            {
-              "attachments": [
                 {
-                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-                  "blocks": [
-                  {
-                    "type": "context",
-                    "elements": [
-                      {
-                        "type": "plain_text",
-                        "text": "Author: ${{ github.actor }}",
-                        "emoji": true
-                      }
+                  "attachments": [
+                        {
+                            "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+                            "blocks": [
+                                {
+                                    "type": "header",
+                                    "text": {
+                                        "type": "plain_text",
+                                        "text": "${{ github.repository }}",
+                                        "emoji": true
+                                    }
+                                },
+                                {
+                                    "type": "section",
+                                    "text": {
+                                        "type": "mrkdwn",
+                                        "text": "${{ github.event.head_commit.message }}"
+                                    }
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "Author: ${{ github.actor }}",
+                                            "emoji": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "App: Mobile-IOS",
+                                            "emoji": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "Branch: ${{ github.head_ref || github.ref_name }}",
+                                            "emoji": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "workflow: ${{ github.workflow }}",
+                                            "emoji": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                        }
                     ]
-                  },
-                  {
-                    "type": "context",
-                    "elements": [
-                      {
-                        "type": "plain_text",
-                        "text": "App: Mobile-IOS",
-                        "emoji": true
-                      }
-                    ]
-                  },
-                  {
-                    "type": "context",
-                    "elements": [
-                      {
-                        "type": "plain_text",
-                        "text": "Branch: ${{ github.head_ref || github.ref_name }}",
-                        "emoji": true
-                      }
-                    ]
-                  },
-                  {
-                    "type": "context",
-                    "elements": [
-                      {
-                        "type": "plain_text",
-                        "text": "workflow: ${{ github.workflow }}",
-                        "emoji": true
-                      }
-                    ]
-                  },
-                  {
-                    "type": "context",
-                    "elements": [
-                      {
-                        "type": "plain_text",
-                        "text": "status: ${{ job.status }}",
-                        "emoji": true
-                      }
-                    ]
-                  }
-                  ],
-                 "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-                }             
-              ],
-            }
+                }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
