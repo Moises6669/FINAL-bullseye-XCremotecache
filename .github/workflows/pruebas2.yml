@@ -106,7 +106,7 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "App: Mobile-IOS",
+                        "text": "Repository: ${{ github.repository }}",
                         "emoji": true
                       }
                     ]
