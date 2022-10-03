@@ -91,7 +91,7 @@ jobs:
               "attachments": [
                 {
                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-                  "blocks": [{
+                  "blocks": [
                   {
                     "type": "context",
                     "elements": [
