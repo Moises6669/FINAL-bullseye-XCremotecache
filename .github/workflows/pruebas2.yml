@@ -33,19 +33,13 @@ on:
 
 #test in pull_resquest
 
-jobs:
-  message-test:
-    runs-on: macos-12
-    steps:
-      - name: Test Message
-        run: echo "hello todo good"
-        
-#   fastlane-passthrough:
+jobs:         
+  fastlane-passthrough:
 #     if: github.event.pull_request.merged == true
-#     runs-on: macos-11
-#     steps:
-#       - name: Test Merge
-#         run: echo "hello from merge pull_request"
+    runs-on: macos-11
+    steps:
+      - name: Test Merge
+        run: echo "hello from merge pull_request"
       # - name: Checkout
       #   uses: actions/checkout@v2
 
