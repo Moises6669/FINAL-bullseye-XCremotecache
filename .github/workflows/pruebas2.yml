@@ -130,9 +130,7 @@ jobs:
                         "emoji": true
                       }
                     ]
-                  }
-                  ],
-                },
+                  },
                 {
                   "type": "context",
                   "elements": [
