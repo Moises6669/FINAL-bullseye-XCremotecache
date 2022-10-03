@@ -39,7 +39,9 @@ jobs:
     runs-on: macos-11
     steps:
       - name: Test Merge
-        run: echo $GITHUB_REF_NAME
+        run: |
+          ${{ github.event.head_commit.message }}
+          echo $GITHUB_REF_NAME
       # - name: Checkout
       #   uses: actions/checkout@v2
 
@@ -104,10 +106,10 @@ jobs:
                                     "type": "section",
                                     "text": {
                                         "type": "mrkdwn",
-                                        "text": "${{ github.event.head_commit.message }}"
+                                        "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
                                     }
                                 },
-                                {
+                                { 
                                     "type": "context",
                                     "elements": [
                                         {
