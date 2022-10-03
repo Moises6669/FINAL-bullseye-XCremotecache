@@ -1,10 +1,10 @@
 name: Fastlane Pruebas
 
 on:
-  pull_request:
-    types:
-      - closed
-  # workflow_dispatch:
+#   pull_request:
+#     types:
+#       - closed
+  workflow_dispatch:
     # inputs:
     #   user_email:
     #      description: "App name"
@@ -34,12 +34,18 @@ on:
 #test in pull_resquest
 
 jobs:
-  fastlane-passthrough:
-    if: github.event.pull_request.merged == true
-    runs-on: macos-11
+  message-test:
+    runs-on: macos-12
     steps:
-      - name: Test Merge
-        run: echo "hello from merge pull_request"
+      - name: Test Message
+        run: echo "hello todo good"
+        
+#   fastlane-passthrough:
+#     if: github.event.pull_request.merged == true
+#     runs-on: macos-11
+#     steps:
+#       - name: Test Merge
+#         run: echo "hello from merge pull_request"
       # - name: Checkout
       #   uses: actions/checkout@v2
 
@@ -82,32 +88,34 @@ jobs:
 #         run: |
 #           source "$GITHUB_WORKSPACE/.bash_env"
 #           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
-      # - name: Post notificion to slack
-      #   uses: slackapi/slack-github-action@v1.18
-      #   if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
-      #   with:
-      #     channel-id: ${{ github.event.inputs.slack_user_id }}
-      #     payload: |
-      #       {
-      #         "attachments": [
-      #           {
-      #             "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-      #             "blocks": [
-      #               { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
-      #               {
-      #                 "type": "section",
-      #                 "fields": [
-      #                   { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
-      #                   { "type": "mrkdwn", "text": "*Lane name* Register Tester" }
-      #                 ]
-      #               }
-      #             ],
-      #             "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-      #           }
-      #         ]
-      #       }
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Post notificion to slack
+        uses: slackapi/slack-github-action@v1.18
+        if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
+        with:
+          channel-id: ${{ github.event.inputs.slack_user_id }}
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+                  "blocks": [
+                    { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
+                    {
+                      "type": "section",
+                      "fields": [
+                        { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+                        { "type": "mrkdwn", "text": "*Lane name* Register Tester" }
+                      ]
+                    }
+                  ],
+                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
 #       - name: Post job cleanup
 #         run: git clean -ffdxq
