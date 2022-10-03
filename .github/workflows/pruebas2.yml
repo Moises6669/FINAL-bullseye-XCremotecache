@@ -84,10 +84,12 @@ jobs:
 #           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
       - name: Post notificion to slack
         uses: slackapi/slack-github-action@v1.18
-        if: ${{ (failure() || success()) }}
+        if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
         with:
+          channel-id: ${{ github.event.inputs.slack_user_id }}
           payload: |
-           "attachments": [
+            {
+              "attachments": [
                 {
                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
                   "blocks": [{
