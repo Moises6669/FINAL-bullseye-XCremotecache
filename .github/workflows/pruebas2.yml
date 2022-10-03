@@ -40,7 +40,7 @@ jobs:
     steps:
       - name: Test Merge
         run: |
-          ${{ github.event.head_commit.message }}
+          echo ${{ github.event.head_commit.message }}
           echo $GITHUB_REF_NAME
       # - name: Checkout
       #   uses: actions/checkout@v2
