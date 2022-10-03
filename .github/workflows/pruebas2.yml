@@ -87,7 +87,7 @@ jobs:
         if: ${{ (failure() || success()) }}
         with:
           payload: |
-            "attachments": [
+           "attachments": [
                 {
                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
                   "blocks": [{
@@ -129,17 +129,7 @@ jobs:
                         "emoji": true
                       }
                     ]
-                  },
-                    {
-                      "type": "context",
-                      "elements": [
-                        {
-                          "type": "plain_text",
-                          "text": "Status: ${{ job.status }}",
-                          "emoji": true
-                        }
-                      ]
-                    }
+                  }
                   ],
                   "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
                 }
