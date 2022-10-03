@@ -142,6 +142,7 @@ jobs:
                     ]
                   }
                   ],
+                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
                 }
               ]
             }
