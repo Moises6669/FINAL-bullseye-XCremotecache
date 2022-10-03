@@ -96,7 +96,7 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "Author: Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}",
+                        "text": "Author: ${{ github.actor }}",
                         "emoji": true
                       }
                     ]
@@ -116,7 +116,7 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "Branch: cp-ios/feature/sc-184979/githubactions-refactor",
+                        "text": "Branch: ${{ github.head_ref || github.ref_name }}",
                         "emoji": true
                       }
                     ]
@@ -126,7 +126,7 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "workflow: build-and-test",
+                        "text": "workflow: ${{ github.workflow }}",
                         "emoji": true
                       }
                     ]
@@ -136,13 +136,12 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "status: success",
+                        "text": "status: ${{ job.status }}",
                         "emoji": true
                       }
                     ]
                   }
                   ],
-                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
                 }
               ]
             }
