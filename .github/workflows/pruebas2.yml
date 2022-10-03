@@ -82,63 +82,63 @@ jobs:
 #         run: |
 #           source "$GITHUB_WORKSPACE/.bash_env"
 #           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
-#       - name: Post notificion to slack
-#         uses: slackapi/slack-github-action@v1.18
-#         if: ${{ (failure() || success()) }}
-#         with:
-#           payload: |
-#             {
-#               "attachments": [
-#                 {
-#                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-#                   "blocks": [{
-#                     "type": "context",
-#                     "elements": [
-#                       {
-#                         "type": "plain_text",
-#                         "text": "Author: Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}",
-#                         "emoji": true
-#                       }
-#                     ]
-#                   },
-#                   {
-#                     "type": "context",
-#                     "elements": [
-#                       {
-#                         "type": "plain_text",
-#                         "text": "App: Mobile-IOS",
-#                         "emoji": true
-#                       }
-#                     ]
-#                   },
-#                   {
-#                     "type": "context",
-#                     "elements": [
-#                       {
-#                         "type": "plain_text",
-#                         "text": "Branch: cp-ios/feature/sc-184979/githubactions-refactor",
-#                         "emoji": true
-#                       }
-#                     ]
-#                   },
-#                   {
-#                     "type": "context",
-#                     "elements": [
-#                       {
-#                         "type": "plain_text",
-#                         "text": "workflow: build-and-test",
-#                         "emoji": true
-#                       }
-#                     ]
-#                   }
-#                   ],
-#                   "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-#                 }
-#               ]
-#             }
-#         env:
-#           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+      - name: Post notificion to slack
+        uses: slackapi/slack-github-action@v1.18
+        if: ${{ (failure() || success()) }}
+        with:
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+                  "blocks": [{
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "Author: Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "App: Mobile-IOS",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "Branch Name: "${{ github.head_ref || github.ref_name }}",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "plain_text",
+                        "text": "workflow: build-and-test",
+                        "emoji": true
+                      }
+                    ]
+                  }
+                  ],
+                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 #           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
 #       - name: Post job cleanup
