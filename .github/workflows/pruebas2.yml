@@ -116,7 +116,7 @@ jobs:
                     "elements": [
                       {
                         "type": "plain_text",
-                        "text": "Branch Name: "${{ github.head_ref || github.ref_name }}",
+                        "text": "Branch Name: ${{ github.head_ref || github.ref_name }}",
                         "emoji": true
                       }
                     ]
