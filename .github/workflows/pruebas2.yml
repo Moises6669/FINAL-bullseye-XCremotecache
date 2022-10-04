@@ -49,6 +49,7 @@ jobs:
       - name: Test Merge
         run: |
           echo ${{ github.event.repository.name }}
+          echo ${{ github.event.head_commit.message  }}
           echo $GITHUB_REF_NAME
      
 
@@ -131,7 +132,7 @@ jobs:
                                     "elements": [
                                         {
                                             "type": "plain_text",
-                                            "text": "App: Mobile-IOS",
+                                            "text": "App: ${{ github.event.repository.name }}",
                                             "emoji": true
                                         }
                                     ]
