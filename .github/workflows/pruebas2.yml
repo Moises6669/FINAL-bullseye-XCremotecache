@@ -111,7 +111,7 @@ jobs:
                                     "type": "header",
                                     "text": {
                                         "type": "plain_text",
-                                        "text": "${{ github.event.repository.name }}",
+                                        "text": "${{ job.status }}",
                                         "emoji": true
                                     }
                                 },
