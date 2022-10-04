@@ -43,14 +43,14 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Github Events
-        run: git log -1 --pretty=format:"%s"
+        run: |
+          export commit=git log -1 --pretty=format:"%s"
         
       - name: Test Merge
         run: |
           echo ${{ github.event.head_commit.message }}
           echo $GITHUB_REF_NAME
-          export name=basename `git rev-parse --show-toplevel`
-          echo "repository name : " $name
+          git rev-parse --show-toplevel`
      
 
       # - name: Install dependencies in Gemfile
@@ -92,80 +92,80 @@ jobs:
 #         run: |
 #           source "$GITHUB_WORKSPACE/.bash_env"
 #           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
-#       - name: Post notificion to slack
-#         uses: slackapi/slack-github-action@v1.18
-#         if: ${{ (failure() || success()) }}
-#         with:
-#           payload: |
-#                 {
-#                   "attachments": [
-#                         {
-#                             "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-#                             "blocks": [
-#                                 {
-#                                     "type": "header",
-#                                     "text": {
-#                                         "type": "plain_text",
-#                                         "text": "${{ github.repository }}",
-#                                         "emoji": true
-#                                     }
-#                                 },
-#                                 {
-#                                     "type": "section",
-#                                     "text": {
-#                                         "type": "mrkdwn",
-#                                         "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
-#                                     }
-#                                 },
-#                                 { 
-#                                     "type": "context",
-#                                     "elements": [
-#                                         {
-#                                             "type": "plain_text",
-#                                             "text": "Author: ${{ github.actor }}",
-#                                             "emoji": true
-#                                         }
-#                                     ]
-#                                 },
-#                                 {
-#                                     "type": "context",
-#                                     "elements": [
-#                                         {
-#                                             "type": "plain_text",
-#                                             "text": "App: Mobile-IOS",
-#                                             "emoji": true
-#                                         }
-#                                     ]
-#                                 },
-#                                 {
-#                                     "type": "context",
-#                                     "elements": [
-#                                         {
-#                                             "type": "plain_text",
-#                                             "text": "Branch: ${{ github.head_ref || github.ref_name }}",
-#                                             "emoji": true
-#                                         }
-#                                     ]
-#                                 },
-#                                 {
-#                                     "type": "context",
-#                                     "elements": [
-#                                         {
-#                                             "type": "plain_text",
-#                                             "text": "workflow: ${{ github.workflow }}",
-#                                             "emoji": true
-#                                         }
-#                                     ]
-#                                 }
-#                             ],
-#                             "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-#                         }
-#                     ]
-#                 }
-#         env:
-#           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Post notificion to slack
+        uses: slackapi/slack-github-action@v1.18
+        if: ${{ (failure() || success()) }}
+        with:
+          payload: |
+                {
+                  "attachments": [
+                        {
+                            "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+                            "blocks": [
+                                {
+                                    "type": "header",
+                                    "text": {
+                                        "type": "plain_text",
+                                        "text": "git log -1 --pretty=format:"%s"",
+                                        "emoji": true
+                                    }
+                                },
+                                {
+                                    "type": "section",
+                                    "text": {
+                                        "type": "mrkdwn",
+                                        "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+                                    }
+                                },
+                                { 
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "Author: ${{ github.actor }}",
+                                            "emoji": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "App: Mobile-IOS",
+                                            "emoji": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "Branch: ${{ github.head_ref || github.ref_name }}",
+                                            "emoji": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "context",
+                                    "elements": [
+                                        {
+                                            "type": "plain_text",
+                                            "text": "workflow: ${{ github.workflow }}",
+                                            "emoji": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+                        }
+                    ]
+                }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
 #       - name: Post job cleanup
 #         run: git clean -ffdxq
