@@ -54,6 +54,8 @@ jobs:
           echo Commit MSG = ${{ env.commitmsg }}
           echo Commit MSG = $commitmsg
           echo $GITHUB_REF_NAME
+          export name= $( git log -1 --pretty=format:"%s")
+          echo $name
      
 
       # - name: Install dependencies in Gemfile
