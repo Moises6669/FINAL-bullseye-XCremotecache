@@ -52,11 +52,11 @@ jobs:
           echo Commit MSG = ${{ env.commitmsg }}
           echo Commit MSG = $commitmsg
           echo $GITHUB_REF_NAME
-          echo name=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
+          echo commit_message=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
           echo $name
           
       - name: Github Events
-        run: echo "${{ env.name }}"
+        run: echo "${{ env.commit_message }}"
         
       # - name: Install dependencies in Gemfile
       #   run: bundle install
@@ -119,7 +119,7 @@ jobs:
                                     "type": "section",
                                     "text": {
                                         "type": "mrkdwn",
-                                        "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+                                        "text": "${{ env.commit_message }}"
                                     }
                                 },
                                 { 
