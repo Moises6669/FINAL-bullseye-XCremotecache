@@ -39,6 +39,10 @@ jobs:
     runs-on: self-hosted
     steps:
       
+      - name: set the head commit message as env
+        run: |
+          echo '::set-env name=commitmsg::${{ github.event.head_commit.message }}'
+      
       - name: Checkout
         uses: actions/checkout@v2
       
@@ -49,7 +53,7 @@ jobs:
       - name: Test Merge
         run: |
           echo ${{ github.event.repository.name }}
-          echo ${{ github.event.head_commit  }}
+          echo Commit MSG = $commitmsg
           echo $GITHUB_REF_NAME
      
 
