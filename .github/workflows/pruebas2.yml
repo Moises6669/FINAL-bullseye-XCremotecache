@@ -54,11 +54,9 @@ jobs:
           echo $GITHUB_REF_NAME
           export name=$(git log -1 --pretty=format:"%s")
           echo $name
-        env:
-          commit_message: $name
           
       - name: Github Events
-        run: echo ${{ env.name }}
+        run: echo $name
         
       # - name: Install dependencies in Gemfile
       #   run: bundle install
