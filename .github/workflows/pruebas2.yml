@@ -38,14 +38,17 @@ jobs:
 #     if: github.event.pull_request.merged == true
     runs-on: macos-11
     steps:
+      
+      - name: Checkout
+        uses: actions/checkout@v2
+      
       - name: Test Merge
         run: |
           echo ${{ github.event.head_commit.message }}
           echo $GITHUB_REF_NAME
           basename `git rev-parse --show-toplevel`
 
-      # - name: Checkout
-      #   uses: actions/checkout@v2
+     
 
       # - name: Install dependencies in Gemfile
       #   run: bundle install
