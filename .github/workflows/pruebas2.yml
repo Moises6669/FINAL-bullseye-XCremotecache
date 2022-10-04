@@ -52,7 +52,7 @@ jobs:
           echo Commit MSG = ${{ env.commitmsg }}
           echo Commit MSG = $commitmsg
           echo $GITHUB_REF_NAME
-          export name=$(git log -1 --pretty=format:"%s")
+          export name=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
           echo $name
         env:
           commit_message: $name
