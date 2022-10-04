@@ -48,7 +48,7 @@ jobs:
         
       - name: Test Merge
         run: |
-          echo ${{ github.event.head_commit.message }}
+          echo ${{ github.event.repository.name }}
           echo $GITHUB_REF_NAME
           git rev-parse --show-toplevel`
      
