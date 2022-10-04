@@ -37,7 +37,7 @@ jobs:
   fastlane-passthrough:
 #     if: github.event.pull_request.merged == true
     env:
-      commitmsg: ${{ github.event.commit.message }}
+      commitmsg: git log -1 --pretty=format:"%s"
     runs-on: macos-12
     steps:
       
