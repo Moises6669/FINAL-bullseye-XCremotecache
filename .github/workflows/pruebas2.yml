@@ -111,7 +111,7 @@ jobs:
                                     "type": "header",
                                     "text": {
                                         "type": "plain_text",
-                                        "text": "${{ job.status }}",
+                                        "text": "Status: ${{ job.status }}",
                                         "emoji": true
                                     }
                                 },
@@ -119,7 +119,7 @@ jobs:
                                     "type": "section",
                                     "text": {
                                         "type": "mrkdwn",
-                                        "text": "${{ env.commit_message }}"
+                                        "text": "Commit: ${{ env.commit_message }}"
                                     }
                                 },
                                 { 
