@@ -35,12 +35,8 @@ on:
 
 jobs:         
   fastlane-passthrough:
-#     if: github.event.pull_request.merged == true
-#     env:
-#       commitmsg: git log -1 --pretty=format:"%s"
     runs-on: macos-12
     steps:
-      
       - name: Checkout
         uses: actions/checkout@v2
               
