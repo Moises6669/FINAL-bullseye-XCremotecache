@@ -49,7 +49,7 @@ jobs:
       - name: Test Merge
         run: |
           echo ${{ github.event.repository.name }}
-          echo ${{ github.event.head_commit.message  }}
+          echo ${{ github.event.head_commit  }}
           echo $GITHUB_REF_NAME
      
 
