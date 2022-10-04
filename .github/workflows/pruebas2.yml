@@ -36,12 +36,10 @@ on:
 jobs:         
   fastlane-passthrough:
 #     if: github.event.pull_request.merged == true
+    env:
+      commitmsg: ${{ github.event.head_commit.message }}
     runs-on: macos-12
     steps:
-      
-      - name: set the head commit message as env
-        run: |
-          echo '::set-env name=commitmsg::${{ github.event.head_commit.message }}'
       
       - name: Checkout
         uses: actions/checkout@v2
@@ -53,6 +51,7 @@ jobs:
       - name: Test Merge
         run: |
           echo ${{ github.event.repository.name }}
+          echo Commit MSG = ${{ env.commitmsg }}
           echo Commit MSG = $commitmsg
           echo $GITHUB_REF_NAME
      
