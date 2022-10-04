@@ -36,7 +36,7 @@ on:
 jobs:         
   fastlane-passthrough:
 #     if: github.event.pull_request.merged == true
-    runs-on: self-hosted
+    runs-on: macos-12
     steps:
       
       - name: set the head commit message as env
