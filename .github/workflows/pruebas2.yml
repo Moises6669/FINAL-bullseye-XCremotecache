@@ -43,8 +43,8 @@ jobs:
           echo "${{toJSON(github.event)}}"
           echo ${{ github.event.head_commit.message }}
           echo $GITHUB_REF_NAME
-          name=basename `git rev-parse --show-toplevel`
-          echo $name
+          basename `git rev-parse --show-toplevel`
+
       # - name: Checkout
       #   uses: actions/checkout@v2
 
