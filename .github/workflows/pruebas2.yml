@@ -42,9 +42,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Github Events
-        run: |
-          export commit=git log -1 --pretty=format:"%s"
+#       - name: Github Events
+#         run: |
+#           export commit=git log -1 --pretty=format:"%s"
         
       - name: Test Merge
         run: |
