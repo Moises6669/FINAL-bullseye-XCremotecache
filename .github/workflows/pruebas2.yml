@@ -52,13 +52,13 @@ jobs:
           echo Commit MSG = ${{ env.commitmsg }}
           echo Commit MSG = $commitmsg
           echo $GITHUB_REF_NAME
-          export name=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
+          export name=$(git log -1 --pretty=format:"%s") >> $c
           echo $name
         env:
           commit_message: $name
           
       - name: Github Events
-        run: echo ${{ env.commit_message }}
+        run: echo ${{ env.name }}
         
       # - name: Install dependencies in Gemfile
       #   run: bundle install
