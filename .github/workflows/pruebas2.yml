@@ -42,6 +42,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
+      - name: Github Events
+        run: echo "${{toJSON(github.event)}}"
+        
       - name: Test Merge
         run: |
           echo ${{ github.event.head_commit.message }}
