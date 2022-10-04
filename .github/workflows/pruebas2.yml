@@ -36,7 +36,7 @@ on:
 jobs:         
   fastlane-passthrough:
 #     if: github.event.pull_request.merged == true
-    runs-on: macos-11
+    runs-on: self-hosted
     steps:
       
       - name: Checkout
