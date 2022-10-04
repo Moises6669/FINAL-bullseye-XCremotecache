@@ -44,9 +44,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-#       - name: Github Events
-#         run: |
-#           export commit=git log -1 --pretty=format:"%s"
+     
         
       - name: Test Merge
         run: |
@@ -56,8 +54,12 @@ jobs:
           echo $GITHUB_REF_NAME
           export name=$( git log -1 --pretty=format:"%s")
           echo $name
-     
-
+        env:
+          commit_message: $name
+          
+      - name: Github Events
+        run: echo $commit_message
+        
       # - name: Install dependencies in Gemfile
       #   run: bundle install
 
