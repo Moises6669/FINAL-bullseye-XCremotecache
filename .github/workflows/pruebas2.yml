@@ -4,7 +4,7 @@ on:
 #   pull_request:
 #     types:
 #       - closed
-  workflow_dispatch:
+  push:
     # inputs:
     #   user_email:
     #      description: "App name"
@@ -43,20 +43,9 @@ jobs:
       
       - name: Checkout
         uses: actions/checkout@v2
-      
-     
-        
+              
       - name: Test Merge
-        run: |
-          echo ${{ github.event.repository.name }}
-          echo Commit MSG = ${{ env.commitmsg }}
-          echo Commit MSG = $commitmsg
-          echo $GITHUB_REF_NAME
-          echo commit_message=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
-          echo $name
-          
-      - name: Github Events
-        run: echo "${{ env.commit_message }}"
+        run: echo commit_message=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
         
       # - name: Install dependencies in Gemfile
       #   run: bundle install
