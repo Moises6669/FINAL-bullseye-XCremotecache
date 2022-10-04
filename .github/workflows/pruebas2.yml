@@ -45,7 +45,7 @@ jobs:
       - name: Github Events
         run: |
           echo "${{toJSON(github.event)}}"
-          echo "commit message : ${{github.event.head_commit.message}}"
+          echo "commit message" git log -1 --pretty=format:"%s"
       - name: Test Merge
         run: |
           echo ${{ github.event.head_commit.message }}
