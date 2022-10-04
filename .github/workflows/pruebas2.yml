@@ -4,7 +4,7 @@ on:
 #   pull_request:
 #     types:
 #       - closed
-  push:
+  pull_request:
     # inputs:
     #   user_email:
     #      description: "App name"
