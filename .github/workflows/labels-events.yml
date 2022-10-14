@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: testing label 2
-      if: github.event.label.name == 'label-test1'
+      if: contains(github.event.pull_request.labels.*.name, 'label-test')
       run: echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
 
   test3:
