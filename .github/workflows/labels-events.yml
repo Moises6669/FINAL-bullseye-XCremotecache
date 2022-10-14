@@ -31,7 +31,7 @@ jobs:
         
     - name: Testing labels evetn 0
       if: github.event.label.name == 'label-test'
-      run: echo "${{ toJson(github.event.pull_request.labels.*.names) }}"
+      run: echo "${{ toJson(github.event.pull_request.labels) }}"
 
     # call-workflow-test:
     #   if: github.event.label.name == 'label-test'  
