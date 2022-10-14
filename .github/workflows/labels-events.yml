@@ -19,19 +19,42 @@ on:
   #        required: false
 
 jobs:
-  test-01:
-    runs-on: self-hosted
-    steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: |
-        touch github.json
-        echo "$GITHUB_CONTEXT" > github.json
+  test-label-01:
+    name: test-label-01
+    if: contains(github.event.pull_request.labels.*.name, 'label-test')
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      working_directory: 'Apps/Consumer/Shoproll'
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      
+  test-label-02:
+    name: test-label-02
+    if: contains(github.event.pull_request.labels.*.name, 'label-test1')
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      working_directory: 'Apps/Publisher/rewardStyle'
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  
+  test-label-03:
+    name: test-label-03
+    if: contains(github.event.pull_request.labels.*.name, 'label-test2')
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      working_directory: 'Apps/Publisher/rewardStyle'
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    # - name: Dump GitHub context
+    #   env:
+    #     GITHUB_CONTEXT: ${{ toJson(github) }}
+    #   run: |
+    #     touch github.json
+    #     echo "$GITHUB_CONTEXT" > github.json
         
-    - name: Testing labels evetn 0
-      if: contains(github.event.pull_request.labels.*.name, 'label-test')
-      run: echo "${{ github.event.pull_request.labels.*.name }}"
+    # - name: Testing labels evetn 0
+      
+    #   run: echo "${{ github.event.pull_request.labels.*.name }}"
 
     # call-workflow-test:
     #   if: github.event.label.name == 'label-test'  
@@ -59,17 +82,17 @@ jobs:
   #   - name: Test01.1
   #     run: echo "hello from the first step 01"
   
-  test2:
-    runs-on: ubuntu-latest
-    steps:
-    - name: testing label 2
-      if: contains(github.event.pull_request.labels.*.name, 'label-test')
-      run: echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
+  # test2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: testing label 2
+  #     if: contains(github.event.pull_request.labels.*.name, 'label-test')
+  #     run: echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
 
-  test3:
-    runs-on: macos-11
-    steps:
-    - name: testing label 3
-      if: contains(github.event.pull_request.labels.*.name, 'label-test2')
-      run: echo "hello from last label"
+  # test3:
+  #   runs-on: macos-11
+  #   steps:
+  #   - name: testing label 3
+  #     if: contains(github.event.pull_request.labels.*.name, 'label-test2')
+  #     run: echo "hello from last label"
     
