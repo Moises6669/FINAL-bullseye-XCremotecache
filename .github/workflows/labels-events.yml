@@ -19,11 +19,12 @@ on:
   #        required: false
 
 jobs:
-  runs-on: self-hosted
-  steps:
-  - name: Testing labels evetn 0
-    if: github.event.label.name == 'label-test'
-    run: echo "hello from firts label"
+  test-01:
+    runs-on: self-hosted
+    steps:
+    - name: Testing labels evetn 0
+      if: github.event.label.name == 'label-test'
+      run: echo "hello from firts label"
 
     # call-workflow-test:
     #   if: github.event.label.name == 'label-test'  
