@@ -25,7 +25,9 @@ jobs:
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+      run: |
+        touch github.json
+        echo "$GITHUB_CONTEXT" > github.json
         
     - name: Testing labels evetn 0
       if: github.event.label.name == 'label-test'
