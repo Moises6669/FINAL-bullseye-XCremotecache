@@ -64,7 +64,7 @@ jobs:
     steps:
     - name: testing label 2
       if: github.event.label.name == 'label-test1'
-      run: echo "${{ toJson(github.event.pull_request.labels.*.names) }}"
+      run: echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
 
   test3:
     runs-on: macos-11
