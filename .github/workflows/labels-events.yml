@@ -30,7 +30,7 @@ jobs:
         echo "$GITHUB_CONTEXT" > github.json
         
     - name: Testing labels evetn 0
-      if: github.event.label.name == 'label-test'
+      if: contains(github.event.pull_request.labels.*.name, 'label-test')
       run: echo "${{ github.event.pull_request.labels.*.name }}"
 
     # call-workflow-test:
