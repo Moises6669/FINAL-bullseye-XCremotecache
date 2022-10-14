@@ -21,7 +21,7 @@ on:
 jobs:
   test-label-01:
     name: test-label-01
-    if: contains(github.event.pull_request.labels.*.name, 'label-test')
+    if: ${{ (contains(github.event.pull_request.labels.*.name, 'label-test') && github.event.action == 'labeled') || (contains(github.event.pull_request.labels.*.name, 'label-test') && github.event.action == 'synchronize') }}
     uses: ./.github/workflows/build-and-test.yml
     with:
       working_directory: 'Apps/Consumer/Shoproll'
