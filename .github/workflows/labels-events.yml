@@ -70,6 +70,6 @@ jobs:
     runs-on: macos-11
     steps:
     - name: testing label 3
-      if: github.event.label.name == 'label-test2'
+      if: contains(github.event.pull_request.labels.*.name, 'label-test3')
       run: echo "hello from last label"
     
