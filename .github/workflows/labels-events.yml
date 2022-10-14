@@ -22,6 +22,11 @@ jobs:
   test-01:
     runs-on: self-hosted
     steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
+        
     - name: Testing labels evetn 0
       if: github.event.label.name == 'label-test'
       run: echo "hello from firts label"
