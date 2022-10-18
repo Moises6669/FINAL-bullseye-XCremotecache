@@ -31,11 +31,27 @@ jobs:
   test-label-02:
     name: test-label-02
     if: contains(github.event.pull_request.labels.*.name, 'label-test1')
-    uses: ./.github/workflows/build-and-test.yml
-    with:
-      working_directory: 'Apps/Publisher/rewardStyle'
-    secrets:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    runs-on: macos-12
+    steps:
+      - name: Git clone
+        uses: actions/checkout@v3
+        with:
+          repository: rewardStyle/mobile-ios
+          ssh-key: ${{ secrets.SSH_LTK }}
+
+      - name: Run Unit Tests
+        working-directory: ${{ inputs.working_directory }}
+        run: |
+          fastlane run_unit_test
+          mkdir -p output/scan
+          touch output/scan/report.html
+          touch output/scan/report.junit
+          
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Output
+          path: "${{ inputs.working_directory }}/output/**/*"
   
   test-label-03:
     name: test-label-03
