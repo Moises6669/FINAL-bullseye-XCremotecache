@@ -47,18 +47,18 @@ jobs:
         run: bundle install
         
       - name: Run Unit Tests
-        working-directory: ${{ inputs.working_directory }}
+        working-directory: 'Apps/Consumer/Shoproll'
         run: |
           bundle exec fastlane run_unit_test
           mkdir -p output/scan
           touch output/scan/report.html
           touch output/scan/report.junit
           
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Test Output
-          path: "${{ inputs.working_directory }}/output/**/*"
+#       - name: Upload Artifacts
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: Test Output
+#           path: "/output/**/*"
   
   test-label-03:
     name: test-label-03
