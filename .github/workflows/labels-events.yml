@@ -38,11 +38,18 @@ jobs:
         with:
           repository: rewardStyle/mobile-ios
           ssh-key: ${{ secrets.SSH_LTK }}
-
+          
+      - name: Set Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
+        
+      - name: Install Ruby dependencies
+        working-directory: ${{ inputs.working_directory }}
+        run: bundle install
+        
       - name: Run Unit Tests
         working-directory: ${{ inputs.working_directory }}
         run: |
-          fastlane run_unit_test
+          bundle exec fastlane run_unit_test
           mkdir -p output/scan
           touch output/scan/report.html
           touch output/scan/report.junit
