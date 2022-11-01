@@ -23,10 +23,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-add ~/.ssh/id_rsa
           git clone https://github.com/rewardStyle/mobile-ios.git
-#         uses: actions/checkout@v3
-#         with:
-#           repository: rewardStyle/mobile-ios
-#           ssh-key: ${{ secrets.SSH_LTK }}
           
       - name: Set Xcode Version
         run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
@@ -37,11 +33,7 @@ jobs:
         
       - name: Run Unit Tests
         working-directory: 'Apps/Consumer/Shoproll'
-        run: |
-          bundle exec fastlane run_unit_test
-          mkdir -p output/scan
-          touch output/scan/report.html
-          touch output/scan/report.junit
+        run: fastlane run_unit_test
 
 #       - name: Get commit message
 #         if: ${{ (failure() || success()) }}
