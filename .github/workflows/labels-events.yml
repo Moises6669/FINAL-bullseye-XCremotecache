@@ -58,11 +58,6 @@ jobs:
           touch output/scan/report.html
           touch output/scan/report.junit
           
-#       - name: Upload Artifacts
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: Test Output
-#           path: "/output/**/*"
   
   test-label-03:
     name: test-label-03
