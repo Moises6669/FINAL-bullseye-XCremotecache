@@ -1,16 +1,16 @@
-name: Tags commit
+# name: Tags commit
 
-on:
-  push:
-    tags:
-      - publisher-qa-*
+# on:
+#   push:
+#     tags:
+#       - publisher-qa-*
 
-jobs:
-  tag-event:
-    runs-on: macos-12
+# jobs:
+#   tag-event:
+#     runs-on: macos-12
 
-    steps:
-      - name: first step
-        run: |
-          bundle install
-          bundle exec fastlane build_qa
+#     steps:
+#       - name: first step
+#         run: |
+#           bundle install
+#           bundle exec fastlane build_qa
