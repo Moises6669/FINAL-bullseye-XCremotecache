@@ -30,13 +30,13 @@ jobs:
                         --code_coverage \
                         --output_directory output/scan 
       
-      - name:  Unit Tests, using Swift 4.2
-        run: |
-          bundle exec fastlane scan \
-                        --device "iPhone 8" \
-                        --xcargs "SWIFT_VERSION=4.2" \
-                        --code_coverage \
-                        --output_directory output/scan
+#       - name:  Unit Tests, using Swift 4.2
+#         run: |
+#           bundle exec fastlane scan \
+#                         --device "iPhone 8" \
+#                         --xcargs "SWIFT_VERSION=4.2" \
+#                         --code_coverage \
+#                         --output_directory output/scan
             
 #       - name:  Unit Tests, using Swift 5.0
 #         run: |
