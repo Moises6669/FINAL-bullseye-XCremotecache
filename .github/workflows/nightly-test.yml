@@ -27,20 +27,20 @@ jobs:
 #           run: |
 #             bundle install
 #             bundle exec fastlane build_qa  
-      # - name: Git Pull LFS
-      #   run: |
-      #     pwd
-      #     ls -al
-      #     git lfs pull -I '/Apps/Consumer/Shoproll/**'
+      - name: Git Pull LFS
+        run: |
+          pwd
+          ls -al
+          git lfs pull -I '/Apps/Consumer/Shoproll/**'
          
-        # env: 
-        #  BUILD_TYPE: ${{ github.event.inputs.build_type }}
+        env: 
+         BUILD_TYPE: ${{ github.event.inputs.build_type }}
           
-      # - name: Updload IPA to TestFairy
-      #   run: |
-      #     bundle exec fastlane custom_lane
-      #   env:
-      #     FL_TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
+      - name: Updload IPA to TestFairy
+        run: |
+          bundle exec fastlane custom_lane
+        env:
+          FL_TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
       
       # - uses: actions/upload-artifact@v2
       #   with:
