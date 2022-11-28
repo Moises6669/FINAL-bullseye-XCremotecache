@@ -19,14 +19,14 @@ on:
   #        required: false
 
 jobs:
-  test-label-01:
-    name: test-label-01
-    if: ${{ (contains(github.event.pull_request.labels.*.name, 'label-test') && github.event.action == 'labeled') || (contains(github.event.pull_request.labels.*.name, 'label-test') && github.event.action == 'synchronize') }}
-    uses: ./.github/workflows/build-and-test.yml
-    with:
-      working_directory: 'Apps/Consumer/Shoproll'
-    secrets:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#   test-label-01:
+#     name: test-label-01
+#     if: ${{ (contains(github.event.pull_request.labels.*.name, 'label-test') && github.event.action == 'labeled') || (contains(github.event.pull_request.labels.*.name, 'label-test') && github.event.action == 'synchronize') }}
+#     uses: ./.github/workflows/build-and-test.yml
+#     with:
+#       working_directory: 'Apps/Consumer/Shoproll'
+#     secrets:
+#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       
   test-label-02:
     name: test-label-02
@@ -63,14 +63,14 @@ jobs:
 #           touch output/scan/report.junit
           
   
-  test-label-03:
-    name: test-label-03
-    if: contains(github.event.pull_request.labels.*.name, 'label-test2')
-    uses: ./.github/workflows/build-and-test.yml
-    with:
-      working_directory: 'Apps/Publisher/rewardStyle'
-    secrets:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#   test-label-03:
+#     name: test-label-03
+#     if: contains(github.event.pull_request.labels.*.name, 'label-test2')
+#     uses: ./.github/workflows/build-and-test.yml
+#     with:
+#       working_directory: 'Apps/Publisher/rewardStyle'
+#     secrets:
+#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     # - name: Dump GitHub context
     #   env:
     #     GITHUB_CONTEXT: ${{ toJson(github) }}
