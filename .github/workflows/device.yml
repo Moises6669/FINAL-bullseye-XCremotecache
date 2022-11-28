@@ -1,68 +1,68 @@
-name: register-device
+# name: register-device
 
-on:
-  workflow_dispatch:
-    inputs:
-      device_name:
-        description: "Device name"
-        type: string
-        required: true
-      device_udid:
-        description: "Device UDID"
-        type: string
-        required: true
-      slack_user_id:
-         description: "Slack user id"
-         type: string
-         required: false
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       device_name:
+#         description: "Device name"
+#         type: string
+#         required: true
+#       device_udid:
+#         description: "Device UDID"
+#         type: string
+#         required: true
+#       slack_user_id:
+#          description: "Slack user id"
+#          type: string
+#          required: false
 
 
-jobs:
-  device-command:
-    runs-on: macos-latest
+# jobs:
+#   device-command:
+#     runs-on: macos-latest
 
-    steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
+#     steps:
+# #       - name: Checkout
+# #         uses: actions/checkout@v3
 
-#       - name: Install dependencies in Gemfile
-#         run: bundle install
+# #       - name: Install dependencies in Gemfile
+# #         run: bundle install
 
-      - name: Run lane to register device
-        run: |
-          echo ${{ github.event.inputs.device_name }}
-          echo ${{ github.event.inputs.device_udid }}
-          echo ${{ github.event.inputs.slack_user_id }}
-        # env:
-        #   APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APPSTORECONNECTAPI_ISSUERID }}
-        #   APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APPSTORECONNECTAPI_KEYID }}
-        #   APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APPSTORECONNECTAPI_KEYCONTENTS }}
-        #   DEVICE_NAME: ${{ github.event.inputs.device_name }}
-        #   DEVICE_UDID: ${{ github.event.inputs.device_udid }}
+#       - name: Run lane to register device
+#         run: |
+#           echo ${{ github.event.inputs.device_name }}
+#           echo ${{ github.event.inputs.device_udid }}
+#           echo ${{ github.event.inputs.slack_user_id }}
+#         # env:
+#         #   APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APPSTORECONNECTAPI_ISSUERID }}
+#         #   APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APPSTORECONNECTAPI_KEYID }}
+#         #   APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APPSTORECONNECTAPI_KEYCONTENTS }}
+#         #   DEVICE_NAME: ${{ github.event.inputs.device_name }}
+#         #   DEVICE_UDID: ${{ github.event.inputs.device_udid }}
 
-      - name: Post notificion to slack
-        uses: slackapi/slack-github-action@v1
-        if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
-        with:
-          channel-id: ${{ github.event.inputs.slack_user_id }}
-          payload: |
-            {
-              "attachments": [
-                {
-                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-                  "blocks": [
-                    { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
-                    {
-                      "type": "section",
-                      "fields": [
-                        { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
-                        { "type": "mrkdwn", "text": "*Lane name* add_testflight_user" }
-                      ]
-                    }
-                  ],
-                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-                }
-              ]
-            }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+#       - name: Post notificion to slack
+#         uses: slackapi/slack-github-action@v1
+#         if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
+#         with:
+#           channel-id: ${{ github.event.inputs.slack_user_id }}
+#           payload: |
+#             {
+#               "attachments": [
+#                 {
+#                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+#                   "blocks": [
+#                     { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
+#                     {
+#                       "type": "section",
+#                       "fields": [
+#                         { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+#                         { "type": "mrkdwn", "text": "*Lane name* add_testflight_user" }
+#                       ]
+#                     }
+#                   ],
+#                   "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+#                 }
+#               ]
+#             }
+#         env:
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
