@@ -36,7 +36,7 @@ jobs:
         - name: ${{ github.event.label.name }}
           run: |
             echo ${{ github.event.pull_request.labels.*.name }}
-            echo ${{ ${{ github.event.label.name }} }}
+            echo ${{ github.event.label.name }}
             
 #       - name: Git clone
 #         uses: actions/checkout@v3
