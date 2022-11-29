@@ -9,14 +9,14 @@ else
     echo "File report.junit not found"
 fi
 
-JIRA_TOKEN=$(echo -n $JIRA_TOKEN_ENV| base64)
-execution_key=$(jq '.key' response.txt | tr -d '"')
-NOW=$(date +"%D")
-summary="Test Execution result for en_us: ${NOW}  "
-description="More details are available at: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
+# JIRA_TOKEN=$(echo -n $JIRA_TOKEN_ENV| base64)
+# execution_key=$(jq '.key' response.txt | tr -d '"')
+# NOW=$(date +"%D")
+# summary="Test Execution result for en_us: ${NOW}  "
+# description="More details are available at: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+# execution_data="$(jq --arg s "$summary" --arg d "$description" '.update .summary[] .set = $s | .fields.description = $d' ./scripts/issue_template.json)"
 
-curl -H "Authorization: Basic ${JIRA_TOKEN}" \
-    -X PUT --data "${execution_data}" \
-    -H "Content-Type: application/json" \
-    https://moisesa.atlassian.net/rest/api/2/issue/$execution_key
+# curl -H "Authorization: Basic ${JIRA_TOKEN}" \
+#     -X PUT --data "${execution_data}" \
+#     -H "Content-Type: application/json" \
+#     https://moisesa.atlassian.net/rest/api/2/issue/$execution_key
