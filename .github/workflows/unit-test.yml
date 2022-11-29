@@ -12,8 +12,8 @@ jobs:
 #         uses: actions/checkout@v2
 #       - name: Scripts
 #         run: echo hello
-      - name: Download UAS logs from artifacts
-        run: 'echo status code: ${{success()}}'
+      # - name: Download UAS logs from artifacts
+      #   run: 'echo status code: ${{success()}}'
         
 #         with:
 #           repository: "WW-Digital/kurbo-ios"
