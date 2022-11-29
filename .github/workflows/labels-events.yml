@@ -33,7 +33,7 @@ jobs:
     if: ${{ contains(fromJSON('["label-test1", "label-test"]'), github.event.label.name) }}
     runs-on: macos-12
     steps:
-        - name: ${{ github.event.label.name }}
+        - name: ${{ github.event.label.name }} || test-label-01
           run: |
             echo ${{ github.event.pull_request.labels.*.name }}
             echo ${{ github.event.label.name }}
