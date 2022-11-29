@@ -30,7 +30,7 @@ jobs:
       
   test-label-02:
     name: ${{ github.event.label.name }}
-    if: ${{ contains(fromJSON('["label-test1", "label-test"]'), github.event.label.name) }})
+    if: ${{ contains(fromJSON('["label-test1", "label-test"]'), github.event.label.name) }}
     runs-on: macos-12
     steps:
         - name: ${{ github.event.label.name }}
