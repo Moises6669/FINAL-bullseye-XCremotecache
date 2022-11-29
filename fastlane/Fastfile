@@ -59,11 +59,11 @@ platform :ios do
 
   end
 
-    desc 'Lane added tags a commit'
-    lane :build_qa do 
-      add_git_tag(
-        tag: "publisher-qa-" + short_commit_hash
-      )
-    end 
+    # desc 'Lane added tags a commit'
+    # lane :build_qa do 
+    #   add_git_tag(
+    #     tag: "publisher-qa-" + short_commit_hash
+    #   )
+    # end 
 
 end
