@@ -29,11 +29,11 @@ jobs:
 #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       
   test-label-02:
-    name: test-label-02
-    if: contains(github.event.pull_request.labels.*.name, 'label-test1')
+    name: ${{ github.event.label.name }}
+    if: ${{ contains(fromJSON('["label-test1", "label-test"]'), github.event.label.name) }})
     runs-on: macos-12
     steps:
-        - name: test
+        - name: ${{ github.event.label.name }}
           run: |
             echo ${{ github.event.pull_request.labels.*.name }}
             echo ${{ ${{ github.event.label.name }} }}
