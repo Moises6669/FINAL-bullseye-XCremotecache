@@ -82,79 +82,79 @@ jobs:
 #         run: |
 #           source "$GITHUB_WORKSPACE/.bash_env"
 #           bundle exec fastlane ${{ github.event.inputs.fastlane_name }}
-      - name: Post notificion to slack
-        uses: slackapi/slack-github-action@v1.18
-        if: ${{ (failure() || success()) }}
-        with:
-          payload: |
-                {
-                  "attachments": [
-                        {
-                            "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-                            "blocks": [
-                                {
-                                    "type": "header",
-                                    "text": {
-                                        "type": "plain_text",
-                                        "text": "Status: ${{ job.status }}",
-                                        "emoji": true
-                                    }
-                                },
-                                {
-                                    "type": "section",
-                                    "text": {
-                                        "type": "mrkdwn",
-                                        "text": "Commit: ${{ env.commit_message }}"
-                                    }
-                                },
-                                { 
-                                    "type": "context",
-                                    "elements": [
-                                        {
-                                            "type": "plain_text",
-                                            "text": "Author: ${{ github.actor }}",
-                                            "emoji": true
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "context",
-                                    "elements": [
-                                        {
-                                            "type": "plain_text",
-                                            "text": "App: ${{ github.event.repository.name }}",
-                                            "emoji": true
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "context",
-                                    "elements": [
-                                        {
-                                            "type": "plain_text",
-                                            "text": "Branch: ${{ github.head_ref || github.ref_name }}",
-                                            "emoji": true
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "context",
-                                    "elements": [
-                                        {
-                                            "type": "plain_text",
-                                            "text": "workflow: ${{ github.workflow }}",
-                                            "emoji": true
-                                        }
-                                    ]
-                                }
-                            ],
-                            "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-                        }
-                    ]
-                }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+#       - name: Post notificion to slack
+#         uses: slackapi/slack-github-action@v1.18
+#         if: ${{ (failure() || success()) }}
+#         with:
+#           payload: |
+#                 {
+#                   "attachments": [
+#                         {
+#                             "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+#                             "blocks": [
+#                                 {
+#                                     "type": "header",
+#                                     "text": {
+#                                         "type": "plain_text",
+#                                         "text": "Status: ${{ job.status }}",
+#                                         "emoji": true
+#                                     }
+#                                 },
+#                                 {
+#                                     "type": "section",
+#                                     "text": {
+#                                         "type": "mrkdwn",
+#                                         "text": "Commit: ${{ env.commit_message }}"
+#                                     }
+#                                 },
+#                                 { 
+#                                     "type": "context",
+#                                     "elements": [
+#                                         {
+#                                             "type": "plain_text",
+#                                             "text": "Author: ${{ github.actor }}",
+#                                             "emoji": true
+#                                         }
+#                                     ]
+#                                 },
+#                                 {
+#                                     "type": "context",
+#                                     "elements": [
+#                                         {
+#                                             "type": "plain_text",
+#                                             "text": "App: ${{ github.event.repository.name }}",
+#                                             "emoji": true
+#                                         }
+#                                     ]
+#                                 },
+#                                 {
+#                                     "type": "context",
+#                                     "elements": [
+#                                         {
+#                                             "type": "plain_text",
+#                                             "text": "Branch: ${{ github.head_ref || github.ref_name }}",
+#                                             "emoji": true
+#                                         }
+#                                     ]
+#                                 },
+#                                 {
+#                                     "type": "context",
+#                                     "elements": [
+#                                         {
+#                                             "type": "plain_text",
+#                                             "text": "workflow: ${{ github.workflow }}",
+#                                             "emoji": true
+#                                         }
+#                                     ]
+#                                 }
+#                             ],
+#                             "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+#                         }
+#                     ]
+#                 }
+#         env:
+#           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 #           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
 #       - name: Post job cleanup
