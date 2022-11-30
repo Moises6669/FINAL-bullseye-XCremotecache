@@ -33,15 +33,15 @@ on:
 
 #test in pull_resquest
 
-jobs:         
-  fastlane-passthrough:
-    runs-on: macos-12
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+# jobs:         
+#   fastlane-passthrough:
+#     runs-on: macos-12
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
               
-      - name: Test Merge
-        run: echo commit_message=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
+#       - name: Test Merge
+#         run: echo commit_message=$(git log -1 --pretty=format:"%s") >> $GITHUB_ENV
         
       # - name: Install dependencies in Gemfile
       #   run: bundle install
