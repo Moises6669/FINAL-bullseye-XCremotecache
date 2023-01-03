@@ -1,7 +1,7 @@
 name: LTK-child-2
 
-on:
-  workflow_dispatch:
+# on:
+#   workflow_dispatch:
   
 # env:
 # #   PRUEBAS:environment: pruebas
