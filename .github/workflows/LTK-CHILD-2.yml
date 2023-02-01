@@ -13,8 +13,4 @@
 #     with:
 #       nombre: "Moises"
 #     secrets:
-#       PRUEBAS:environment: pruebas
-    
-    
-    
-      
+#       PRUEBAS:environment: prueba
