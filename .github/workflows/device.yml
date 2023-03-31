@@ -45,24 +45,24 @@ jobs:
         if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
         with:
           channel-id: ${{ github.event.inputs.slack_user_id }}
-          payload: |
-            {
-              "attachments": [
-                {
-                  "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
-                  "blocks": [
-                    { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
-                    {
-                      "type": "section",
-                      "fields": [
-                        { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
-                        { "type": "mrkdwn", "text": "*Lane name* add_testflight_user" }
-                      ]
-                    }
-                  ],
-                  "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
-                }
-              ]
-            }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+#           payload: |
+#             {
+#               "attachments": [
+#                 {
+#                   "color": "${{ job.status == 'success' && '#00ff00' || '#ff0000' }}",
+#                   "blocks": [
+#                     { "type": "header", "text": { "type": "plain_text", "text": "Workflow run \"${{ github.workflow }}\" has been completed with status: ${{ job.status }}" }},
+#                     {
+#                       "type": "section",
+#                       "fields": [
+#                         { "type": "mrkdwn", "text": "*More details are available at* \n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+#                         { "type": "mrkdwn", "text": "*Lane name* add_testflight_user" }
+#                       ]
+#                     }
+#                   ],
+#                   "fallback": "Workflow run ${{ github.workflow }} has been completed with status: ${{ job.status }}"
+#                 }
+#               ]
+#             }
+#         env:
+#           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
