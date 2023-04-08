@@ -17,10 +17,10 @@ jobs:
     steps:
     
       - name: Git clone
-        uses: actions/checkout@v3
-        with:
-          repository: rewardStyle/mobile-ios
-          ssh-key: ${{ secrets.SSH_LTK }}
+#         uses: actions/checkout@v3
+#         with:
+#           repository: rewardStyle/mobile-ios
+#           ssh-key: ${{ secrets.SSH_LTK }}
 #         run: |
 #           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
 #           echo "${{ secrets.SSH_LTK }}" > ~/.ssh/id_rsa
