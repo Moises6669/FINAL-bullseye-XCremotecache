@@ -1,14 +1,14 @@
-name: LTK-principal
+# name: LTK-principal
 
-on:
-  workflow_call:
-    inputs:
-      nombre:
-        required: true
-        type: string
-    secrets:
-      PRUEBAS:
-        required: true
+# on:
+#   workflow_call:
+#     inputs:
+#       nombre:
+#         required: true
+#         type: string
+#     secrets:
+#       PRUEBAS:
+#         required: true
       
 # jobs:
 #   build-principal:
