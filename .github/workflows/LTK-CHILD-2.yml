@@ -8,9 +8,9 @@
   
 
 jobs:
-#   call-workflow-test:
-#     uses: ./.github/workflows/LTK-principal.yml
-#     with:
-#       nombre: "Moises"
-#     secrets:
-#       PRUEBAS:environment: prueba
+  call-workflow-test:
+    uses: ./.github/workflows/LTK-principal.yml
+    with:
+      nombre: "Moises"
+    secrets:
+      PRUEBAS:environment: prueba
