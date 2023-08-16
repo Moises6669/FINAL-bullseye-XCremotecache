@@ -1,12 +1,12 @@
-name: 'Test'
+# name: 'Test'
 
-on:
-  workflow_dispatch:
+# on:
+#   workflow_dispatch:
 
-jobs:
-  prueba-envs:
-    runs-on: macos
-    steps:
+# jobs:
+#   prueba-envs:
+#     runs-on: macos
+#     steps:
 #       - name: envs
 #         run: echo "SLACK_USER_ID=${{ github.event.inputs.slack_user_id }}" >> $GITHUB_ENV
         
