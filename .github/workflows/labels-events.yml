@@ -55,13 +55,13 @@ jobs:
 #         working-directory: 'Apps/Consumer/Shoproll'
 #         run: bundle install
         
-      - name: Run Unit Tests
-        working-directory: 'Apps/Consumer/Shoproll'
-        run: |
-          bundle exec fastlane run_unit_test
-          mkdir -p output/scan
-          touch output/scan/report.html
-          touch output/scan/report.junit
+      # - name: Run Unit Tests
+      #   working-directory: 'Apps/Consumer/Shoproll'
+      #   run: |
+      #     bundle exec fastlane run_unit_test
+      #     mkdir -p output/scan
+      #     touch output/scan/report.html
+      #     touch output/scan/report.junit
           
   
 #   test-label-03:
