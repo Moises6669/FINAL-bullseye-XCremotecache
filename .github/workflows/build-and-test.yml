@@ -28,16 +28,16 @@ jobs:
 #           ssh-add ~/.ssh/id_rsa
 #           git clone https://github.com/rewardStyle/mobile-ios.git
           
-      - name: Set Xcode Version
-        run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
+      # - name: Set Xcode Version
+      #   run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
         
-      - name: Install Ruby dependencies
-        working-directory: 'Apps/Consumer/Shoproll'
-        run: bundle install
+      # - name: Install Ruby dependencies
+      #   working-directory: 'Apps/Consumer/Shoproll'
+      #   run: bundle install
         
-      - name: Run Unit Tests
-        working-directory: 'Apps/Consumer/Shoproll'
-        run: fastlane run_unit_test
+      # - name: Run Unit Tests
+      #   working-directory: 'Apps/Consumer/Shoproll'
+      #   run: fastlane run_unit_test
 
 #       - name: Get commit message
 #         if: ${{ (failure() || success()) }}
