@@ -1,37 +1,37 @@
-name: ios-89
-on:
-  workflow_dispatch:
+# name: ios-89
+# on:
+#   workflow_dispatch:
 
-jobs:
-  build-macos:
-      runs-on: macos
-      steps: 
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with: 
-          bundler-cache: true
-      - name: tests
-        run: |
-          ruby -v
-        with:
-           repository: "WW-Digital/WWKraken"
-           ref: develop
-           ssh-key: ${{ secrets.ssh_ww }}
+# jobs:
+#   build-macos:
+#       runs-on: macos
+#       steps: 
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - uses: ruby/setup-ruby@v1
+#         with: 
+#           bundler-cache: true
+#       - name: tests
+#         run: |
+#           ruby -v
+#         with:
+#            repository: "WW-Digital/WWKraken"
+#            ref: develop
+#            ssh-key: ${{ secrets.ssh_ww }}
            
-      - name: Install dependencies in Gemfile
-        run: bundle install
+#       - name: Install dependencies in Gemfile
+#         run: bundle install
 
-      - name: Set up ENV variables and .env file for cocoapods-keys
-        run: |
-          git clone git@github.com:WW-Digital/ios-common-config.git
-          touch .bash_env
-          export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
-          bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
-        env:
-          TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
-          TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
-          TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
+#       - name: Set up ENV variables and .env file for cocoapods-keys
+#         run: |
+#           git clone git@github.com:WW-Digital/ios-common-config.git
+#           touch .bash_env
+#           export BASH_ENV="$GITHUB_WORKSPACE/.bash_env"
+#           bash ./ios-common-config/circleci/fetch-keys.sh WWMobile .
+#         env:
+#           TRIGGER_OIDC_CURL_USER: ${{ secrets.TRIGGER_OIDC_CURL_USER }}
+#           TRIGGER_OIDC_CURL_PASSWORD: ${{ secrets.TRIGGER_OIDC_CURL_PASSWORD }}
+#           TRIGGER_OIDC_CURL_SERVICE_ACCOUNT: ${{ secrets.TRIGGER_OIDC_CURL_SERVICE_ACCOUNT }}
 
 #       - name: Install dependencies in Podfile
 #         run: |
