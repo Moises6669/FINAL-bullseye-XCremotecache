@@ -1,33 +1,33 @@
-name: ios-beta-build
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - "beta"
-jobs:
-  build-macos:
-    runs-on: macos
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          repository: "WW-Digital/kurbo-ios"
-          ref: develop
-          ssh-key: ${{ secrets.ssh_ww }}
+# name: ios-beta-build
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - "beta"
+# jobs:
+#   build-macos:
+#     runs-on: macos
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#         with:
+#           repository: "WW-Digital/kurbo-ios"
+#           ref: develop
+#           ssh-key: ${{ secrets.ssh_ww }}
       
-      - name : Beta build
-        run: |
-          bundle install
-          bundle exec fastlane beta
-        env: 
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_READONLY: true
-          FIREBASEAPPDISTRO_APP: "1:304579675699:ios:7d51be5a314c70fed24546"
-          FIREBASEAPPDISTRO_IPA_PATH: "output/gym/Kurbo Beta.ipa"
-          FIREBASEAPPDISTRO_GROUPS: "beta"
+#       - name : Beta build
+#         run: |
+#           bundle install
+#           bundle exec fastlane beta
+#         env: 
+#           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+#           MATCH_READONLY: true
+#           FIREBASEAPPDISTRO_APP: "1:304579675699:ios:7d51be5a314c70fed24546"
+#           FIREBASEAPPDISTRO_IPA_PATH: "output/gym/Kurbo Beta.ipa"
+#           FIREBASEAPPDISTRO_GROUPS: "beta"
           
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: "scan"
+#       - name: Upload a Build Artifact
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: "scan"
 #           path: output/scan/**/*
