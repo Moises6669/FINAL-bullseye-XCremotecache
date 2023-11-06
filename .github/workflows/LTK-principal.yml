@@ -10,13 +10,13 @@
 #       PRUEBAS:
 #         required: true
       
-jobs:
-  build-principal:
-    runs-on: self-hosted
-    environment: pruebas
-    steps:
-      - name: werever
-        run: |
-          echo "${{ secrets.PRUEBAS }}"  
-          echo "este es el input ${{ inputs.nombre }}"
+# jobs:
+#   build-principal:
+#     runs-on: self-hosted
+#     environment: pruebas
+#     steps:
+#       - name: werever
+#         run: |
+#           echo "${{ secrets.PRUEBAS }}"  
+#           echo "este es el input ${{ inputs.nombre }}"
       
