@@ -1,18 +1,18 @@
-  name: LTK-child-2
+  # name: LTK-child-2
   
-  on:
-    workflow_dispatch:
+  # on:
+  #   workflow_dispatch:
     
-  env:
-    PRUEBAS:environment: pruebas
+  # env:
+  #   PRUEBAS:environment: pruebas
     
   
-  jobs:
-    call-workflow-test:
-      uses: ./.github/workflows/LTK-principal.yml
-      with:
-        nombre: "Moises"
-      secrets:
-        PRUEBAS:environment: prueba
+  # jobs:
+  #   call-workflow-test:
+  #     uses: ./.github/workflows/LTK-principal.yml
+  #     with:
+  #       nombre: "Moises"
+  #     secrets:
+  #       PRUEBAS:environment: prueba
   
       
