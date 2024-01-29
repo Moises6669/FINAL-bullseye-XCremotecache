@@ -17,93 +17,93 @@ jobs:
     steps:
     
       - name: Git clone
-#         uses: actions/checkout@v3
-#         with:
-#           repository: rewardStyle/mobile-ios
-#           ssh-key: ${{ secrets.SSH_LTK }}
-#         run: |
-#           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
-#           echo "${{ secrets.SSH_LTK }}" > ~/.ssh/id_rsa
-#           chmod 600 ~/.ssh/id_rsa
-#           ssh-add ~/.ssh/id_rsa
-#           git clone https://github.com/rewardStyle/mobile-ios.git
+        uses: actions/checkout@v3
+        with:
+          repository: rewardStyle/mobile-ios
+          ssh-key: ${{ secrets.SSH_LTK }}
+        run: |
+          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+          echo "${{ secrets.SSH_LTK }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-add ~/.ssh/id_rsa
+          git clone https://github.com/rewardStyle/mobile-ios.git
           
-      # - name: Set Xcode Version
-      #   run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
+      - name: Set Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
         
-      # - name: Install Ruby dependencies
-      #   working-directory: 'Apps/Consumer/Shoproll'
-      #   run: bundle install
+      - name: Install Ruby dependencies
+        working-directory: 'Apps/Consumer/Shoproll'
+        run: bundle install
         
-      # - name: Run Unit Tests
-      #   working-directory: 'Apps/Consumer/Shoproll'
-      #   run: fastlane run_unit_test
+      - name: Run Unit Tests
+        working-directory: 'Apps/Consumer/Shoproll'
+        run: fastlane run_unit_test
 
-#       - name: Get commit message
-#         if: ${{ (failure() || success()) }}
-#         run: |
-#           echo 'COMMIT_MESSAGE<<EOF' >> $GITHUB_ENV
-#           echo "*${{ github.actor }}*" >> $GITHUB_ENV
-#           git log -1 --pretty=format:"%B" >> $GITHUB_ENV
-#           echo 'EOF' >> $GITHUB_ENV
+      - name: Get commit message
+        if: ${{ (failure() || success()) }}
+        run: |
+          echo 'COMMIT_MESSAGE<<EOF' >> $GITHUB_ENV
+          echo "*${{ github.actor }}*" >> $GITHUB_ENV
+          git log -1 --pretty=format:"%B" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
           
-#       - name: Slack message
-#         if: ${{ (failure() || success()) }}
-#         id: slack
-#         uses: slackapi/slack-github-action@v1.19.0
-#         with:
-#           payload: |
-#             {
-#               "attachments": [
-#                 {
-#                   "color": "${{ job.status == 'success' && '#3BC3A3' || '#F0741F' }}",
-#                   "blocks": [
-#                     {
-#                       "type": "section",
-#                       "text": {
-#                         "type": "mrkdwn",
-#                         "text": "*Build ${{ job.status == 'success' && 'Succeeded!' || 'Failed!' }}*"
-#                       }
-#                     },
-#                     {
-#                       "type": "section",
-#                       "text": {
-#                         "type": "mrkdwn",
-#                         "text": ${{ toJSON(env.COMMIT_MESSAGE) }}
-#                       }
-#                     },
-#                     {
-#                       "type": "section",
-#                       "text": {
-#                         "type": "mrkdwn",
-#                         "text": "*App* \n ${{ github.event.repository.name }}"
-#                       }
-#                     },
-#                     {
-#                       "type": "section",
-#                       "text": {
-#                         "type": "mrkdwn",
-#                         "text": "*Branch* \n ${{ github.head_ref || github.ref_name }}"
-#                       }
-#                     },
-#                     {
-#                       "type": "section",
-#                       "text": {
-#                         "type": "mrkdwn",
-#                         "text": "*Workflow* \n ${{ github.workflow }}"
-#                       }
-#                     },
-#                     {
-#                       "type": "section",
-#                       "text": {
-#                         "type": "mrkdwn",
-#                         "text": "*More details are available at* \n ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-#                       }
-#                     }
-#                   ]
-#                 }
-#               ]
-#             }
-#         env:
-#           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+      - name: Slack message
+        if: ${{ (failure() || success()) }}
+        id: slack
+        uses: slackapi/slack-github-action@v1.19.0
+        with:
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && '#3BC3A3' || '#F0741F' }}",
+                  "blocks": [
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Build ${{ job.status == 'success' && 'Succeeded!' || 'Failed!' }}*"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": ${{ toJSON(env.COMMIT_MESSAGE) }}
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*App* \n ${{ github.event.repository.name }}"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Branch* \n ${{ github.head_ref || github.ref_name }}"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Workflow* \n ${{ github.workflow }}"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*More details are available at* \n ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
