@@ -1,36 +1,36 @@
-# name: ios-appstore-build
-# on:
-#   workflow_dispatch:
+  name: ios-appstore-build
+  on:
+    workflow_dispatch:
+    
+  jobs:
+    build-macos:
+      runs-on: macos
+      steps:
+        - name: first
+          id: mystep
+          run: |
+            device_info=$(echo '''
+              Device Info:
+              MODEL_NAME: '${MODEL_NAME}'
+              RESOLUTION: '${RESOLUTION}'
+              OS: '${OS_VERSION}'
+              LANG: '${LANG}'
+            ''')
+            device_info="${device_info//'%'/'%25'}"
+            device_info="${device_info//$'\n'/'%0A'}"
+            device_info="${device_info//$'\r'/'%0D'}"
+            echo "::set-output name=device-info::$device_info"
+          env:
+            MODEL_NAME: iphone8
+            RESOLUTION: 1334 x 750
+            OS_VERSION: 14.7
+            LANG: en_US
+            ORIENTATION: portrait
   
-# jobs:
-#   build-macos:
-#     runs-on: macos
-#     steps:
-#       - name: first
-#         id: mystep
-#         run: |
-#           device_info=$(echo '''
-#             Device Info:
-#             MODEL_NAME: '${MODEL_NAME}'
-#             RESOLUTION: '${RESOLUTION}'
-#             OS: '${OS_VERSION}'
-#             LANG: '${LANG}'
-#           ''')
-#           device_info="${device_info//'%'/'%25'}"
-#           device_info="${device_info//$'\n'/'%0A'}"
-#           device_info="${device_info//$'\r'/'%0D'}"
-#           echo "::set-output name=device-info::$device_info"
-#         env:
-#           MODEL_NAME: iphone8
-#           RESOLUTION: 1334 x 750
-#           OS_VERSION: 14.7
-#           LANG: en_US
-#           ORIENTATION: portrait
-
-          
-#       - name: second
-#         id: other-step
-#         run: |
-#           echo "This data ${{ env.DEVICE_INFO }}"
-#         env:
-#           DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
+            
+        - name: second
+          id: other-step
+          run: |
+            echo "This data ${{ env.DEVICE_INFO }}"
+          env:
+            DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
