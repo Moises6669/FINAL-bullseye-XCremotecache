@@ -39,13 +39,13 @@ jobs:
         working-directory: 'Apps/Consumer/Shoproll'
         run: fastlane run_unit_test
 
-      - name: Get commit message
-        if: ${{ (failure() || success()) }}
-        run: |
-          echo 'COMMIT_MESSAGE<<EOF' >> $GITHUB_ENV
-          echo "*${{ github.actor }}*" >> $GITHUB_ENV
-          git log -1 --pretty=format:"%B" >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+      # - name: Get commit message
+      #   if: ${{ (failure() || success()) }}
+      #   run: |
+      #     echo 'COMMIT_MESSAGE<<EOF' >> $GITHUB_ENV
+      #     echo "*${{ github.actor }}*" >> $GITHUB_ENV
+      #     git log -1 --pretty=format:"%B" >> $GITHUB_ENV
+      #     echo 'EOF' >> $GITHUB_ENV
           
       - name: Slack message
         if: ${{ (failure() || success()) }}
