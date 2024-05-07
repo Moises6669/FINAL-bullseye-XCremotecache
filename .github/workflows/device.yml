@@ -28,11 +28,11 @@ jobs:
 #       - name: Install dependencies in Gemfile
 #         run: bundle install
 
-      - name: Run lane to register device
-        run: |
-          echo ${{ github.event.inputs.device_name }}
-          echo ${{ github.event.inputs.device_udid }}
-          echo ${{ github.event.inputs.slack_user_id }}
+      # - name: Run lane to register device
+      #   run: |
+      #     echo ${{ github.event.inputs.device_name }}
+      #     echo ${{ github.event.inputs.device_udid }}
+      #     echo ${{ github.event.inputs.slack_user_id }}
         # env:
         #   APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APPSTORECONNECTAPI_ISSUERID }}
         #   APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APPSTORECONNECTAPI_KEYID }}
@@ -40,11 +40,11 @@ jobs:
         #   DEVICE_NAME: ${{ github.event.inputs.device_name }}
         #   DEVICE_UDID: ${{ github.event.inputs.device_udid }}
 
-      - name: Post notificion to slack
-        uses: slackapi/slack-github-action@v1
-        if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
-        with:
-          channel-id: ${{ github.event.inputs.slack_user_id }}
+      # - name: Post notificion to slack
+      #   uses: slackapi/slack-github-action@v1
+      #   if: ${{ (failure() || success()) && github.event.inputs.slack_user_id }}
+      #   with:
+      #     channel-id: ${{ github.event.inputs.slack_user_id }}
 #           payload: |
 #             {
 #               "attachments": [
