@@ -28,9 +28,9 @@
     #           ORIENTATION: portrait
     
               
-    #       - name: second
-    #         id: other-step
-    #         run: |
-    #           echo "This data ${{ env.DEVICE_INFO }}"
-    #         env:
-    #           DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
+          - name: second
+            id: other-step
+            run: |
+              echo "This data ${{ env.DEVICE_INFO }}"
+            env:
+              DEVICE_INFO: ${{ steps.mystep.outputs.device_info }}
