@@ -1,27 +1,27 @@
-name: register-device
+# name: register-device
 
-on:
-  workflow_dispatch:
-    inputs:
-      device_name:
-        description: "Device name"
-        type: string
-        required: true
-      device_udid:
-        description: "Device UDID"
-        type: string
-        required: true
-      slack_user_id:
-         description: "Slack user id"
-         type: string
-         required: false
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       device_name:
+#         description: "Device name"
+#         type: string
+#         required: true
+#       device_udid:
+#         description: "Device UDID"
+#         type: string
+#         required: true
+#       slack_user_id:
+#          description: "Slack user id"
+#          type: string
+#          required: false
 
 
-jobs:
-  device-command:
-    runs-on: macos-latest
+# jobs:
+#   device-command:
+#     runs-on: macos-latest
 
-    steps:
+#     steps:
 #       - name: Checkout
 #         uses: actions/checkout@v3
 
